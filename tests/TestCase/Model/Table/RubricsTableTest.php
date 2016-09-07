@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ActivitiesTable;
+use App\Model\Table\RubricsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ActivitiesTable Test Case
+ * App\Model\Table\RubricsTable Test Case
  */
-class ActivitiesTableTest extends TestCase
+class RubricsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ActivitiesTable
+     * @var \App\Model\Table\RubricsTable
      */
-    public $Activities;
+    public $Rubrics;
 
     /**
      * Fixtures
@@ -24,6 +24,7 @@ class ActivitiesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.rubrics',
         'app.activities',
         'app.users',
         'app.submissions'
@@ -37,8 +38,8 @@ class ActivitiesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Activities') ? [] : ['className' => 'App\Model\Table\ActivitiesTable'];
-        $this->Activities = TableRegistry::get('Activities', $config);
+        $config = TableRegistry::exists('Rubrics') ? [] : ['className' => 'App\Model\Table\RubricsTable'];
+        $this->Rubrics = TableRegistry::get('Rubrics', $config);
     }
 
     /**
@@ -48,7 +49,7 @@ class ActivitiesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Activities);
+        unset($this->Rubrics);
 
         parent::tearDown();
     }

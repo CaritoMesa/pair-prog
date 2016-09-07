@@ -290,3 +290,6 @@ msgstr[1] "{0} ficheros eliminados"
 
 msgid "Welcome"
 msgstr "Bienvenido"
+
+msgid "Actions"
+msgstr "Acciones"

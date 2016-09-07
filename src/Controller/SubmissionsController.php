@@ -115,4 +115,13 @@ class SubmissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    /**
+     * metodo para la entrega de tareas
+     * @return \Cake\Network\Response|NULL
+     */
+    public function submit($activities = null)
+    {
+    	
+    }
 }
