@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property int $activities_group_id
  *
  * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\ActivitiesGroup $activities_group
+ * @property \App\Model\Entity\Rubric[] $rubrics
  * @property \App\Model\Entity\Submission[] $submissions
  */
 class Activity extends Entity

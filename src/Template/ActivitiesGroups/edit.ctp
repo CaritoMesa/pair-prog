@@ -4,13 +4,11 @@
         <li><?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $activitiesGroup->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $activitiesGroup->id)]
+                ['confirm' => __('Are you sure you want to delete {0}?', $activitiesGroup->name)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Activities Groups'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?></li>
-    </ul>
+        </ul>
 </nav>
 <div class="activitiesGroups form large-9 medium-8 columns content">
     <?= $this->Form->create($activitiesGroup) ?>

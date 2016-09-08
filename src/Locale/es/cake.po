@@ -293,3 +293,6 @@ msgstr "Bienvenido"
 
 msgid "Actions"
 msgstr "Acciones"
+
+msgid "The activity has been saved."
+msgid "La actividad ha sido guardada."

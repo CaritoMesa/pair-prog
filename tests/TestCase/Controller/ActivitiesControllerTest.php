@@ -18,6 +18,8 @@ class ActivitiesControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.activities',
         'app.users',
+        'app.activities_groups',
+        'app.rubrics',
         'app.submissions'
     ];
 

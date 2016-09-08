@@ -53,7 +53,6 @@ class ActivitiesGroupsController extends AppController
             $activitiesGroup = $this->ActivitiesGroups->patchEntity($activitiesGroup, $this->request->data);
             if ($this->ActivitiesGroups->save($activitiesGroup)) {
                 $this->Flash->success(__('The activities group has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The activities group could not be saved. Please, try again.'));
@@ -108,4 +107,6 @@ class ActivitiesGroupsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    
 }

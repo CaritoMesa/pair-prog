@@ -2,6 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * Activities Controller
@@ -19,7 +22,7 @@ class ActivitiesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users', 'ActivitiesGroups']
         ];
         $activities = $this->paginate($this->Activities);
 
@@ -37,7 +40,7 @@ class ActivitiesController extends AppController
     public function view($id = null)
     {
         $activity = $this->Activities->get($id, [
-            'contain' => ['Users', 'Submissions']
+            'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
         ]);
 
         $this->set('activity', $activity);
@@ -54,6 +57,7 @@ class ActivitiesController extends AppController
         $activity = $this->Activities->newEntity();
         if ($this->request->is('post')) {
             $activity = $this->Activities->patchEntity($activity, $this->request->data);
+            $activity->user_id = $this->Auth->user('id');
             if ($this->Activities->save($activity)) {
                 $this->Flash->success(__('The activity has been saved.'));
 
@@ -62,11 +66,11 @@ class ActivitiesController extends AppController
                 $this->Flash->error(__('The activity could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Activities->Users->find('list', ['limit' => 200]);
-        $this->set(compact('activity', 'users'));
+        $activitiesGroups = $this->Activities->ActivitiesGroups->find('list', ['limit' => 200]);
+        $this->set(compact('activity', 'activitiesGroups'));
         $this->set('_serialize', ['activity']);
     }
-
+    
     /**
      * Edit method
      *
@@ -89,8 +93,8 @@ class ActivitiesController extends AppController
                 $this->Flash->error(__('The activity could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Activities->Users->find('list', ['limit' => 200]);
-        $this->set(compact('activity', 'users'));
+        $activitiesGroups = $this->Activities->ActivitiesGroups->find('list', ['limit' => 200]);
+        $this->set(compact('activity', 'activitiesGroups'));
         $this->set('_serialize', ['activity']);
     }
 

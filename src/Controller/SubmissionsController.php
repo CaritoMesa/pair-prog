@@ -120,8 +120,19 @@ class SubmissionsController extends AppController
      * metodo para la entrega de tareas
      * @return \Cake\Network\Response|NULL
      */
-    public function submit($activities = null)
+    public function submit($activity = null)
     {
-    	
+    	$submission = $this->Submissions->newEntity();
+    	if ($this->request->is('post')) {
+    		$submission = $this->Submissions->patchEntity($submission, $this->request->data);
+    		$submission->user_id = $this->Auth->user('id');
+    		$submission->activity_id = $activity;
+    		if ($this->Submissions->save($submission)) {
+    			$this->Flash->success('The submission has been saved.');
+    			return $this->redirect(['action' => 'index']);
+    		}
+    		$this->Flash->error('The bookmark could not be saved. Please, try again.');
+    	}
+    	$this->set('_serialize', ['submission']);
     }
 }

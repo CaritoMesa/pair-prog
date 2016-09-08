@@ -105,6 +105,10 @@ class PagesController extends AppController
             return in_array('material3', $access);
         }
         
+        if ($path[0] == 'view') {
+        	return in_array('view', $access);
+        }
+        
         return false;
     }
 }

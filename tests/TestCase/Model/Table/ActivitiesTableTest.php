@@ -26,6 +26,8 @@ class ActivitiesTableTest extends TestCase
     public $fixtures = [
         'app.activities',
         'app.users',
+        'app.activities_groups',
+        'app.rubrics',
         'app.submissions'
     ];
 

@@ -221,3 +221,5 @@ Type::build('datetime')
     ->useImmutable();
 
 Plugin::load('Migrations');
+
+DispatcherFactory::add('LocaleSelector', ['locales' => ['en_US', 'es']]);

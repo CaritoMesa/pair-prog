@@ -35,19 +35,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="<?= $this->fetch('body_class') ?>">
-    <nav class="top-bar expanded" data-topbar role="navigation">
+    <nav class="top-bar expanded" data-topbar role="navigation"> 
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+                <h1><a href="">Pares</a></h1>
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="right">
             <?php if ($this->request->session()->read('Auth.User') && !$this->request->session()->read('Auth.User.lti_user_id')): ?>
-                <li><a href="<?= $this->Url->build(['controller' => 'Activities', 'action' => 'index']) ?>"><?= __('Activities') ?></a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'index']) ?>"><?= __('Inicio') ?></a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Activities', 'action' => 'index']) ?>"><?= __('Actividades') ?></a></li>
                 <li><a href="<?= $this->Url->build(['controller' => 'OAuthConsumers', 'action' => 'index']) ?>"><?= __('LTI') ?></a></li>
-                <li><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'index']) ?>"><?= __('Users') ?></a></li>
-                <li><?= $this->Form->postLink(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'index']) ?>"><?= __('Usuarios') ?></a></li>
+                <li><?= $this->Form->postLink(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
                 <li><a href=""><?= $this->request->session()->read('Auth.User.first_name') ?></a></li>
             <?php endif ?>
             </ul>

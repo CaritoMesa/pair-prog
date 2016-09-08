@@ -2,10 +2,11 @@
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
         <fieldset>
-            <legend><?= __('Please enter your username and password') ?></legend>
-            <?= $this->Form->input('username') ?>
-            <?= $this->Form->input('password') ?>
+            <legend><?= __('Ingrese su usuario y contraseña') ?></legend>
+            <?= $this->Form->input('username', ['label' => 'Nombre de usuario']) ?>
+            <?= $this->Form->input('password', ['label' => 'Contraseña']) ?>
+             
         </fieldset>
-    <?= $this->Form->button(__('Login')); ?>
+    <?= $this->Form->button(__('Ingresar')); ?>
     <?= $this->Form->end() ?>
 </div>
