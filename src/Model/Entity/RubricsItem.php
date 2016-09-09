@@ -4,19 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Rubric Entity
+ * RubricsItem Entity
  *
  * @property int $id
- * @property string $name
+ * @property string $description
+ * @property int $weight
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property int $user_id
+ * @property int $rubric_id
  *
- * @property \App\Model\Entity\Activity[] $activities
- * @property \App\Model\Entity\Grade[] $grades
- * @property \App\Model\Entity\RubricsItem[] $rubrics_items
+ * @property \App\Model\Entity\Rubric $rubric
  */
-class Rubric extends Entity
+class RubricsItem extends Entity
 {
 
     /**

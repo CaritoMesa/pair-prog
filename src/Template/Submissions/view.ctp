@@ -6,13 +6,9 @@
         <li><?= $this->Html->link(__('List Submissions'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Submission'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="submissions view large-9 medium-8 columns content">
-    <h3><?= h($submission->id) ?></h3>
     <table class="vertical-table">
         <tr>
             <th><?= __('Activity') ?></th>
@@ -21,18 +17,6 @@
         <tr>
             <th><?= __('User') ?></th>
             <td><?= $submission->has('user') ? $this->Html->link($submission->user->id, ['controller' => 'Users', 'action' => 'view', $submission->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($submission->id) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Created') ?></th>
-            <td><?= h($submission->created) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Modified') ?></th>
-            <td><?= h($submission->modified) ?></td>
         </tr>
     </table>
     <div class="row">

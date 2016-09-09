@@ -2,9 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\I18n\I18n;
-
-I18n::locale('es');
 
 /**
  * Activities Controller
@@ -22,7 +19,7 @@ class ActivitiesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'ActivitiesGroups']
+            'contain' => ['Users', 'ActivitiesGroups', 'Rubrics']
         ];
         $activities = $this->paginate($this->Activities);
 
@@ -52,12 +49,12 @@ class ActivitiesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+public function add()
     {
         $activity = $this->Activities->newEntity();
         if ($this->request->is('post')) {
             $activity = $this->Activities->patchEntity($activity, $this->request->data);
-            $activity->user_id = $this->Auth->user('id');
+            $activity->user_id = $this->Auth->session('id');
             if ($this->Activities->save($activity)) {
                 $this->Flash->success(__('The activity has been saved.'));
 
@@ -70,7 +67,7 @@ class ActivitiesController extends AppController
         $this->set(compact('activity', 'activitiesGroups'));
         $this->set('_serialize', ['activity']);
     }
-    
+
     /**
      * Edit method
      *
@@ -94,7 +91,8 @@ class ActivitiesController extends AppController
             }
         }
         $activitiesGroups = $this->Activities->ActivitiesGroups->find('list', ['limit' => 200]);
-        $this->set(compact('activity', 'activitiesGroups'));
+        $rubrics = $this->Activities->Rubrics->find('list', ['limit' => 200]);
+        $this->set(compact('activity', 'activitiesGroups', 'rubrics'));
         $this->set('_serialize', ['activity']);
     }
 

@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $ActivitiesGroups
- * @property \Cake\ORM\Association\HasMany $Rubrics
+ * @property \Cake\ORM\Association\BelongsTo $Rubrics
  * @property \Cake\ORM\Association\HasMany $Submissions
  *
  * @method \App\Model\Entity\Activity get($primaryKey, $options = [])
@@ -50,8 +50,8 @@ class ActivitiesTable extends Table
         $this->belongsTo('ActivitiesGroups', [
             'foreignKey' => 'activities_group_id'
         ]);
-        $this->hasMany('Rubrics', [
-            'foreignKey' => 'activity_id'
+        $this->belongsTo('Rubrics', [
+            'foreignKey' => 'rubric_id'
         ]);
         $this->hasMany('Submissions', [
             'foreignKey' => 'activity_id'
@@ -92,6 +92,7 @@ class ActivitiesTable extends Table
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['activities_group_id'], 'ActivitiesGroups'));
+        $rules->add($rules->existsIn(['rubric_id'], 'Rubrics'));
 
         return $rules;
     }

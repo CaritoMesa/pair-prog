@@ -13,10 +13,11 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $modified
  * @property int $user_id
  * @property int $activities_group_id
+ * @property int $rubric_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\ActivitiesGroup $activities_group
- * @property \App\Model\Entity\Rubric[] $rubrics
+ * @property \App\Model\Entity\Rubric $rubric
  * @property \App\Model\Entity\Submission[] $submissions
  */
 class Activity extends Entity

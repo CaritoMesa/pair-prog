@@ -9,7 +9,10 @@ use Cake\Validation\Validator;
 /**
  * Rubrics Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Activities
+ * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\HasMany $Activities
+ * @property \Cake\ORM\Association\HasMany $Grades
+ * @property \Cake\ORM\Association\HasMany $RubricsItems
  *
  * @method \App\Model\Entity\Rubric get($primaryKey, $options = [])
  * @method \App\Model\Entity\Rubric newEntity($data = null, array $options = [])
@@ -40,9 +43,17 @@ class RubricsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Activities', [
-            'foreignKey' => 'activity_id',
-            'joinType' => 'INNER'
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Activities', [
+            'foreignKey' => 'rubric_id'
+        ]);
+        $this->hasMany('Grades', [
+            'foreignKey' => 'rubric_id'
+        ]);
+        $this->hasMany('RubricsItems', [
+            'foreignKey' => 'rubric_id'
         ]);
     }
 
@@ -59,13 +70,8 @@ class RubricsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('description', 'create')
-            ->notEmpty('description');
-
-        $validator
-            ->integer('weight')
-            ->requirePresence('weight', 'create')
-            ->notEmpty('weight');
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
 
         return $validator;
     }
@@ -79,7 +85,7 @@ class RubricsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['activity_id'], 'Activities'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

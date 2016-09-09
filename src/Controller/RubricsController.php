@@ -18,9 +18,6 @@ class RubricsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Activities']
-        ];
         $rubrics = $this->paginate($this->Rubrics);
 
         $this->set(compact('rubrics'));
@@ -37,7 +34,7 @@ class RubricsController extends AppController
     public function view($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => ['Activities']
+            'contain' => ['Activities', 'Grades', 'RubricsItems']
         ]);
 
         $this->set('rubric', $rubric);
@@ -62,8 +59,7 @@ class RubricsController extends AppController
                 $this->Flash->error(__('The rubric could not be saved. Please, try again.'));
             }
         }
-        $activities = $this->Rubrics->Activities->find('list', ['limit' => 200]);
-        $this->set(compact('rubric', 'activities'));
+        $this->set(compact('rubric'));
         $this->set('_serialize', ['rubric']);
     }
 
@@ -89,8 +85,7 @@ class RubricsController extends AppController
                 $this->Flash->error(__('The rubric could not be saved. Please, try again.'));
             }
         }
-        $activities = $this->Rubrics->Activities->find('list', ['limit' => 200]);
-        $this->set(compact('rubric', 'activities'));
+        $this->set(compact('rubric'));
         $this->set('_serialize', ['rubric']);
     }
 

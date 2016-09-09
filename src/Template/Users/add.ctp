@@ -9,11 +9,11 @@
     <fieldset>
         <legend><?= __('Nuevo Usuario') ?></legend>
         <?php
-            echo $this->Form->input('first_name');
-            echo $this->Form->input('last_name');
-            echo $this->Form->input('lti_user_id', ['type' => 'text']);
-            echo $this->Form->input('username');
-            echo $this->Form->input('password', ['type' => 'password', 'value' => '']);
+            echo $this->Form->input('first_name', ['label' => 'Nombres']);
+            echo $this->Form->input('last_name', ['label' => 'Apellidos']);
+            echo $this->Form->input('lti_user_id', ['type' => 'text', 'label' => 'Usuario LTI']);
+            echo $this->Form->input('username', ['label' => 'Nombre de usuario']);
+            echo $this->Form->input('password', ['type' => 'password', 'label' => 'Contraseña', 'value' => '']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Enviar')) ?>

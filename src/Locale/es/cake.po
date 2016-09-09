@@ -15,7 +15,15 @@ msgstr ""
 msgid "You are not authorized to access that location."
 msgstr "No tienes permisos para acceder a dicha ubicación."
 
-#: Controller/Component/CsrfComponent.php:154
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "The activity has been saved."
+msgid "La actividad ha sido guardada."
+
 msgid "Missing CSRF token cookie"
 msgstr "Falta la cookie del CSRF token"
 
@@ -288,11 +296,3 @@ msgstr[0] "Un fichero eliminado"
 # Translation in plural
 msgstr[1] "{0} ficheros eliminados"
 
-msgid "Welcome"
-msgstr "Bienvenido"
-
-msgid "Actions"
-msgstr "Acciones"
-
-msgid "The activity has been saved."
-msgid "La actividad ha sido guardada."

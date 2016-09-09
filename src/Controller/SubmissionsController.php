@@ -54,6 +54,7 @@ class SubmissionsController extends AppController
         $submission = $this->Submissions->newEntity();
         if ($this->request->is('post')) {
             $submission = $this->Submissions->patchEntity($submission, $this->request->data);
+            $submission->user_id = $this->Auth->user('id');
             if ($this->Submissions->save($submission)) {
                 $this->Flash->success(__('The submission has been saved.'));
 
@@ -63,8 +64,7 @@ class SubmissionsController extends AppController
             }
         }
         $activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
-        $users = $this->Submissions->Users->find('list', ['limit' => 200]);
-        $this->set(compact('submission', 'activities', 'users'));
+        $this->set(compact('submission', 'activities'));
         $this->set('_serialize', ['submission']);
     }
 
@@ -91,8 +91,7 @@ class SubmissionsController extends AppController
             }
         }
         $activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
-        $users = $this->Submissions->Users->find('list', ['limit' => 200]);
-        $this->set(compact('submission', 'activities', 'users'));
+        $this->set(compact('submission', 'activities'));
         $this->set('_serialize', ['submission']);
     }
 
@@ -115,24 +114,30 @@ class SubmissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
     /**
      * metodo para la entrega de tareas
      * @return \Cake\Network\Response|NULL
      */
-    public function submit($activity = null)
+    public function Addlms($id = null)
     {
-    	$submission = $this->Submissions->newEntity();
-    	if ($this->request->is('post')) {
+    	$submission = $this->Submissions->get($activity_id, [
+    			'contain' => []
+    	]);
+    	if ($this->request->is(['patch', 'post', 'put'])) {
     		$submission = $this->Submissions->patchEntity($submission, $this->request->data);
-    		$submission->user_id = $this->Auth->user('id');
-    		$submission->activity_id = $activity;
     		if ($this->Submissions->save($submission)) {
-    			$this->Flash->success('The submission has been saved.');
+    			$this->Flash->success(__('The submission has been saved.'));
+    
     			return $this->redirect(['action' => 'index']);
+    		} else {
+    			$this->Flash->error(__('The submission could not be saved. Please, try again.'));
     		}
-    		$this->Flash->error('The bookmark could not be saved. Please, try again.');
     	}
+    	$activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
+    	$users = $this->Submissions->Users->find('list', ['limit' => 200]);
+    	$this->set(compact('submission', 'activities', 'users'));
     	$this->set('_serialize', ['submission']);
     }
+    
 }

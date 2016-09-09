@@ -27,7 +27,10 @@ class RubricsTableTest extends TestCase
         'app.rubrics',
         'app.activities',
         'app.users',
-        'app.submissions'
+        'app.activities_groups',
+        'app.submissions',
+        'app.grades',
+        'app.rubrics_items'
     ];
 
     /**
@@ -70,16 +73,6 @@ class RubricsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -2,8 +2,22 @@
 
 <header>
     <div class="header-image">
-        <h1>Material 1</h1>
+        <h1>ACTIVIDAD 1</h1>
     </div>
 </header>
-
-<img src="http://assets.worldwildlife.org/photos/1620/images/carousel_small/bengal-tiger-why-matter_7341043.jpg?1345548942" style="margin: auto; display: block;"/>
+	<div>
+	<?php
+		echo $this->Form->create($submission, [
+    	'context' => [
+        	'validator' => [
+            	'Users' => 'register',
+            	'Comments' => 'default'
+       	 	]
+    	]
+]);
+		 ?>
+	</div>
+        <h3> Para realizar actividad haga click en 'Realizar Actividad'</h3>
+        <?= $this->Html->link(__('Realizar entrega Actividad 1'), ['controller' => 'Submissions', 'action' => 'add']) ?>
+        <br>
+        <?php echo $this->Form->button('Realizar actividad');
