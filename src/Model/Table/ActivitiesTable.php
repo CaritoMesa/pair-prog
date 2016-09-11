@@ -1,10 +1,13 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Localized\Validation\FrValidation;
 use Cake\Validation\Validator;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * Activities Model

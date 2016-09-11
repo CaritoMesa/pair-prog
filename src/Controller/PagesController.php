@@ -65,12 +65,12 @@ class PagesController extends AppController
 
     public function isAuthorized($user = null) 
     {
-        //Administrator ma dostęp do wszystkich materiałów
+        //El administrador tiene acceso a todo
         if (parent::isAuthorized($user)) {
             return true;
         }
 
-        //Sprawdzamy czy użytkownik ma nadane uprawnienia
+        //Comprueba si los privilegios que el usuario se haya concedido
         if (!isset($user['has_access_to'])) {
             return false;
         }
@@ -83,8 +83,8 @@ class PagesController extends AppController
             return false;
         }
 
-        //W zależności od tego jaki materiał będzie wyświetlany
-        //sprawdzamy, czy użytkownik ma do niego uprawnienia
+        //Dependiendo de cómo se mostrará el material
+        //comprobar si el usuario tiene permisos para
         if ($path[0] == 'home') {
             return in_array('home', $access);
         }

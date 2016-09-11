@@ -114,6 +114,13 @@ class SubmissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    
+
+    	// Permitir que la acción de visualización por lo que nuestro controlador
+    	// de páginas sigue trabajando .
+    	$this->Auth->allow(['display']);
+	}
 
     /**
      * metodo para la entrega de tareas

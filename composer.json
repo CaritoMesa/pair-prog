@@ -10,7 +10,8 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "*",
-        "jacobkiers/oauth": "^1.0"
+        "jacobkiers/oauth": "^1.0",
+        "cakephp/localized": "^3.0"
     },
     "require-dev": {
         "psy/psysh": "@stable",

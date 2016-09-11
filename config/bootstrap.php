@@ -223,3 +223,9 @@ Type::build('datetime')
 Plugin::load('Migrations');
 
 DispatcherFactory::add('LocaleSelector', ['locales' => ['en_US', 'es']]);
+
+Plugin::load('Cake/Localized');
+
+Plugin::load('Cake/Localized');
+
+Plugin::load('Cake/Localized');
