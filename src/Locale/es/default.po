@@ -2,8 +2,8 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
 #, fuzzy
-msgid ""
-msgstr ""
+# msgid ""
+# msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2016-09-09 18:43+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
@@ -16,35 +16,35 @@ msgstr ""
 
 #: Controller/ActivitiesController.php:59;86
 msgid "The activity has been saved."
-msgstr "La actividad se ha guardado def"
+msgstr "La actividad se ha guardado."
 
 #: Controller/ActivitiesController.php:63;90
 msgid "The activity could not be saved. Please, try again."
-msgstr ""
+msgstr "La actividad no se pudo guardar. Por favor, inténtelo nuevamente."
 
 #: Controller/ActivitiesController.php:111
 msgid "The activity has been deleted."
-msgstr ""
+msgstr "La actividad ha sido eliminada."
 
 #: Controller/ActivitiesController.php:113
 msgid "The activity could not be deleted. Please, try again."
-msgstr ""
+msgstr "La actividad no se pudo eliminar. Por favor, inténtelo nuevamente."
 
 #: Controller/ActivitiesGroupsController.php:55;80
 msgid "The activities group has been saved."
-msgstr ""
+msgstr "El grupo de actividades se ha guardado."
 
 #: Controller/ActivitiesGroupsController.php:58;84
 msgid "The activities group could not be saved. Please, try again."
-msgstr ""
+msgstr "El grupo de actividades no se pudo guardar. Por favor, inténtelo nuevamente."
 
 #: Controller/ActivitiesGroupsController.php:103
 msgid "The activities group has been deleted."
-msgstr ""
+msgstr "El grupo de actividades ha sido eliminado."
 
 #: Controller/ActivitiesGroupsController.php:105
 msgid "The activities group could not be deleted. Please, try again."
-msgstr ""
+msgstr "El grupo de actividades no se pudo eliminar. Por favor, inténtelo nuevamente."
 
 #: Controller/GradesController.php:58;86
 msgid "The grade has been saved."
@@ -128,23 +128,23 @@ msgstr ""
 
 #: Controller/UsersController.php:54;80
 msgid "Usuario creado."
-msgstr ""
+msgstr "El Usuario se ha guardado."
 
 #: Controller/UsersController.php:58;84
 msgid "Usuario no ingresado. Por favor, intente nuevamente."
-msgstr ""
+msgstr "El Usuario no se pudo guardar. Por favor, inténtelo nuevamente."
 
 #: Controller/UsersController.php:103
 msgid "Usuario eliminado."
-msgstr ""
+msgstr "El Usuario"
 
 #: Controller/UsersController.php:105
 msgid "Usuario no eliminado. Por favor, intente nuevamente."
-msgstr ""
+msgstr "El Usuario no se pudo eliminar. Por favor, inténtelo nuevamente."
 
 #: Controller/UsersController.php:119
 msgid "Usuario o contraseña invalidos, intente nuevamente."
-msgstr ""
+msgstr "Usuario o contraseña incorrectos, intentelo nuevamente."
 
 #: Template/Activities/add.ctp:4
 #: Template/Activities/edit.ctp:3
@@ -177,7 +177,7 @@ msgstr ""
 #: Template/Users/index.ctp:3;16
 #: Template/Users/view.ctp:3
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 #: Template/Activities/add.ctp:5
 #: Template/Activities/edit.ctp:10
@@ -194,7 +194,7 @@ msgstr ""
 #: Template/Submissions/index.ctp:5
 #: Template/Submissions/view.ctp:8
 msgid "List Activities"
-msgstr ""
+msgstr "Lista de Actividades"
 
 #: Template/Activities/add.ctp:6
 #: Template/Activities/edit.ctp:13
@@ -204,7 +204,7 @@ msgstr ""
 #: Template/ActivitiesGroups/edit.ctp:10
 #: Template/ActivitiesGroups/view.ctp:6
 msgid "List Activities Groups"
-msgstr ""
+msgstr "Lista de Grupo de Actividades"
 
 #: Template/Activities/add.ctp:7
 #: Template/Activities/edit.ctp:14
@@ -212,7 +212,7 @@ msgstr ""
 #: Template/Activities/view.ctp:11
 #: Template/ActivitiesGroups/index.ctp:4
 msgid "New Activities Group"
-msgstr ""
+msgstr "Nuevo Grupo de Actividades"
 
 #: Template/Activities/add.ctp:8
 #: Template/Activities/edit.ctp:15
@@ -230,7 +230,7 @@ msgstr ""
 #: Template/RubricsItems/index.ctp:5
 #: Template/RubricsItems/view.ctp:8
 msgid "List Rubrics"
-msgstr ""
+msgstr "Lista de Rubricas"
 
 #: Template/Activities/add.ctp:9
 #: Template/Activities/edit.ctp:16
@@ -247,7 +247,7 @@ msgstr ""
 #: Template/RubricsItems/index.ctp:6
 #: Template/RubricsItems/view.ctp:9
 msgid "New Rubric"
-msgstr ""
+msgstr "Nueva Rubrica"
 
 #: Template/Activities/add.ctp:10
 #: Template/Activities/edit.ctp:17
@@ -261,7 +261,7 @@ msgstr ""
 #: Template/Submissions/edit.ctp:10
 #: Template/Submissions/view.ctp:6
 msgid "List Submissions"
-msgstr ""
+msgstr "Lista de Entregas"
 
 #: Template/Activities/add.ctp:11
 #: Template/Activities/edit.ctp:18
@@ -274,11 +274,11 @@ msgstr ""
 #: Template/Submissions/index.ctp:4
 #: Template/Submissions/view.ctp:7
 msgid "New Submission"
-msgstr ""
+msgstr "Nueva Entrega"
 
 #: Template/Activities/add.ctp:17
 msgid "Add Activity"
-msgstr ""
+msgstr "Agregar Actividad"
 
 #: Template/Activities/add.ctp:24
 #: Template/Activities/edit.ctp:32
@@ -297,7 +297,7 @@ msgstr ""
 #: Template/Submissions/edit.ctp:23
 #: Template/Users/edit.ctp:25
 msgid "Submit"
-msgstr ""
+msgstr "Entrega"
 
 #: Template/Activities/edit.ctp:5
 #: Template/Activities/index.ctp:43
@@ -318,7 +318,7 @@ msgstr ""
 #: Template/Submissions/index.ctp:26
 #: Template/Users/index.ctp:29
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: Template/Activities/edit.ctp:7
 #: Template/Activities/index.ctp:43
@@ -342,14 +342,14 @@ msgstr ""
 #: Template/Users/index.ctp:29
 #: Template/Users/view.ctp:5
 msgid "Are you sure you want to delete # {0}?"
-msgstr ""
+msgstr "¿Esta seguro de eliminar # {0}?"
 
 #: Template/Activities/edit.ctp:11
 #: Template/Activities/index.ctp:5
 #: Template/Activities/view.ctp:8
 #: Template/Users/view.ctp:6
 msgid "List Users"
-msgstr ""
+msgstr "Lista de Usuarios"
 
 #: Template/Activities/edit.ctp:12
 #: Template/Activities/index.ctp:6
@@ -357,13 +357,13 @@ msgstr ""
 #: Template/Users/index.ctp:4
 #: Template/Users/view.ctp:7
 msgid "New User"
-msgstr ""
+msgstr "Nuevo Usuario"
 
 #: Template/Activities/edit.ctp:24
 #: Template/Activities/view.ctp:4
 #: Template/Pages/view.ctp:4
 msgid "Edit Activity"
-msgstr ""
+msgstr "Editar Actividad"
 
 #: Template/Activities/index.ctp:4
 #: Template/Activities/view.ctp:7
@@ -374,11 +374,11 @@ msgstr ""
 #: Template/Rubrics/index.ctp:6
 #: Template/Rubrics/view.ctp:9
 msgid "New Activity"
-msgstr ""
+msgstr "Nueva Actividad"
 
 #: Template/Activities/index.ctp:16
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #: Template/Activities/index.ctp:41
 #: Template/Activities/view.ctp:76
@@ -393,7 +393,7 @@ msgstr ""
 #: Template/Submissions/index.ctp:24
 #: Template/Users/index.ctp:27
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: Template/Activities/index.ctp:42
 #: Template/Activities/view.ctp:77
@@ -408,7 +408,7 @@ msgstr ""
 #: Template/Submissions/index.ctp:25
 #: Template/Users/index.ctp:28
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: Template/Activities/index.ctp:51
 #: Template/ActivitiesGroups/index.ctp:33
@@ -419,7 +419,7 @@ msgstr ""
 #: Template/Submissions/index.ctp:34
 #: Template/Users/index.ctp:37
 msgid "previous"
-msgstr ""
+msgstr "anterior"
 
 #: Template/Activities/index.ctp:53
 #: Template/ActivitiesGroups/index.ctp:35
@@ -430,33 +430,33 @@ msgstr ""
 #: Template/Submissions/index.ctp:36
 #: Template/Users/index.ctp:39
 msgid "next"
-msgstr ""
+msgstr "siguiente"
 
 #: Template/Activities/view.ctp:5
 #: Template/Pages/view.ctp:5
 msgid "Delete Activity"
-msgstr ""
+msgstr "Eliminar Actividad"
 
 #: Template/Activities/view.ctp:22
 #: Template/ActivitiesGroups/view.ctp:24
 #: Template/Rubrics/view.ctp:20;46
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: Template/Activities/view.ctp:26
 #: Template/Submissions/view.ctp:18
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: Template/Activities/view.ctp:30
 msgid "Activities Group"
-msgstr ""
+msgstr "Grupo de Actividades"
 
 #: Template/Activities/view.ctp:34
 #: Template/Grades/view.ctp:22
 #: Template/RubricsItems/view.ctp:16
 msgid "Rubric"
-msgstr ""
+msgstr "Rubrica"
 
 #: Template/Activities/view.ctp:38;59
 #: Template/Grades/view.ctp:26
@@ -465,21 +465,21 @@ msgstr ""
 #: Template/Rubrics/view.ctp:24;45;80;113
 #: Template/Users/view.ctp:26
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: Template/Activities/view.ctp:42;62
 #: Template/Grades/view.ctp:30
 #: Template/Pages/view.ctp:31
 #: Template/Rubrics/view.ctp:32;48;82;116
 msgid "Created"
-msgstr ""
+msgstr "Creado"
 
 #: Template/Activities/view.ctp:46;63
 #: Template/Grades/view.ctp:34
 #: Template/Pages/view.ctp:32
 #: Template/Rubrics/view.ctp:36;49;83;117
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 #: Template/Activities/view.ctp:51
 #: Template/ActivitiesGroups/view.ctp:25
@@ -487,58 +487,58 @@ msgstr ""
 #: Template/Rubrics/view.ctp:47;114
 #: Template/RubricsItems/view.ctp:25
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: Template/Activities/view.ctp:55
 #: Template/Pages/view.ctp:23
 msgid "Related Submissions"
-msgstr ""
+msgstr "Entregas Relacionadas"
 
 #: Template/Activities/view.ctp:60
 #: Template/Pages/view.ctp:29
 msgid "Activity Id"
-msgstr ""
+msgstr "Id Actividad"
 
 #: Template/Activities/view.ctp:61
 #: Template/Grades/view.ctp:18
 #: Template/Pages/view.ctp:30
 #: Template/Submissions/view.ctp:23
 msgid "Submission"
-msgstr ""
+msgstr "Entrega"
 
 #: Template/Activities/view.ctp:64
 #: Template/Pages/view.ctp:33
 #: Template/Rubrics/view.ctp:28;50
 msgid "User Id"
-msgstr ""
+msgstr "Id Usuario"
 
 #: Template/ActivitiesGroups/add.ctp:10
 msgid "Add Activities Group"
-msgstr ""
+msgstr "Agregar Grupo de Actividades"
 
 #: Template/ActivitiesGroups/edit.ctp:7
 #: Template/ActivitiesGroups/index.ctp:25
 #: Template/ActivitiesGroups/view.ctp:5
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "¿Esta seguro de eliminar {0}?"
 
 #: Template/ActivitiesGroups/edit.ctp:16
 #: Template/ActivitiesGroups/view.ctp:4
 msgid "Edit Activities Group"
-msgstr ""
+msgstr "Editar Grupo de Actividades"
 
 #: Template/ActivitiesGroups/index.ctp:10
 msgid "Activities Groups"
-msgstr ""
+msgstr "Grupo de Actividades"
 
 #: Template/ActivitiesGroups/view.ctp:5
 msgid "Delete Activities Group"
-msgstr ""
+msgstr "Eliminar Grupo de Actividades"
 
 #: Template/ActivitiesGroups/view.ctp:20
 #: Template/Rubrics/view.ctp:41
 msgid "Related Activities"
-msgstr ""
+msgstr "Actividades Relacionadas"
 
 #: Template/Grades/add.ctp:4
 #: Template/Grades/edit.ctp:10
@@ -548,16 +548,16 @@ msgstr ""
 #: Template/Rubrics/index.ctp:7
 #: Template/Rubrics/view.ctp:10
 msgid "List Grades"
-msgstr ""
+msgstr "Lista de Calificaciones"
 
 #: Template/Grades/add.ctp:14
 msgid "Add Grade"
-msgstr ""
+msgstr "Añadir Calificación"
 
 #: Template/Grades/edit.ctp:20
 #: Template/Grades/view.ctp:4
 msgid "Edit Grade"
-msgstr ""
+msgstr "Editar Calificación"
 
 #: Template/Grades/index.ctp:4
 #: Template/Grades/view.ctp:7
@@ -566,92 +566,92 @@ msgstr ""
 #: Template/Rubrics/index.ctp:8
 #: Template/Rubrics/view.ctp:11
 msgid "New Grade"
-msgstr ""
+msgstr "Nueva Calificación"
 
 #: Template/Grades/index.ctp:12
 msgid "Grades"
-msgstr ""
+msgstr "Calificaciones"
 
 #: Template/Grades/view.ctp:5
 msgid "Delete Grade"
-msgstr ""
+msgstr "Eliminar Calificación"
 
 #: Template/Grades/view.ctp:38
 #: Template/Rubrics/view.ctp:81
 msgid "Achievement"
-msgstr ""
+msgstr "Logrado"
 
 #: Template/Grades/view.ctp:39
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: Template/Grades/view.ctp:39
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: Template/Layout/default.ctp:47
 msgid "Inicio"
-msgstr ""
+msgstr "Inicio"
 
 #: Template/Layout/default.ctp:48
 msgid "Actividades"
-msgstr ""
+msgstr "Actividades"
 
 #: Template/Layout/default.ctp:49
 msgid "LTI"
-msgstr ""
+msgstr "LTI"
 
 #: Template/Layout/default.ctp:50
 msgid "Usuarios"
-msgstr ""
+msgstr "Usuarios"
 
 #: Template/Layout/default.ctp:51
 msgid "Salir"
-msgstr ""
+msgstr "Salir"
 
 #: Template/OAuthConsumers/add.ctp:4
 #: Template/OAuthConsumers/edit.ctp:10
 #: Template/OAuthConsumers/view.ctp:6
 msgid "List O Auth Consumers"
-msgstr ""
+msgstr "Lista de Consumidores"
 
 #: Template/OAuthConsumers/add.ctp:10
 msgid "Add O Auth Consumer"
-msgstr ""
+msgstr "Añadir Consumidor"
 
 #: Template/OAuthConsumers/edit.ctp:16
 #: Template/OAuthConsumers/view.ctp:4
 msgid "Edit O Auth Consumer"
-msgstr ""
+msgstr "Editar Consumidor"
 
 #: Template/OAuthConsumers/index.ctp:4
 #: Template/OAuthConsumers/view.ctp:7
 msgid "New O Auth Consumer"
-msgstr ""
+msgstr "Nuevo Consumidor"
 
 #: Template/OAuthConsumers/index.ctp:8
 msgid "O Auth Consumers"
-msgstr ""
+msgstr "Consumidores"
 
 #: Template/OAuthConsumers/view.ctp:5
 msgid "Delete O Auth Consumer"
-msgstr ""
+msgstr "Eliminar Consumidores"
 
 #: Template/OAuthConsumers/view.ctp:14
 msgid "Key"
-msgstr ""
+msgstr "Llave"
 
 #: Template/OAuthConsumers/view.ctp:18
 msgid "Secret"
-msgstr ""
+msgstr "Secreto"
 
 #: Template/Pages/home.ctp:5
 msgid "Bienvenido"
-msgstr ""
+msgstr "Bienvenido"
 
 #: Template/Pages/material1.ctp:21
 msgid "Realizar entrega Actividad 1"
-msgstr ""
+msgstr "Realizar entrega "
 
 #: Template/Rubrics/add.ctp:9
 #: Template/Rubrics/edit.ctp:15
@@ -661,7 +661,7 @@ msgstr ""
 #: Template/RubricsItems/edit.ctp:10
 #: Template/RubricsItems/view.ctp:6
 msgid "List Rubrics Items"
-msgstr ""
+msgstr "Lista de Elementos de la Rúbricas"
 
 #: Template/Rubrics/add.ctp:10
 #: Template/Rubrics/edit.ctp:16
@@ -670,152 +670,152 @@ msgstr ""
 #: Template/RubricsItems/index.ctp:4
 #: Template/RubricsItems/view.ctp:7
 msgid "New Rubrics Item"
-msgstr ""
+msgstr "Nuevo Elemento de Rúbrica"
 
 #: Template/Rubrics/add.ctp:16
 msgid "Add Rubric"
-msgstr ""
+msgstr "Añadir Elemento de Rúbrica"
 
 #: Template/Rubrics/edit.ctp:22
 #: Template/Rubrics/view.ctp:4
 msgid "Edit Rubric"
-msgstr ""
+msgstr "Editar Elemento de Rúbrica"
 
 #: Template/Rubrics/index.ctp:14
 msgid "Rubrics"
-msgstr ""
+msgstr "Rúbricas"
 
 #: Template/Rubrics/view.ctp:5
 msgid "Delete Rubric"
-msgstr ""
+msgstr "Eliminar Rúbrica"
 
 #: Template/Rubrics/view.ctp:51
 msgid "Activities Group Id"
-msgstr ""
+msgstr "Id Grupo de Actividades"
 
 #: Template/Rubrics/view.ctp:52;85;118
 msgid "Rubric Id"
-msgstr ""
+msgstr "Id Rúbrica"
 
 #: Template/Rubrics/view.ctp:76
 msgid "Related Grades"
-msgstr ""
+msgstr "Calificaciones Relacionadas"
 
 #: Template/Rubrics/view.ctp:84
 msgid "Submission Id"
-msgstr ""
+msgstr "Id Entrega"
 
 #: Template/Rubrics/view.ctp:86
 msgid "Rubrics Item Id"
-msgstr ""
+msgstr "Id Item Rúbrica"
 
 #: Template/Rubrics/view.ctp:109
 msgid "Related Rubrics Items"
-msgstr ""
+msgstr "Item Rúbricas Relacionados"
 
 #: Template/Rubrics/view.ctp:115
 #: Template/RubricsItems/view.ctp:20
 msgid "Weight"
-msgstr ""
+msgstr "Peso"
 
 #: Template/RubricsItems/add.ctp:12
 msgid "Add Rubrics Item"
-msgstr ""
+msgstr "Añadir Elemento de Rúbrica"
 
 #: Template/RubricsItems/edit.ctp:18
 #: Template/RubricsItems/view.ctp:4
 msgid "Edit Rubrics Item"
-msgstr ""
+msgstr "Editar Elemento de Rúbrica"
 
 #: Template/RubricsItems/index.ctp:10
 msgid "Rubrics Items"
-msgstr ""
+msgstr "Elementos de Rúbricas"
 
 #: Template/RubricsItems/view.ctp:3
 #: Template/Users/add.ctp:3
 #: Template/Users/edit.ctp:3
 msgid "Acciones"
-msgstr ""
+msgstr "Acciones"
 
 #: Template/RubricsItems/view.ctp:5
 msgid "Delete Rubrics Item"
-msgstr ""
+msgstr "Eliminar Elemento de Rúbrica"
 
 #: Template/Submissions/add.ctp:11
 msgid "Add Submission"
-msgstr ""
+msgstr "Añadir Entrega"
 
 #: Template/Submissions/edit.ctp:17
 #: Template/Submissions/view.ctp:4
 msgid "Edit Submission"
-msgstr ""
+msgstr "Editar Entrega"
 
 #: Template/Submissions/index.ctp:9
 msgid "Submissions"
-msgstr ""
+msgstr "Entregas"
 
 #: Template/Submissions/view.ctp:5
 msgid "Delete Submission"
-msgstr ""
+msgstr "Eliminar Entrega"
 
 #: Template/Submissions/view.ctp:14
 msgid "Activity"
-msgstr ""
+msgstr "Actividad"
 
 #: Template/Users/add.ctp:4
 msgid "Listado Usuarios"
-msgstr ""
+msgstr "Listado Usuarios"
 
 #: Template/Users/add.ctp:10
 msgid "Nuevo Usuario"
-msgstr ""
+msgstr "Nuevo Usuario"
 
 #: Template/Users/add.ctp:19
 msgid "Enviar"
-msgstr ""
+msgstr "Enviar"
 
 #: Template/Users/edit.ctp:5
 msgid "Eliminar"
-msgstr ""
+msgstr "Enviar"
 
 #: Template/Users/edit.ctp:7
 msgid "¿Seguro que quiere eliminar {0}?"
-msgstr ""
+msgstr "¿Seguro que quiere eliminar {0}?"
 
 #: Template/Users/edit.ctp:10
 msgid "Listado de Usuarios"
-msgstr ""
+msgstr "Listado de Usuarios"
 
 #: Template/Users/edit.ctp:16
 #: Template/Users/view.ctp:4
 msgid "Edit User"
-msgstr ""
+msgstr "Editar Usuario"
 
 #: Template/Users/index.ctp:8
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: Template/Users/login.ctp:5
 msgid "Ingrese su usuario y contraseña"
-msgstr ""
+msgstr "Ingrese su usuario y contraseña"
 
 #: Template/Users/login.ctp:10
 msgid "Ingresar"
-msgstr ""
+msgstr "Ingresar"
 
 #: Template/Users/view.ctp:5
 msgid "Delete User"
-msgstr ""
+msgstr "Eliminar Usuario"
 
 #: Template/Users/view.ctp:14
 msgid "First Name"
-msgstr ""
+msgstr "Nombres"
 
 #: Template/Users/view.ctp:18
 msgid "Last Name"
-msgstr ""
+msgstr "Apellidos"
 
 #: Template/Users/view.ctp:22
 msgid "Lti User Id"
-msgstr ""
+msgstr "Id LTI"
 

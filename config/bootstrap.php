@@ -222,7 +222,8 @@ Type::build('datetime')
 
 Plugin::load('Migrations');
 
-DispatcherFactory::add('LocaleSelector', ['locales' => ['en_US', 'es']]);
+DispatcherFactory::add('LocaleSelector', ['locales' => ['es']]);
+//DispatcherFactory::addFilter('LocaleSelector');
 
 Plugin::load('Cake/Localized');
 

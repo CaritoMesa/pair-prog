@@ -2,8 +2,8 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
 #, fuzzy
-msgid ""
-msgstr ""
+# msgid ""
+# msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2016-09-09 18:43+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: Template/Error/error500.ctp:39
 msgid "An Internal Error Has Occurred"
-msgstr "ERRORRRRRRRR"
+msgstr "Un ERRORRRRRRRR"
 
 #: Controller/ActivitiesController.php:59;86
 msgid "The activity has been saved."

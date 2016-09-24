@@ -17,6 +17,9 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * Static content controller

@@ -2,6 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * Rubrics Controller
