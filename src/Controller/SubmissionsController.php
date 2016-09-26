@@ -5,7 +5,6 @@ use App\Controller\AppController;
 use Cake\I18n\I18n;
 
 I18n::locale('es');
-
 /**
  * Submissions Controller
  *
@@ -69,6 +68,14 @@ class SubmissionsController extends AppController
         $activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
         $this->set(compact('submission', 'activities'));
         $this->set('_serialize', ['submission']);
+        
+        //lti
+        
+        /* if ($request->getParameter('custom_access') == 'add') {
+        	  $user->allowAccessToMaterial('add');
+        	}
+        	
+        	$users->save($user); */
     }
 
     /**
@@ -117,13 +124,6 @@ class SubmissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
-    
-
-    	// Permitir que la acción de visualización por lo que nuestro controlador
-    	// de páginas sigue trabajando .
-    	$this->Auth->allow(['display']);
-	}
 
     /**
      * metodo para la entrega de tareas

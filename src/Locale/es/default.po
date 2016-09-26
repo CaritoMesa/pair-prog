@@ -297,7 +297,7 @@ msgstr "Agregar Actividad"
 #: Template/Submissions/edit.ctp:23
 #: Template/Users/edit.ctp:25
 msgid "Submit"
-msgstr "Entrega"
+msgstr "Enviar"
 
 #: Template/Activities/edit.ctp:5
 #: Template/Activities/index.ctp:43

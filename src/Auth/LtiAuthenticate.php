@@ -37,10 +37,10 @@ class LtiAuthenticate extends BaseAuthenticate
             'conditions' => ['Users.lti_user_id' => $request->getParameter('user_id')]
         ])->first();
 
-        //Jeżeli użytkownik lti nie istnieje w systemie to należy go w tym
-        //momencie dynamicznie utworzyć. 
-        //Kolejne już logowanie nie będą wymagały tworzenia nowego użytkownika -
-        //tylko zostanie użyty już wcześniej utworzony
+        //Si el usuario lti no existe en el sistema que debe ser en el
+        //tiempo para crear dinámicamente. 
+        //Otro ha iniciado sesión no requerirá la creación de un nuevo usuario -
+        //ser utilizado ya creado
         if (empty($user)) {
             if (!$request->getParameter('lis_person_name_given') ||
                 !$request->getParameter('lis_person_name_family')
@@ -62,11 +62,11 @@ class LtiAuthenticate extends BaseAuthenticate
             $users->save($user);
         }
 
-        //W tym momencie mozna nadac uzytkownikowi uprawnienia, które uzyskał
-        //z racji tego że zalogował się z platformy edukacyjnej przy użyciu
-        //Lti. Na bazie parametru custom_access, możemy przydzielić użytkownikowi
-        //pewne uprawnienia (np. dostęp do materiału numer 99) 
-        //Przykładowy kod **mógłby** wyglądać następująco
+        //En este punto, puede dar los permisos de usuario, que recibieron
+        //debido al hecho de que iniciar sesión para usar la plataforma educativa
+        //Lti. Sobre la base de la custom_access parámetro, podemos asignar al usuario
+        //ciertos poderes (por ej. el acceso al número de material 99)
+        //Código de la muestra **podría** tener este aspecto
         //
         //if ($request->getParameter('custom_access') == 'material-nr-99') {
         //  $user->allowAccessToMaterial(99)
@@ -74,22 +74,22 @@ class LtiAuthenticate extends BaseAuthenticate
         //
         //$users->save($user)
         //
-        //Jednakże w tym uproszczonym przykładzie klucz 'custom_access' to po prostu
-        //lista nazw materialow(stron, artykułów, jakkolwiek ich nie nazwac) 
-        //(rozdzielona przecinkiem) do których uzytkownik otrzyma dostęp
+        //Sin embargo, en este ejemplo simplificado la tecla "custom_access 'es simplemente
+        //ista de los nombres de los materiales (sitios web, artículos, sin embargo, no nombrarlos) 
+        //(Separados por comas) a la que el usuario recibirá el acceso
         //
-        //czyli jesli w systemie edukacyjnym zostanie ustawione
+        //es decir, si el sistema de educación se establece
         //access=material0,material1
         //
-        //to uzytkownik bedzie mial dostep do stron:
+        //Este usuario tendrá acceso a las páginas:
         // /pages/material0
         // /pages/material1
         //
-        //Dodatkowo w tym uproszczonym przykładzie nadajemy uprawnienia tylko
-        //na czas trwania sesji stąd też nie są one zapisywane w bazie danych, tylko
-        //w sesji
+        //Además, en este ejemplo simplificado que damos el permiso solamente
+        //la duración de la sesión y, por tanto, no se almacenan en la base de datos, solamente
+        //sesión
         //
-        // Autoryzacja jest zaimplementowana w PagesController::isAuthorized
+        // La autenticación se implementa en PagesController::isAuthorized
         $hasAccessTo = explode(',', $request->getParameter('custom_access'));
 
         foreach ($hasAccessTo as $key => $value) {

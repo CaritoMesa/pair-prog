@@ -25,8 +25,4 @@ msgstr ""
 
 #: Template/Error/error500.ctp:39
 msgid "An Internal Error Has Occurred"
-msgstr "Un ERRORRRRRRRR"
-
-#: Controller/ActivitiesController.php:59;86
-msgid "The activity has been saved."
-msgstr "La actividad se ha guardado cake"
+msgstr ""

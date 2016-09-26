@@ -43,9 +43,9 @@ class ActivitiesController extends AppController
     public function view($id = null)
     {
         $activity = $this->Activities->get($id, [
-            'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
+        		'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
         ]);
-
+        
         $this->set('activity', $activity);
         $this->set('_serialize', ['activity']);
     }
@@ -122,128 +122,4 @@ public function add()
         return $this->redirect(['action' => 'index']);
     }
     
-    /**
-     * metodo para autorizar acceso
-     */
-    public function display()
-    {
-    	$path = func_get_args();
-    
-    	$count = count($path);
-    	if (!$count) {
-    		return $this->redirect('/');
-    	}
-    	$page = $subpage = null;
-    
-    	if (!empty($path[0])) {
-    		$page = $path[0];
-    	}
-    	if (!empty($path[1])) {
-    		$subpage = $path[1];
-    	}
-    	$this->set(compact('page', 'subpage'));
-    
-    	try {
-    		$this->render(implode('/', $path));
-    	} catch (MissingTemplateException $e) {
-    		if (Configure::read('debug')) {
-    			throw $e;
-    		}
-    		throw new NotFoundException();
-    	}
-    }
-    
-    public function isAuthorized($user = null)
-    {
-    	//El administrador tiene acceso a todo
-    	if (parent::isAuthorized($user)) {
-    		return true;
-    	}
-    
-    	//Comprueba si los privilegios que el usuario se haya concedido
-    	if (!isset($user['has_access_to'])) {
-    		return false;
-    	}
-    
-    	$access = $user['has_access_to'];
-    
-    	$path = $this->request->pass;
-    
-    	if (!count($path)) {
-    		return false;
-    	}
-    
-    	//Dependiendo de cómo se mostrará el material
-    	//comprobar si el usuario tiene permisos para
-    	if ($path[0] == 'home') {
-    		return in_array('home', $access);
-    	}
-    
-    	if ($path[0] == 'material0') {
-    		return in_array('material0', $access);
-    	}
-    
-    	if ($path[0] == 'material1') {
-    		return in_array('material1', $access);
-    	}
-    
-    	if ($path[0] == 'material2') {
-    		return in_array('material2', $access);
-    	}
-    
-    	if ($path[0] == 'material3') {
-    		return in_array('material3', $access);
-    	}
-    
-    	if ($path[0] == 'view') {
-    		return in_array('view', $access);
-    	}
-    
-    	return false;
-    }
-   /*  public function isAuthorized($user)
-    {
-    	//El administrador tiene acceso a todo
-    	if (parent::isAuthorized($user)) {
-    		return true;
-    	}
-    	$action = $this->request->params['action'];
-    
-    	// The add and index actions are always allowed.
-    	if (in_array($action, ['index', 'add', 'edit'])) {
-    		return true;
-    	}
-    	// All other actions require an id.
-    	if (empty($this->request->params['pass'][0])) {
-    		return false;
-    	}
-    
-    	// Check that the bookmark belongs to the current user.
-    	$id = $this->request->params['pass'][0];
-    	$submissions = $this->Submissions->get($id);
-    	if ($submissions->user_id == $user['id']) {
-    		return true;
-    	}
-    	return parent::isAuthorized($user);
-    }
-    
-    public function initialize()
-    {
-    	$this->loadComponent('Flash');
-    	$this->loadComponent('Auth', [
-    			'authorize'=> 'Controller',//added this line
-    			'authenticate' => [
-    					'Form' => [
-    							'fields' => [
-    									'username' => 'email',
-    									'password' => 'password'
-    							]
-    					]
-    			],
-    			'loginAction' => [
-    					'controller' => 'Users',
-    					'action' => 'login'
-    			],
-    			'unauthorizedRedirect' => $this->referer()
-    	]); */
 }

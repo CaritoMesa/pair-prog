@@ -47,37 +47,30 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
             'unauthorizedRedirect' => false,
             'authenticate' => [ 
-                //Logowanie za pomocą zwykłego formularza jest dostępne 
-                //dla administratorów
+                //Inicia sesión usando formulario disponible para admin.
                 'Form', 
-                //Logowanie za pomocą lti dostępne dla użytkowników logujących
-                //się przez lti
+                //Sesión con lti disponibles para los usuarios que inician sesión por lti
                 'Lti' 
             ],
             'authorize' => 'Controller'
         ]);
 
-        //Ten komponent wywołuje $this->Auth->identify() w callbacku beforeFilter()
-        //jeżeli zapytanie jest zapytaniem lti. 
+        //Este componente llama $this->Auth->identify() la devuelve la llamada beforeFilter()
+        //si la consulta es una consulta lti. 
         $this->loadComponent('LtiAutologin');
     }
 
 
     public function isAuthorized($user = null) 
     {
-        //W tej przykładowej są 2 rodzaje użytkowników:
-        //Administratorzy - mają dostęp do wszystkiego
-        //Użytkownicy Lti - mają dostęp tylko do materiałów określonych w
-        //ustawieniach narzędzia lti za pomocą parametru (access)
-        //
-        //A zatem administratorzy mają dostęp do wszystkiego
+        //administrador tienen acceso a todo
         return $this->isAdmin($user);
     }
 
     public function isLtiUser($user)
     {
         if (!empty($user['lti_user_id'])) {
-            return true;
+            return false; //true para lti
         }
     }
 
