@@ -1,10 +1,10 @@
 <?php
 namespace App\Controller;
-
-use App\Controller\AppController;
 use Cake\I18n\I18n;
 
 I18n::locale('es');
+
+use App\Controller\AppController;
 
 /**
  * Grades Controller
@@ -22,7 +22,7 @@ class GradesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Submissions', 'Rubrics']
+            'contain' => ['Submissions', 'RubricsItems']
         ];
         $grades = $this->paginate($this->Grades);
 
@@ -40,7 +40,7 @@ class GradesController extends AppController
     public function view($id = null)
     {
         $grade = $this->Grades->get($id, [
-            'contain' => ['Submissions', 'Rubrics']
+            'contain' => ['Submissions', 'RubricsItems']
         ]);
 
         $this->set('grade', $grade);
@@ -52,22 +52,27 @@ class GradesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($sub = null)
     {
         $grade = $this->Grades->newEntity();
         if ($this->request->is('post')) {
             $grade = $this->Grades->patchEntity($grade, $this->request->data);
+            $grade->submission_id = $sub;
+            //Falta guardar score
+            //$grade->score = $this->Grades->RubricsItems->find('list', ['limit' => 1 , 'valueField' => 'weight']);;
+            
             if ($this->Grades->save($grade)) {
                 $this->Flash->success(__('The grade has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['Controller' => 'Submissions', 'action' => 'index']);
             } else {
                 $this->Flash->error(__('The grade could not be saved. Please, try again.'));
             }
         }
-        $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
-        $rubrics = $this->Grades->Rubrics->find('list', ['limit' => 200]);
-        $this->set(compact('grade', 'submissions', 'rubrics'));
+        //$submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
+        $rubricsItems = $this->Grades->RubricsItems->find('list', ['limit' => 200 , 'valueField' => 'description']);
+        
+        $this->set(compact('grade', 'submissions', 'rubricsItems'));
         $this->set('_serialize', ['grade']);
     }
 
@@ -94,8 +99,8 @@ class GradesController extends AppController
             }
         }
         $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
-        $rubrics = $this->Grades->Rubrics->find('list', ['limit' => 200]);
-        $this->set(compact('grade', 'submissions', 'rubrics'));
+        $rubricsItems = $this->Grades->RubricsItems->find('list', ['limit' => 200]);
+        $this->set(compact('grade', 'submissions', 'rubricsItems'));
         $this->set('_serialize', ['grade']);
     }
 

@@ -110,6 +110,19 @@ class ActivitiesGroupsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+    public function submit($id = null){
+    	$activitiesGroup = $this->ActivitiesGroups->get($id, [
+    			'contain' => ['Activities']
+    	]);
+    	/* if ($activitiesGroup('activity_id') === 1)
+    	return $this->redirect([
+    			'controller' => 'Activities',
+    			'action' => 'submit',
+                '1'
+    	]);
+    	 */
+    	$this->set('activitiesGroup', $activitiesGroup);
+    	$this->set('_serialize', ['activitiesGroup']);
+    }
     
 }

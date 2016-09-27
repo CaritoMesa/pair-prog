@@ -4,20 +4,20 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Grade Entity
+ * Assignment Entity
  *
  * @property int $id
- * @property bool $achievement
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property int $submission_id
- * @property int $rubrics_item_id
- * @property int $score
+ * @property int $activities_group_id
+ * @property int $activity_id
+ * @property int $user_id
  *
- * @property \App\Model\Entity\Submission $submission
- * @property \App\Model\Entity\RubricsItem $rubrics_item
+ * @property \App\Model\Entity\ActivitiesGroup $activities_group
+ * @property \App\Model\Entity\Activity $activity
+ * @property \App\Model\Entity\User $user
  */
-class Grade extends Entity
+class Assignment extends Entity
 {
 
     /**

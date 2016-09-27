@@ -4,11 +4,7 @@
         <li><?= $this->Html->link(__('Edit Submission'), ['action' => 'edit', $submission->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Submission'), ['action' => 'delete', $submission->id], ['confirm' => __('Are you sure you want to delete # {0}?', $submission->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Submissions'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Submission'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="submissions view large-9 medium-8 columns content">
@@ -39,4 +35,5 @@
         <h4><?= __('Submission') ?></h4>
         <?= $this->Text->autoParagraph(h($submission->submission)); ?>
     </div>
+    <?= $this->Html->link(__('Grade'), ['controller' => 'Grades', 'action' => 'add', $submission->id]) ?>
 </div>

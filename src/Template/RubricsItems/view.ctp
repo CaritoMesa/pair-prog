@@ -5,16 +5,13 @@
         <li><?= $this->Form->postLink(__('Delete Rubrics Item'), ['action' => 'delete', $rubricsItem->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubricsItem->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Rubrics Items'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Rubrics Item'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Rubric'), ['controller' => 'Rubrics', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="rubricsItems view large-9 medium-8 columns content">
-    <h3><?= h($rubricsItem->id) ?></h3>
     <table class="vertical-table">
         <tr>
             <th><?= __('Rubric') ?></th>
-            <td><?= $rubricsItem->has('rubric') ? $this->Html->link($rubricsItem->rubric->id, ['controller' => 'Rubrics', 'action' => 'view', $rubricsItem->rubric->id]) : '' ?></td>
+            <td><?= $rubricsItem->has('rubric') ? $this->Html->link($rubricsItem->rubric->name, ['controller' => 'Rubrics', 'action' => 'view', $rubricsItem->rubric->id]) : '' ?></td>
         </tr>
         <tr>
             <th><?= __('Weight') ?></th>

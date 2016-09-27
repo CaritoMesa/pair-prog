@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * Grades Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Submissions
- * @property \Cake\ORM\Association\BelongsTo $Rubrics
+ * @property \Cake\ORM\Association\BelongsTo $RubricsItems
  *
  * @method \App\Model\Entity\Grade get($primaryKey, $options = [])
  * @method \App\Model\Entity\Grade newEntity($data = null, array $options = [])
@@ -45,8 +45,8 @@ class GradesTable extends Table
             'foreignKey' => 'submission_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Rubrics', [
-            'foreignKey' => 'rubric_id',
+        $this->belongsTo('RubricsItems', [
+            'foreignKey' => 'rubrics_item_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -68,6 +68,10 @@ class GradesTable extends Table
             ->requirePresence('achievement', 'create')
             ->notEmpty('achievement');
 
+        $validator
+            ->integer('score')
+            ->allowEmpty('score');
+
         return $validator;
     }
 
@@ -81,7 +85,7 @@ class GradesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['submission_id'], 'Submissions'));
-        $rules->add($rules->existsIn(['rubric_id'], 'Rubrics'));
+        $rules->add($rules->existsIn(['rubrics_item_id'], 'RubricsItems'));
 
         return $rules;
     }

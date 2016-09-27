@@ -679,12 +679,12 @@ msgstr "Nuevo Elemento de Rúbrica"
 
 #: Template/Rubrics/add.ctp:16
 msgid "Add Rubric"
-msgstr "Añadir Elemento de Rúbrica"
+msgstr "Añadir Rúbrica"
 
 #: Template/Rubrics/edit.ctp:22
 #: Template/Rubrics/view.ctp:4
 msgid "Edit Rubric"
-msgstr "Editar Elemento de Rúbrica"
+msgstr "Editar Rúbrica"
 
 #: Template/Rubrics/index.ctp:14
 msgid "Rubrics"

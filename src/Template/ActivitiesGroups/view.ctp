@@ -10,12 +10,6 @@
 </nav>
 <div class="activitiesGroups view large-9 medium-8 columns content">
     <h3><?= h($activitiesGroup->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th></th>
-            <td></td>
-        </tr>
-    </table>
     <div class="related">
         <h4><?= __('Related Activities') ?></h4>
         <?php if (!empty($activitiesGroup->activities)): ?>
@@ -32,6 +26,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Activities', 'action' => 'view', $activities->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Activities', 'action' => 'edit', $activities->id]) ?>
+
                 </td>
             </tr>
             <?php endforeach; ?>

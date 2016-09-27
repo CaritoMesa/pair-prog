@@ -54,6 +54,7 @@ class RubricsController extends AppController
         $rubric = $this->Rubrics->newEntity();
         if ($this->request->is('post')) {
             $rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
+            $rubric->user_id = $this->Auth->user('id');
             if ($this->Rubrics->save($rubric)) {
                 $this->Flash->success(__('The rubric has been saved.'));
 

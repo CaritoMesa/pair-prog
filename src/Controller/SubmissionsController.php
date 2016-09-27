@@ -128,7 +128,6 @@ public function submit($idActivity = null)
     		if ($this->Submissions->save($submission)) {
     			$this->Flash->success(__('The submission has been saved.'));
     
-    			//return $this->redirect(['action' => 'Activities->submit']);
     			return $this->redirect([
     					'controller' => 'Pages',
     					'action' => 'home'
