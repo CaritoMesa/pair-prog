@@ -38,7 +38,7 @@ class RubricsTable extends Table
         parent::initialize($config);
 
         $this->table('rubrics');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

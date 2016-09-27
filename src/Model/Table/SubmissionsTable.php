@@ -1,7 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -9,8 +8,9 @@ use Cake\Validation\Validator;
 /**
  * Submissions Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Activities
  * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\BelongsTo $Activities
+ * @property \Cake\ORM\Association\HasMany $Grades
  *
  * @method \App\Model\Entity\Submission get($primaryKey, $options = [])
  * @method \App\Model\Entity\Submission newEntity($data = null, array $options = [])
@@ -41,12 +41,15 @@ class SubmissionsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id'
+        ]);
         $this->belongsTo('Activities', [
             'foreignKey' => 'activity_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+        $this->hasMany('Grades', [
+            'foreignKey' => 'submission_id'
         ]);
     }
 
@@ -78,8 +81,8 @@ class SubmissionsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['activity_id'], 'Activities'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['activity_id'], 'Activities'));
 
         return $rules;
     }

@@ -492,7 +492,12 @@ msgstr "Descripción"
 #: Template/Activities/view.ctp:55
 #: Template/Pages/view.ctp:23
 msgid "Related Submissions"
-msgstr "Entregas Relacionadas"
+msgstr "Entregas Realizadas"
+
+#: Template/Activities/view.ctp:55
+#: Template/Pages/view.ctp:23
+msgid "Related Submissions for"
+msgstr "Entregas Realizadas por"
 
 #: Template/Activities/view.ctp:60
 #: Template/Pages/view.ctp:29
@@ -819,3 +824,5 @@ msgstr "Apellidos"
 msgid "Lti User Id"
 msgstr "Id LTI"
 
+msgid "Related Submission"
+msgstr "Realizar Entrega"

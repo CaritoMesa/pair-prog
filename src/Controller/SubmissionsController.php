@@ -68,14 +68,6 @@ class SubmissionsController extends AppController
         $activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
         $this->set(compact('submission', 'activities'));
         $this->set('_serialize', ['submission']);
-        
-        //lti
-        
-        /* if ($request->getParameter('custom_access') == 'add') {
-        	  $user->allowAccessToMaterial('add');
-        	}
-        	
-        	$users->save($user); */
     }
 
     /**
@@ -101,7 +93,8 @@ class SubmissionsController extends AppController
             }
         }
         $activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
-        $this->set(compact('submission', 'activities'));
+        $users = $this->Submissions->Users->find('list', ['limit' => 200]);
+        $this->set(compact('submission', 'activities', 'users'));
         $this->set('_serialize', ['submission']);
     }
 
@@ -124,30 +117,29 @@ class SubmissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    /**
-     * metodo para la entrega de tareas
-     * @return \Cake\Network\Response|NULL
-     */
-    public function Addlms($id = null)
+    
+public function submit($idActivity = null)
     {
-    	$submission = $this->Submissions->get($activity_id, [
-    			'contain' => []
-    	]);
-    	if ($this->request->is(['patch', 'post', 'put'])) {
+    	$submission = $this->Submissions->newEntity();
+    	if ($this->request->is('post')) {
     		$submission = $this->Submissions->patchEntity($submission, $this->request->data);
+    		$submission->user_id = $this->Auth->user('id');
+    		$submission->activity_id = $idActivity;
     		if ($this->Submissions->save($submission)) {
     			$this->Flash->success(__('The submission has been saved.'));
     
-    			return $this->redirect(['action' => 'index']);
+    			//return $this->redirect(['action' => 'Activities->submit']);
+    			return $this->redirect([
+    					'controller' => 'Pages',
+    					'action' => 'home'
+				]);
+    					
     		} else {
     			$this->Flash->error(__('The submission could not be saved. Please, try again.'));
     		}
     	}
-    	$activities = $this->Submissions->Activities->find('list', ['limit' => 200]);
-    	$users = $this->Submissions->Users->find('list', ['limit' => 200]);
-    	$this->set(compact('submission', 'activities', 'users'));
+    	$this->set(compact('submission'));
     	$this->set('_serialize', ['submission']);
-    }
     
+    }
 }

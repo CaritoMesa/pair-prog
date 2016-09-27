@@ -122,4 +122,14 @@ public function add()
         return $this->redirect(['action' => 'index']);
     }
     
+    public function submit($id = null)
+    {
+    	$activity = $this->Activities->get($id, [
+    			'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
+    	]);
+    	
+    	$this->set('activity', $activity);
+    	$this->set('_serialize', ['activity']);
+    }
+    
 }

@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * Submission Entity
  *
  * @property int $id
- * @property int $activity_id
  * @property string $submission
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property int $user_id
+ * @property int $activity_id
  *
  * @property \App\Model\Entity\Activity $activity
  * @property \App\Model\Entity\User $user

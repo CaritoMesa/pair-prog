@@ -9,6 +9,9 @@
         ?></li>
         <li><?= $this->Html->link(__('List Submissions'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="submissions form large-9 medium-8 columns content">
@@ -16,8 +19,9 @@
     <fieldset>
         <legend><?= __('Edit Submission') ?></legend>
         <?php
-            echo $this->Form->input('activity_id', ['options' => $activities]);
             echo $this->Form->input('submission');
+            echo $this->Form->input('user_id', ['options' => $users, 'empty' => true]);
+            echo $this->Form->input('activity_id', ['options' => $activities]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
