@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\RubricsController;
+use App\Controller\RubricLevelsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\RubricsController Test Case
+ * App\Controller\RubricLevelsController Test Case
  */
-class RubricsControllerTest extends IntegrationTestCase
+class RubricLevelsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,6 +16,8 @@ class RubricsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
+        'app.rubric_levels',
+        'app.rubric_criterias',
         'app.rubrics',
         'app.users',
         'app.activities',

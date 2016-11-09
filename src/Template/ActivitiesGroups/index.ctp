@@ -2,8 +2,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Activities Group'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Assignments'), ['controller' => 'Assignments', 'action' => 'index']) ?></li>
     </ul>
 </nav>
@@ -19,9 +18,8 @@
         <tbody>
             <?php foreach ($activitiesGroups as $activitiesGroup): ?>
             <tr>
-                <td><?= h($activitiesGroup->name) ?></td>
+                <td><?= $this->Html->link(__($activitiesGroup->name), ['action' => 'view', $activitiesGroup->id]) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $activitiesGroup->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $activitiesGroup->id]) ?>
                     <?= $this->Html->link(__('LMS'), ['action' => 'submit', $activitiesGroup->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $activitiesGroup->id], ['confirm' => __('Are you sure you want to delete {0}?', $activitiesGroup->name)]) ?>

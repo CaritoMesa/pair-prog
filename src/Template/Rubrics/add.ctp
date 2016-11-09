@@ -1,10 +1,10 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Rubrics'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Rubrics Items'), ['controller' => 'RubricsItems', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rubrics Item'), ['controller' => 'RubricsItems', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Rubrics'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Grades'), ['controller' => 'Grades', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Rubrics Items'), ['controller' => 'RubricsItems', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="rubrics form large-9 medium-8 columns content">

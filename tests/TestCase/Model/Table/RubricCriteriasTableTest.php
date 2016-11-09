@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\RubricsTable;
+use App\Model\Table\RubricCriteriasTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\RubricsTable Test Case
+ * App\Model\Table\RubricCriteriasTable Test Case
  */
-class RubricsTableTest extends TestCase
+class RubricCriteriasTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\RubricsTable
+     * @var \App\Model\Table\RubricCriteriasTable
      */
-    public $Rubrics;
+    public $RubricCriterias;
 
     /**
      * Fixtures
@@ -24,13 +24,15 @@ class RubricsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.rubric_criterias',
         'app.rubrics',
         'app.users',
         'app.activities',
         'app.activities_groups',
         'app.submissions',
         'app.grades',
-        'app.rubrics_items'
+        'app.rubrics_items',
+        'app.rubric_levels'
     ];
 
     /**
@@ -41,8 +43,8 @@ class RubricsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Rubrics') ? [] : ['className' => 'App\Model\Table\RubricsTable'];
-        $this->Rubrics = TableRegistry::get('Rubrics', $config);
+        $config = TableRegistry::exists('RubricCriterias') ? [] : ['className' => 'App\Model\Table\RubricCriteriasTable'];
+        $this->RubricCriterias = TableRegistry::get('RubricCriterias', $config);
     }
 
     /**
@@ -52,7 +54,7 @@ class RubricsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Rubrics);
+        unset($this->RubricCriterias);
 
         parent::tearDown();
     }

@@ -3,9 +3,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Activities Group'), ['action' => 'edit', $activitiesGroup->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Activities Group'), ['action' => 'delete', $activitiesGroup->id], ['confirm' => __('Are you sure you want to delete {0}?', $activitiesGroup->name)]) ?> </li>
-        <li><?= $this->Html->link(__('List Activities Groups'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Activity'), ['controller' => 'Activities', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Activities Groups'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?> </li>
     </ul>
 </nav>
 <div class="activitiesGroups view large-9 medium-8 columns content">
@@ -21,10 +20,9 @@
             </tr>
             <?php foreach ($activitiesGroup->activities as $activities): ?>
             <tr>
-                <td><?= h($activities->name) ?></td>
+                <td><?= $this->Html->link(__($activities->name), ['controller' => 'Activities', 'action' => 'view', $activities->id]) ?></td>
                 <td><?= h($activities->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Activities', 'action' => 'view', $activities->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Activities', 'action' => 'edit', $activities->id]) ?>
 
                 </td>

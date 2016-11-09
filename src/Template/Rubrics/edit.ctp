@@ -4,13 +4,14 @@
         <li><?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $rubric->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $rubric->name)]
+                ['confirm' => __('Are you sure you want to delete {0}?', $rubric->name)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Rubrics'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Rubrics Items'), ['controller' => 'RubricsItems', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rubrics Item'), ['controller' => 'RubricsItems', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Activities Groups'), ['controller' => 'ActivitiesGroups', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Submissions'), ['controller' => 'Submissions', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Grades'), ['controller' => 'Grades', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="rubrics form large-9 medium-8 columns content">

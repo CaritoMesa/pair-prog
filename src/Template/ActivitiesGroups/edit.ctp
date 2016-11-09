@@ -7,7 +7,7 @@
                 ['confirm' => __('Are you sure you want to delete {0}?', $activitiesGroup->name)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Activities Groups'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Activities Groups'), ['action' => 'index']) ?></li>
         </ul>
 </nav>
 <div class="activitiesGroups form large-9 medium-8 columns content">

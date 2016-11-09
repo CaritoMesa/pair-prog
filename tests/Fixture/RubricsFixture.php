@@ -45,8 +45,8 @@ class RubricsFixture extends TestFixture
         [
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2016-09-09',
-            'modified' => '2016-09-09',
+            'created' => '2016-10-26',
+            'modified' => '2016-10-26',
             'user_id' => 1
         ],
     ];

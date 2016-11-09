@@ -52,15 +52,18 @@ class RubricsItemsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($idRubric = null)
     {
         $rubricsItem = $this->RubricsItems->newEntity();
         if ($this->request->is('post')) {
             $rubricsItem = $this->RubricsItems->patchEntity($rubricsItem, $this->request->data);
+            $rubricsItem->rubric_id = $idRubric;
             if ($this->RubricsItems->save($rubricsItem)) {
                 $this->Flash->success(__('The rubrics item has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Rubrics',
+    									'action' => 'view',$idRubric
+                ]);
             } else {
                 $this->Flash->error(__('The rubrics item could not be saved. Please, try again.'));
             }
@@ -87,7 +90,9 @@ class RubricsItemsController extends AppController
             if ($this->RubricsItems->save($rubricsItem)) {
                 $this->Flash->success(__('The rubrics item has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Rubrics',
+    									'action' => 'view'
+                ]);
             } else {
                 $this->Flash->error(__('The rubrics item could not be saved. Please, try again.'));
             }
@@ -114,6 +119,7 @@ class RubricsItemsController extends AppController
             $this->Flash->error(__('The rubrics item could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Rubrics',
+    							'action' => 'index']);
     }
 }

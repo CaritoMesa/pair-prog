@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\RubricsTable;
+use App\Model\Table\RubricLevelsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\RubricsTable Test Case
+ * App\Model\Table\RubricLevelsTable Test Case
  */
-class RubricsTableTest extends TestCase
+class RubricLevelsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\RubricsTable
+     * @var \App\Model\Table\RubricLevelsTable
      */
-    public $Rubrics;
+    public $RubricLevels;
 
     /**
      * Fixtures
@@ -24,6 +24,8 @@ class RubricsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.rubric_levels',
+        'app.rubric_criterias',
         'app.rubrics',
         'app.users',
         'app.activities',
@@ -41,8 +43,8 @@ class RubricsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Rubrics') ? [] : ['className' => 'App\Model\Table\RubricsTable'];
-        $this->Rubrics = TableRegistry::get('Rubrics', $config);
+        $config = TableRegistry::exists('RubricLevels') ? [] : ['className' => 'App\Model\Table\RubricLevelsTable'];
+        $this->RubricLevels = TableRegistry::get('RubricLevels', $config);
     }
 
     /**
@@ -52,7 +54,7 @@ class RubricsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Rubrics);
+        unset($this->RubricLevels);
 
         parent::tearDown();
     }

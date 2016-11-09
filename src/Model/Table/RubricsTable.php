@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\HasMany $Activities
- * @property \Cake\ORM\Association\HasMany $Grades
  * @property \Cake\ORM\Association\HasMany $RubricsItems
  *
  * @method \App\Model\Entity\Rubric get($primaryKey, $options = [])
@@ -47,9 +46,6 @@ class RubricsTable extends Table
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Activities', [
-            'foreignKey' => 'rubric_id'
-        ]);
-        $this->hasMany('Grades', [
             'foreignKey' => 'rubric_id'
         ]);
         $this->hasMany('RubricsItems', [

@@ -472,14 +472,14 @@ msgstr "Id"
 #: Template/Pages/view.ctp:31
 #: Template/Rubrics/view.ctp:32;48;82;116
 msgid "Created"
-msgstr "Creado"
+msgstr "Creación"
 
 #: Template/Activities/view.ctp:46;63
 #: Template/Grades/view.ctp:34
 #: Template/Pages/view.ctp:32
 #: Template/Rubrics/view.ctp:36;49;83;117
 msgid "Modified"
-msgstr "Modificado"
+msgstr "Ultima modificación"
 
 #: Template/Activities/view.ctp:51
 #: Template/ActivitiesGroups/view.ctp:25
@@ -826,3 +826,12 @@ msgstr "Id LTI"
 
 msgid "Related Submission"
 msgstr "Realizar Entrega"
+
+msgid "of"
+msgstr "de"
+
+msgid "Grade"
+msgstr "Calificar"
+
+msgid ""
+msgstr ""
