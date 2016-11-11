@@ -19,8 +19,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\RubricCriteria patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\RubricCriteria[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\RubricCriteria findOrCreate($search, callable $callback = null)
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class RubricCriteriasTable extends Table
 {
@@ -38,8 +36,6 @@ class RubricCriteriasTable extends Table
         $this->table('rubric_criterias');
         $this->displayField('id');
         $this->primaryKey('id');
-
-        $this->addBehavior('Timestamp');
 
         $this->belongsTo('Rubrics', [
             'foreignKey' => 'rubric_id',

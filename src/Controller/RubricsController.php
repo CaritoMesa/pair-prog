@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 use Cake\I18n\I18n;
 
 I18n::locale('es');
@@ -40,8 +41,7 @@ class RubricsController extends AppController
     public function view($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => ['Users', 'Activities', 'RubricsItems']
-//         	'contain' => ['Users', 'Activities', 'Grades', 'RubricsItems']
+            'contain' => ['Users', 'Activities', 'RubricCriterias', 'RubricsItems']
         ]);
 
         $this->set('rubric', $rubric);
@@ -55,20 +55,22 @@ class RubricsController extends AppController
      */
     public function add()
     {
-        $rubric = $this->Rubrics->newEntity();
-        if ($this->request->is('post')) {
-            $rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
-            $rubric->user_id = $this->Auth->user('id');
-            if ($this->Rubrics->save($rubric)) {
-                $this->Flash->success(__('The rubric has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The rubric could not be saved. Please, try again.'));
-            }
-        }
-        $this->set(compact('rubric'));
-        $this->set('_serialize', ['rubric']);
+    	$rubricsTable = TableRegistry::get('Rubrics');
+    	$rubric = $rubricsTable->newEntity($this->request->data());
+    	if ($this->request->is('post')) {
+    		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
+    		$rubric->user_id = $this->Auth->user('id');
+    		if ($rubricsTable->save($rubric)) {
+    			$id = $rubric->id;
+    			$this->Flash->success(__('The rubric has been saved.'));    		
+    			return $this->redirect(['action' => 'edit', $id]);
+    		} else {
+    				$this->Flash->error(__('The rubric could not be saved. Please, try again.'));
+    		}
+    	}
+    		
+    	$this->set(compact('rubric'));
+    	$this->set('_serialize', ['rubric']);
     }
 
     /**
@@ -93,11 +95,39 @@ class RubricsController extends AppController
                 $this->Flash->error(__('The rubric could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Rubrics->Users->find('list', ['limit' => 200]);
-        $this->set(compact('rubric', 'users'));
+        $this->set(compact('rubric'));
         $this->set('_serialize', ['rubric']);
     }
 
+    /* public function add()
+    {
+    	$rubricsTable = TableRegistry::get('Rubrics');
+    	$rubric = $rubricsTable->newEntity($this->request->data());
+    	 
+    	if ($this->request->is('post')) {
+    		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
+    		$rubric->user_id = $this->Auth->user('id');
+    
+    		$firstCriteria = $rubricsTable->RubricCriterias->newEntity();
+    		$firstCriteria->description = 'Criterio 001';
+    		 
+    		$secondCriteria = $rubricsTable->RubricCriterias->newEntity();
+    		$secondCriteria->description = 'Criterio 002';
+    		 
+    		if ($rubricsTable->save($rubric)) {
+    			$id = $rubric->id;
+    			$rubricsTable->RubricCriterias->link($rubric, [$firstCriteria, $secondCriteria]);
+    
+    			$this->Flash->success(__('The rubric has been saved.'));
+    
+    			return $this->redirect(['action' => 'index']);
+    		}
+    	}
+    
+    	$this->set(compact('rubric'));
+    	$this->set('_serialize', ['rubric']);
+    } */
+    
     /**
      * Delete method
      *

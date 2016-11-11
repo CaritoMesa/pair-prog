@@ -8,8 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $description
- * @property \Cake\I18n\Time $created
- * @property \Cake\I18n\Time $modified
  * @property int $rubric_id
  *
  * @property \App\Model\Entity\Rubric $rubric

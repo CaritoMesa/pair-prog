@@ -8,13 +8,14 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
+ * @property string $description
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property int $user_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Activity[] $activities
- * @property \App\Model\Entity\Grade[] $grades
+ * @property \App\Model\Entity\RubricCriteria[] $rubric_criterias
  * @property \App\Model\Entity\RubricsItem[] $rubrics_items
  */
 class Rubric extends Entity

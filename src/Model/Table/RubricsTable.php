@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\HasMany $Activities
+ * @property \Cake\ORM\Association\HasMany $RubricCriterias
  * @property \Cake\ORM\Association\HasMany $RubricsItems
  *
  * @method \App\Model\Entity\Rubric get($primaryKey, $options = [])
@@ -48,6 +49,9 @@ class RubricsTable extends Table
         $this->hasMany('Activities', [
             'foreignKey' => 'rubric_id'
         ]);
+        $this->hasMany('RubricCriterias', [
+            'foreignKey' => 'rubric_id'
+        ]);
         $this->hasMany('RubricsItems', [
             'foreignKey' => 'rubric_id'
         ]);
@@ -68,6 +72,10 @@ class RubricsTable extends Table
         $validator
             ->requirePresence('name', 'create')
             ->notEmpty('name');
+
+        $validator
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         return $validator;
     }

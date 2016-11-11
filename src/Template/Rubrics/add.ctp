@@ -2,10 +2,9 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Rubrics'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Grades'), ['controller' => 'Grades', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Rubrics Items'), ['controller' => 'RubricsItems', 'action' => 'index']) ?></li>
-    </ul>
+        <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Rubric Criterias'), ['controller' => 'RubricCriterias', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Rubrics Items'), ['controller' => 'RubricsItems', 'action' => 'index']) ?></li>
 </nav>
 <div class="rubrics form large-9 medium-8 columns content">
     <?= $this->Form->create($rubric) ?>
@@ -13,6 +12,7 @@
         <legend><?= __('Add Rubric') ?></legend>
         <?php
             echo $this->Form->input('name');
+            echo $this->Form->input('description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
