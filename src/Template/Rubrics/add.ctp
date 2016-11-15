@@ -14,6 +14,57 @@
             echo $this->Form->input('name');
             echo $this->Form->input('description');
         ?>
+        <table class="vertical-table">
+        <tr>
+            <td>
+            <?php 
+            echo $this->Form->input('rubric_criterias.description',['label' => 'Criteria']);
+            ?>
+                
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <?php 
+            echo $this->Form->input('rubric_criterias.description',['label' => 'Criteria']);
+            ?>
+                
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <?php 
+            echo $this->Form->input('rubric_criterias.description',['label' => 'Criteria']);
+            ?>
+                
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+            <td><?php 
+            echo $this->Form->input('rubric_levels.definition',['label' => 'Level']);
+            ?>
+            </td>
+        </tr>
+        </table>
+        <?= $this->Form->button(__('Add Criteria')) ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

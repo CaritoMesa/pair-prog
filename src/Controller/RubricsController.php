@@ -54,24 +54,39 @@ class RubricsController extends AppController
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {
+	{
     	$rubricsTable = TableRegistry::get('Rubrics');
     	$rubric = $rubricsTable->newEntity($this->request->data());
+    	 
     	if ($this->request->is('post')) {
     		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
     		$rubric->user_id = $this->Auth->user('id');
+    		//debug($this->request->data);
+    		//debug($this->request->data('name'));
+    
+    		$firstCriteria = $rubricsTable->RubricCriterias->newEntity();
+    		$firstCriteria->description = $this->request->data('rubric_criterias.description');
+    		
+    		 
+    		$secondCriteria = $rubricsTable->RubricCriterias->newEntity();
+    		$secondCriteria->description = 'Criterio 002';
+    		 
     		if ($rubricsTable->save($rubric)) {
     			$id = $rubric->id;
-    			$this->Flash->success(__('The rubric has been saved.'));    		
-    			return $this->redirect(['action' => 'edit', $id]);
-    		} else {
-    				$this->Flash->error(__('The rubric could not be saved. Please, try again.'));
+    			
+    			
+    			//$firstCriteria->rubric_id = $id;
+    			$rubricsTable->RubricCriterias->link($rubric, [$firstCriteria, $secondCriteria]);
+    
+    			$this->Flash->success(__('The rubric has been saved.'));
+    
+    			return $this->redirect(['action' => 'index']);
     		}
     	}
-    		
+    
     	$this->set(compact('rubric'));
     	$this->set('_serialize', ['rubric']);
-    }
+    } 
 
     /**
      * Edit method
@@ -87,9 +102,10 @@ class RubricsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
-            if ($this->Rubrics->save($rubric)) {
-                $this->Flash->success(__('The rubric has been saved.'));
 
+            if ($this->Rubrics->save($rubric)) {
+            	//debug($this->request->data);
+                $this->Flash->success(__('The rubric has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The rubric could not be saved. Please, try again.'));

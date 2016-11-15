@@ -230,3 +230,5 @@ Plugin::load('Cake/Localized');
 Plugin::load('Cake/Localized');
 
 Plugin::load('Cake/Localized');
+
+Plugin::load('BootstrapUI');

@@ -24,11 +24,14 @@
     </fieldset>
 </div>
 <div class="rubricCriterias form large-9 medium-8 columns content">
-    <?= $this->Form->create($rubricCriteria) ?>
     <fieldset>
         <legend><?= __('Add Rubric Criteria') ?></legend>
+        <?php echo $this->Form->create('Tag'); ?>
+    <?php echo $this->Form->input('Rubric.id', array('type' => 'hidden', 'value' => $recipe_id)); ?>
+    <?php echo $this->Form->input('Tag.name'); ?>
+<?php echo $this->Form->end('Add Tag'); ?>
         <?php
-            echo $this->Form->input('description');
+            echo $this->Form->input('rubric_criterias.description');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

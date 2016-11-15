@@ -11,7 +11,8 @@
         "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "*",
         "jacobkiers/oauth": "^1.0",
-        "cakephp/localized": "^3.0"
+        "cakephp/localized": "^3.0",
+        "friendsofcake/bootstrap-ui": "^0.5.1"
     },
     "require-dev": {
         "psy/psysh": "@stable",
