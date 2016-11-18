@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 use Cake\ORM\TableRegistry;
 use Cake\I18n\I18n;
 
@@ -29,6 +30,22 @@ class RubricsController extends AppController
 
         $this->set(compact('rubrics'));
         $this->set('_serialize', ['rubrics']);
+        /**
+         * Add in modal
+         */
+        $rubricsTable = TableRegistry::get('Rubrics');
+        $rubric = $rubricsTable->newEntity($this->request->data());
+        
+        if ($this->request->is('post')) {
+        	$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
+        	$rubric->user_id = $this->Auth->user('id');
+        	 
+        	if ($rubricsTable->save($rubric)) {
+        		$id = $rubric->id;        
+        		$this->Flash->success(__('The rubric has been saved.'));
+        		return $this->redirect(['action' => 'view', $id]);
+        	}
+        }
     }
 
     /**
@@ -41,52 +58,29 @@ class RubricsController extends AppController
     public function view($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => ['Users', 'Activities', 'RubricCriterias', 'RubricsItems']
+            'contain' => ['Users', 'Activities', 'RubricCriterias']
         ]);
-
         $this->set('rubric', $rubric);
+        
         $this->set('_serialize', ['rubric']);
+       
+        $c = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
+        debug($c); 
+        
+        
+        
+        /* $connection = ConnectionManager::get('default');
+        //consulta para obtener level
+        $criteria = $connection
+        ->execute('SELECT c.id, c.description, l.definition FROM rubric_levels l, rubric_criterias c WHERE l.rubric_criteria_id = c.id AND c.rubric_id = :id',
+        		['id' => $id])
+        		->fetchAll('assoc');
+        debug($criteria);
+        
+        $this->set($criteria);
+        $this->set($c); */
+        
     }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-	{
-    	$rubricsTable = TableRegistry::get('Rubrics');
-    	$rubric = $rubricsTable->newEntity($this->request->data());
-    	 
-    	if ($this->request->is('post')) {
-    		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
-    		$rubric->user_id = $this->Auth->user('id');
-    		//debug($this->request->data);
-    		//debug($this->request->data('name'));
-    
-    		$firstCriteria = $rubricsTable->RubricCriterias->newEntity();
-    		$firstCriteria->description = $this->request->data('rubric_criterias.description');
-    		
-    		 
-    		$secondCriteria = $rubricsTable->RubricCriterias->newEntity();
-    		$secondCriteria->description = 'Criterio 002';
-    		 
-    		if ($rubricsTable->save($rubric)) {
-    			$id = $rubric->id;
-    			
-    			
-    			//$firstCriteria->rubric_id = $id;
-    			$rubricsTable->RubricCriterias->link($rubric, [$firstCriteria, $secondCriteria]);
-    
-    			$this->Flash->success(__('The rubric has been saved.'));
-    
-    			return $this->redirect(['action' => 'index']);
-    		}
-    	}
-    
-    	$this->set(compact('rubric'));
-    	$this->set('_serialize', ['rubric']);
-    } 
 
     /**
      * Edit method
@@ -98,13 +92,12 @@ class RubricsController extends AppController
     public function edit($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => []
+            'contain' => ['Users', 'Activities', 'RubricCriterias', 'RubricsItems']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
 
             if ($this->Rubrics->save($rubric)) {
-            	//debug($this->request->data);
                 $this->Flash->success(__('The rubric has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -114,36 +107,6 @@ class RubricsController extends AppController
         $this->set(compact('rubric'));
         $this->set('_serialize', ['rubric']);
     }
-
-    /* public function add()
-    {
-    	$rubricsTable = TableRegistry::get('Rubrics');
-    	$rubric = $rubricsTable->newEntity($this->request->data());
-    	 
-    	if ($this->request->is('post')) {
-    		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
-    		$rubric->user_id = $this->Auth->user('id');
-    
-    		$firstCriteria = $rubricsTable->RubricCriterias->newEntity();
-    		$firstCriteria->description = 'Criterio 001';
-    		 
-    		$secondCriteria = $rubricsTable->RubricCriterias->newEntity();
-    		$secondCriteria->description = 'Criterio 002';
-    		 
-    		if ($rubricsTable->save($rubric)) {
-    			$id = $rubric->id;
-    			$rubricsTable->RubricCriterias->link($rubric, [$firstCriteria, $secondCriteria]);
-    
-    			$this->Flash->success(__('The rubric has been saved.'));
-    
-    			return $this->redirect(['action' => 'index']);
-    		}
-    	}
-    
-    	$this->set(compact('rubric'));
-    	$this->set('_serialize', ['rubric']);
-    } */
-    
     /**
      * Delete method
      *
@@ -162,5 +125,16 @@ class RubricsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+    //retornar nivel
+    public function level($level_id = null)
+    {
+    	$rubricLevel = $this->RubricLevels->get($id, [
+    			'contain' => ['RubricCriterias']
+    	]);
+    	$level = $rubricLevel->definition;
+    	$this->set($level);
+    	 
     }
 }

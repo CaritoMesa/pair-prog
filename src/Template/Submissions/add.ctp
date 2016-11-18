@@ -1,10 +1,3 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Submissions'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
 <div class="submissions form large-9 medium-8 columns content">
     <?= $this->Form->create($submission) ?>
     <fieldset>

@@ -39,7 +39,6 @@ class RubricCriteriasController extends AppController
         $rubricCriteria = $this->RubricCriterias->get($id, [
             'contain' => ['Rubrics', 'RubricLevels']
         ]);
-
         $this->set('rubricCriteria', $rubricCriteria);
         $this->set('_serialize', ['rubricCriteria']);
     }
@@ -49,21 +48,24 @@ class RubricCriteriasController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($rubric_id = null)
     {
         $rubricCriteria = $this->RubricCriterias->newEntity();
         if ($this->request->is('post')) {
             $rubricCriteria = $this->RubricCriterias->patchEntity($rubricCriteria, $this->request->data);
+            $rubricCriteria->rubric_id = $rubric_id;
             if ($this->RubricCriterias->save($rubricCriteria)) {
                 $this->Flash->success(__('The rubric criteria has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect([
+    					'controller' => 'Rubrics',
+    					'action' => 'view', $rubric_id
+				]);
             } else {
                 $this->Flash->error(__('The rubric criteria could not be saved. Please, try again.'));
             }
         }
-        $rubrics = $this->RubricCriterias->Rubrics->find('list', ['limit' => 200]);
-        $this->set(compact('rubricCriteria', 'rubrics'));
+        $this->set(compact('rubricCriteria'));
         $this->set('_serialize', ['rubricCriteria']);
     }
 

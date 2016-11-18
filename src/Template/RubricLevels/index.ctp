@@ -28,7 +28,7 @@
                 <td><?= h($rubricLevel->modiefied) ?></td>
                 <td><?= $rubricLevel->has('rubric_criteria') ? $this->Html->link($rubricLevel->rubric_criteria->id, ['controller' => 'RubricCriterias', 'action' => 'view', $rubricLevel->rubric_criteria->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $rubricLevel->id]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $rubricLevel->id],['class' => 'btn btn-sm btn-info']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubricLevel->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rubricLevel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubricLevel->id)]) ?>
                 </td>
@@ -39,7 +39,7 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before' => '','after' => '']) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>

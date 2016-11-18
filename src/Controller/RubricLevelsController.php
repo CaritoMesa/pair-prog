@@ -49,11 +49,12 @@ class RubricLevelsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($criteria_id = null)
     {
         $rubricLevel = $this->RubricLevels->newEntity();
         if ($this->request->is('post')) {
             $rubricLevel = $this->RubricLevels->patchEntity($rubricLevel, $this->request->data);
+            $rubricLevel->rubric_criteria_id = $criteria_id;
             if ($this->RubricLevels->save($rubricLevel)) {
                 $this->Flash->success(__('The rubric level has been saved.'));
 
@@ -62,8 +63,7 @@ class RubricLevelsController extends AppController
                 $this->Flash->error(__('The rubric level could not be saved. Please, try again.'));
             }
         }
-        $rubricCriterias = $this->RubricLevels->RubricCriterias->find('list', ['limit' => 200]);
-        $this->set(compact('rubricLevel', 'rubricCriterias'));
+        $this->set(compact('rubricLevel'));
         $this->set('_serialize', ['rubricLevel']);
     }
 
@@ -113,4 +113,7 @@ class RubricLevelsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
+    
+    
 }

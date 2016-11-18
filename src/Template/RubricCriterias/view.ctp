@@ -1,21 +1,19 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Rubric Criteria'), ['action' => 'edit', $rubricCriteria->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Rubric Criteria'), ['action' => 'delete', $rubricCriteria->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubricCriteria->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Rubric Criterias'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Rubric Criteria'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Rubric'), ['controller' => 'Rubrics', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Rubric Levels'), ['controller' => 'RubricLevels', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Rubric Level'), ['controller' => 'RubricLevels', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<!-- Volver -->
+<?= $this->Html->link(__('< Volver'), ['controller' => 'Rubrics', 'action' => 'index']) ?>
+<!-- Rubrica -->
+<h2><?= h($rubricCriteria->rubric->name) ?></h2>
+<h4><?= __('Description') ?></h4>
+<?= $this->Text->autoParagraph(h($rubricCriteria->rubric->description)); ?>
+
+<!-- Rubrica -->    
 <div class="rubricCriterias view large-9 medium-8 columns content">
-    <h3><?= h($rubricCriteria->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
-            <th><?= __('Rubric') ?></th>
+            <?php foreach ($rubric_criterias as $rubricCriterias): ?>
+            <th><?= __($rubricCriteria->description) ?></th>
+            <?php endforeach; ?>
+
+
             <td><?= $rubricCriteria->has('rubric') ? $this->Html->link($rubricCriteria->rubric->name, ['controller' => 'Rubrics', 'action' => 'view', $rubricCriteria->rubric->id]) : '' ?></td>
         </tr>
         <tr>
@@ -30,7 +28,7 @@
     <div class="related">
         <h4><?= __('Related Rubric Levels') ?></h4>
         <?php if (!empty($rubricCriteria->rubric_levels)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table" cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
                 <th><?= __('Definition') ?></th>

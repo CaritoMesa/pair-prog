@@ -9,7 +9,7 @@
         <h4><?= __('Related Submissions for',' ') ?>
         <?= h($this->request->session()->read('Auth.User.first_name')) ?></h4>
         <?php if (!empty($activity->submissions)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table" cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Submission') ?></th>
                 <th><?= __('Created') ?></th>
