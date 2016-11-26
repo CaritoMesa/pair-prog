@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\HasMany $Activities
  * @property \Cake\ORM\Association\HasMany $RubricCriterias
- * @property \Cake\ORM\Association\HasMany $RubricsItems
  *
  * @method \App\Model\Entity\Rubric get($primaryKey, $options = [])
  * @method \App\Model\Entity\Rubric newEntity($data = null, array $options = [])
@@ -42,6 +41,8 @@ class RubricsTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
+        
+        
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id'
@@ -52,11 +53,8 @@ class RubricsTable extends Table
         $this->hasMany('RubricCriterias', [
             'foreignKey' => 'rubric_id'
         ]);
-        $this->hasMany('RubricsItems', [
-            'foreignKey' => 'rubric_id'
-        ]);
     }
-
+  
     /**
      * Default validation rules.
      *

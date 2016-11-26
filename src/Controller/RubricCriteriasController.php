@@ -39,6 +39,7 @@ class RubricCriteriasController extends AppController
         $rubricCriteria = $this->RubricCriterias->get($id, [
             'contain' => ['Rubrics', 'RubricLevels']
         ]);
+        debug($rubricCriteria);
         $this->set('rubricCriteria', $rubricCriteria);
         $this->set('_serialize', ['rubricCriteria']);
     }

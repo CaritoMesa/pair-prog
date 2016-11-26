@@ -1,14 +1,6 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Rubric Level'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Rubric Criterias'), ['controller' => 'RubricCriterias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rubric Criteria'), ['controller' => 'RubricCriterias', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="rubricLevels index large-9 medium-8 columns content">
     <h3><?= __('Rubric Levels') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>

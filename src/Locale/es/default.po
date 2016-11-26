@@ -833,5 +833,14 @@ msgstr "de"
 msgid "Grade"
 msgstr "Calificar"
 
+msgid "New Rubric Criteria"
+msgstr "Agregar Criterio"
+
+msgid "Related Rubric Criterias"
+msgstr "Criterios Relacionados"
+
+msgid ""
+msgstr ""
+
 msgid ""
 msgstr ""

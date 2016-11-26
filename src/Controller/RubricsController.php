@@ -2,9 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Controller\RubricCriteriasController;
+use App\Controller\RubricLevelsController;
 use Cake\Datasource\ConnectionManager;
-use Cake\ORM\TableRegistry;
 use Cake\I18n\I18n;
+use Cake\ORM\TableRegistry;
 
 I18n::locale('es');
 
@@ -15,8 +17,7 @@ I18n::locale('es');
  */
 class RubricsController extends AppController
 {
-
-    /**
+	/**
      * Index method
      *
      * @return \Cake\Network\Response|null
@@ -58,27 +59,33 @@ class RubricsController extends AppController
     public function view($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => ['Users', 'Activities', 'RubricCriterias']
+            'contain' => ['RubricCriterias']
         ]);
-        $this->set('rubric', $rubric);
         
-        $this->set('_serialize', ['rubric']);
-       
-        $c = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
-        debug($c); 
+       	$c = $this->Rubrics->RubricCriterias->find()->where(['rubric_id' => $id])->contain(['Rubrics','RubricLevels'])->toArray();
+       	//$c = $this->Rubrics->RubricCriterias->RubricLevels->find()->where(['Rubrics.id' => $id])->toArray();
         
-        
-        
-        /* $connection = ConnectionManager::get('default');
-        //consulta para obtener level
-        $criteria = $connection
-        ->execute('SELECT c.id, c.description, l.definition FROM rubric_levels l, rubric_criterias c WHERE l.rubric_criteria_id = c.id AND c.rubric_id = :id',
-        		['id' => $id])
-        		->fetchAll('assoc');
-        debug($criteria);
-        
-        $this->set($criteria);
-        $this->set($c); */
+
+		/* foreach ($criteria as $criterias) {
+		    debug($criterias);
+		    foreach ($criterias->rubric_levels as $levels) {
+		    	debug($levels);
+		    }
+		}
+		debug($levels); 
+		 */
+        $criteria = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
+       	//debug($criteria);
+       	//$query = TableRegistry::get('RubricLevels')->find()->toArray();
+       	//debug($query);
+       	//debug($query[0]);
+       	
+        $this->set([
+        		'rubric' => $rubric,
+        		'criteria' => $criteria
+        ]);
+        $this->set('_serialize', ['rubric',
+        				'criteria']);
         
     }
 
