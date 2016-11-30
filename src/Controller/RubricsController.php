@@ -99,7 +99,7 @@ class RubricsController extends AppController
     public function edit($id = null)
     {
         $rubric = $this->Rubrics->get($id, [
-            'contain' => ['Users', 'Activities', 'RubricCriterias', 'RubricsItems']
+            'contain' => ['Users', 'Activities', 'RubricCriterias']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
@@ -134,14 +134,4 @@ class RubricsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    //retornar nivel
-    public function level($level_id = null)
-    {
-    	$rubricLevel = $this->RubricLevels->get($id, [
-    			'contain' => ['RubricCriterias']
-    	]);
-    	$level = $rubricLevel->definition;
-    	$this->set($level);
-    	 
-    }
 }

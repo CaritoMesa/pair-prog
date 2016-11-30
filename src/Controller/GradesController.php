@@ -19,7 +19,7 @@ class GradesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Submissions', 'RubricsItems']
+            'contain' => ['Submissions']
         ];
         $grades = $this->paginate($this->Grades);
 
@@ -37,7 +37,7 @@ class GradesController extends AppController
     public function view($id = null)
     {
         $grade = $this->Grades->get($id, [
-            'contain' => ['Submissions', 'RubricsItems']
+            'contain' => ['Submissions']
         ]);
 
         $this->set('grade', $grade);
@@ -64,7 +64,6 @@ class GradesController extends AppController
             }
         }
         $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
-        $rubricsItems = $this->Grades->RubricsItems->find('list', ['limit' => 200]);
         $this->set(compact('grade', 'submissions', 'rubricsItems'));
         $this->set('_serialize', ['grade']);
     }
@@ -92,7 +91,6 @@ class GradesController extends AppController
             }
         }
         $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
-        $rubricsItems = $this->Grades->RubricsItems->find('list', ['limit' => 200]);
         $this->set(compact('grade', 'submissions', 'rubricsItems'));
         $this->set('_serialize', ['grade']);
     }

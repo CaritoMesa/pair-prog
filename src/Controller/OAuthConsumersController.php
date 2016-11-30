@@ -28,23 +28,6 @@ class OAuthConsumersController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id O Auth Consumer id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $oAuthConsumer = $this->OAuthConsumers->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('oAuthConsumer', $oAuthConsumer);
-        $this->set('_serialize', ['oAuthConsumer']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.

@@ -11,11 +11,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property int $submission_id
- * @property int $rubrics_item_id
  * @property int $score
  *
  * @property \App\Model\Entity\Submission $submission
- * @property \App\Model\Entity\RubricsItem $rubrics_item
  */
 class Grade extends Entity
 {

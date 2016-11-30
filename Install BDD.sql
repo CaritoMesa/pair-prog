@@ -2,8 +2,8 @@
 -- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost:8889
--- Tiempo de generación: 27-09-2016 a las 18:32:33
+-- Servidor: localhost:3306
+-- Tiempo de generación: 26-11-2016 a las 16:57:25
 -- Versión del servidor: 5.5.42
 -- Versión de PHP: 5.6.10
 
@@ -98,7 +98,6 @@ CREATE TABLE `grades` (
   `created` date NOT NULL,
   `modified` date NOT NULL,
   `submission_id` int(11) NOT NULL,
-  `rubrics_item_id` int(11) NOT NULL,
   `score` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -133,7 +132,7 @@ CREATE TABLE `rubrics` (
   `created` date NOT NULL,
   `modified` date NOT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `rubrics`
@@ -141,30 +140,44 @@ CREATE TABLE `rubrics` (
 
 INSERT INTO `rubrics` (`id`, `name`, `created`, `modified`, `user_id`) VALUES
 (2, 'Pauta Evaluación 1ª Actividad', '2016-09-08', '2016-09-08', 1),
-(3, 'Pauta Solemne', '2016-09-27', '2016-09-27', 1);
+(3, 'Pauta Solemne', '2016-09-27', '2016-09-27', 1),
+(4, 'PTI - Hito 1', '2016-11-26', '2016-11-26', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rubrics_items`
+-- Estructura de tabla para la tabla `rubric_criterias`
 --
 
-CREATE TABLE `rubrics_items` (
+CREATE TABLE `rubric_criterias` (
   `id` int(11) NOT NULL,
-  `description` text NOT NULL COMMENT 'descripcion',
-  `weight` int(11) NOT NULL COMMENT 'valoracion',
-  `created` date NOT NULL,
-  `modified` date NOT NULL,
-  `rubric_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='items de rubrica para calificacion de actividades';
+  `description` text NOT NULL,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `rubric_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `rubrics_items`
+-- Volcado de datos para la tabla `rubric_criterias`
 --
 
-INSERT INTO `rubrics_items` (`id`, `description`, `weight`, `created`, `modified`, `rubric_id`) VALUES
-(1, 'se ejecuta', 20, '2016-09-07', '2016-09-07', 2),
-(2, 'realiza lo solicitado', 40, '2016-09-07', '2016-09-08', 2);
+INSERT INTO `rubric_criterias` (`id`, `description`, `created`, `modified`, `rubric_id`) VALUES
+(1, 'Esquema de la Solución', NULL, NULL, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rubric_levels`
+--
+
+CREATE TABLE `rubric_levels` (
+  `id` int(11) NOT NULL,
+  `definition` text NOT NULL,
+  `score` float NOT NULL,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `rubric_criteria_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -257,8 +270,7 @@ ALTER TABLE `assignments`
 --
 ALTER TABLE `grades`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `submission_id` (`submission_id`),
-  ADD KEY `rubrics_item_id` (`rubrics_item_id`);
+  ADD KEY `submission_id` (`submission_id`);
 
 --
 -- Indices de la tabla `o_auth_consumers`
@@ -274,11 +286,18 @@ ALTER TABLE `rubrics`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indices de la tabla `rubrics_items`
+-- Indices de la tabla `rubric_criterias`
 --
-ALTER TABLE `rubrics_items`
+ALTER TABLE `rubric_criterias`
   ADD PRIMARY KEY (`id`),
   ADD KEY `rubric_id` (`rubric_id`);
+
+--
+-- Indices de la tabla `rubric_levels`
+--
+ALTER TABLE `rubric_levels`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rubric_criteria_id` (`rubric_criteria_id`);
 
 --
 -- Indices de la tabla `submissions`
@@ -327,12 +346,17 @@ ALTER TABLE `o_auth_consumers`
 -- AUTO_INCREMENT de la tabla `rubrics`
 --
 ALTER TABLE `rubrics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `rubrics_items`
+-- AUTO_INCREMENT de la tabla `rubric_criterias`
 --
-ALTER TABLE `rubrics_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `rubric_criterias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `rubric_levels`
+--
+ALTER TABLE `rubric_levels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `submissions`
 --
@@ -365,8 +389,7 @@ ALTER TABLE `assignments`
 -- Filtros para la tabla `grades`
 --
 ALTER TABLE `grades`
-  ADD CONSTRAINT `entrega_calificacion` FOREIGN KEY (`submission_id`) REFERENCES `submissions` (`id`),
-  ADD CONSTRAINT `rubricitem` FOREIGN KEY (`rubrics_item_id`) REFERENCES `rubrics_items` (`id`);
+  ADD CONSTRAINT `entrega_calificacion` FOREIGN KEY (`submission_id`) REFERENCES `submissions` (`id`);
 
 --
 -- Filtros para la tabla `rubrics`
@@ -375,10 +398,16 @@ ALTER TABLE `rubrics`
   ADD CONSTRAINT `usariocreador` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `rubrics_items`
+-- Filtros para la tabla `rubric_criterias`
 --
-ALTER TABLE `rubrics_items`
-  ADD CONSTRAINT `itemsderubrica` FOREIGN KEY (`rubric_id`) REFERENCES `rubrics` (`id`);
+ALTER TABLE `rubric_criterias`
+  ADD CONSTRAINT `rubrica` FOREIGN KEY (`rubric_id`) REFERENCES `rubrics` (`id`);
+
+--
+-- Filtros para la tabla `rubric_levels`
+--
+ALTER TABLE `rubric_levels`
+  ADD CONSTRAINT `criterio` FOREIGN KEY (`rubric_criteria_id`) REFERENCES `rubric_criterias` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `submissions`

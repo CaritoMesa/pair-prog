@@ -3,23 +3,12 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-/**
- * OAuthConsumersFixture
- *
- */
 class OAuthConsumersFixture extends TestFixture
 {
-
-    /**
-     * Fields
-     *
-     * @var array
-     */
-    // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'key' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'secret' => ['type' => 'string', 'length' => 2048, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'key' => ['type' => 'text', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
+        'secret' => ['type' => 'text', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -28,18 +17,22 @@ class OAuthConsumersFixture extends TestFixture
             'collation' => 'utf8_general_ci'
         ],
     ];
-    // @codingStandardsIgnoreEnd
 
     /**
-     * Records
+     * Records -> Error SQL al traspasar datos
      *
      * @var array
      */
-    public $records = [
-        [
-            'id' => 1,
-            'key' => 'Lorem ipsum dolor sit amet',
-            'secret' => 'Lorem ipsum dolor sit amet'
-        ],
-    ];
+    /*public $records = [
+    		[
+    				'id' => 1,
+    				'key' => 'key',
+    				'secret' => 'secreto'
+    		],
+    		[
+    		'id' => 2,
+    		'key' => '',
+    		'secret' => ''
+    				]
+    ];*/
 }

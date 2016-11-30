@@ -45,7 +45,7 @@ class RubricLevelsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'definition' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+            'definition' => 'Resuelve solo 1 item del problema.',
             'score' => 1.5,
             'created' => '2016-11-09',
             'modiefied' => '2016-11-09',

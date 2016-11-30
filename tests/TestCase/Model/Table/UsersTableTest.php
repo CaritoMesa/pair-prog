@@ -4,34 +4,17 @@ namespace App\Test\TestCase\Model\Table;
 use App\Model\Table\UsersTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
+use App\Model\Entity\User;
 
-/**
- * App\Model\Table\UsersTable Test Case
- */
 class UsersTableTest extends TestCase
 {
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\UsersTable
-     */
     public $Users;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
     public $fixtures = [
         'app.users'
     ];
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
@@ -39,35 +22,49 @@ class UsersTableTest extends TestCase
         $this->Users = TableRegistry::get('Users', $config);
     }
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
     public function tearDown()
     {
         unset($this->Users);
-
         parent::tearDown();
     }
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    
+    public function testValidationRegistroWeb() 
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $postData = array(
+            'id' => 1, 
+            'first_name' => 'Javier',
+            'last_name' => 'Gonzalez',
+            'email' => 'jgonzalez@lti.cl',
+            'username' => 'jgonzalez',
+            'password' => 'jgonzalez',
+            'created' => '2016-09-07 02:17:43',
+            'modified' => '2016-09-07 02:17:43'
+      );
+      $result = $this->Users->newEntity($postData);  
+      $this->assertFalse(empty($result));
+      $this->assertTrue(is_integer($postData['id']));
+      $this->assertFalse(is_null($postData['first_name']));
+      $this->assertFalse(is_null($postData['last_name']));
+      $this->assertFalse(is_null($postData['username']));
+      $this->assertFalse(is_null($postData['password']));
+    }
+	
+    public function testValidationRegistroLTI()
+    {
+    	$postData = array(
+    			'id' => 2,
+	            'first_name' => 'María',
+	            'last_name' => 'Fernandez',
+	            'lti_user_id' => 2,
+	            'email' => 'lmet@lti.cl',
+	            'username' => 'mfernandez',
+	            'created' => '2016-09-07 02:17:43',
+	            'modified' => '2016-09-07 02:17:43'
+    	);
+    	$result = $this->Users->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertTrue(is_null($postData['password']));
     }
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

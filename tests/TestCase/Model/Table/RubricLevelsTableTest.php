@@ -5,24 +5,11 @@ use App\Model\Table\RubricLevelsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
-/**
- * App\Model\Table\RubricLevelsTable Test Case
- */
 class RubricLevelsTableTest extends TestCase
 {
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\RubricLevelsTable
-     */
     public $RubricLevels;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
     public $fixtures = [
         'app.rubric_levels',
         'app.rubric_criterias',
@@ -31,15 +18,9 @@ class RubricLevelsTableTest extends TestCase
         'app.activities',
         'app.activities_groups',
         'app.submissions',
-        'app.grades',
-        'app.rubrics_items'
+        'app.grades'
     ];
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
@@ -47,11 +28,6 @@ class RubricLevelsTableTest extends TestCase
         $this->RubricLevels = TableRegistry::get('RubricLevels', $config);
     }
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
     public function tearDown()
     {
         unset($this->RubricLevels);
@@ -59,31 +35,23 @@ class RubricLevelsTableTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    public function testValidation()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    			'id' => 1,
+            	'definition' => 'Resuelve solo 1 item del problema.',
+            	'score' => 1.5,
+            	'created' => '2016-11-09',
+            	'modiefied' => '2016-11-09',
+            	'rubric_criteria_id' => 1
+    	);
+    	$result = $this->RubricLevels->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['definition']));
+    	$this->assertFalse(is_null($postData['score']));
     }
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
     public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');

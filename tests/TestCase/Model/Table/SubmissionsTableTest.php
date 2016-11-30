@@ -5,39 +5,20 @@ use App\Model\Table\SubmissionsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
-/**
- * App\Model\Table\SubmissionsTable Test Case
- */
 class SubmissionsTableTest extends TestCase
 {
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\SubmissionsTable
-     */
     public $Submissions;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
     public $fixtures = [
         'app.submissions',
         'app.activities',
         'app.users',
         'app.activities_groups',
         'app.rubrics',
-        'app.grades',
-        'app.rubrics_items'
+        'app.grades'
     ];
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
@@ -45,11 +26,6 @@ class SubmissionsTableTest extends TestCase
         $this->Submissions = TableRegistry::get('Submissions', $config);
     }
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
     public function tearDown()
     {
         unset($this->Submissions);
@@ -57,24 +33,18 @@ class SubmissionsTableTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    public function testValidationOk() 
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $postData = array(
+            'id' => 1,
+            'submission' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+            'created' => '2016-09-27 00:54:11',
+            'modified' => '2016-09-27 00:54:11',
+            'user_id' => 1,
+            'activity_id' => 1
+      );
+      $result = $this->Submissions->newEntity($postData);  
+      $this->assertFalse(empty($result));
     }
 
     /**

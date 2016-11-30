@@ -21,8 +21,7 @@ class GradesControllerTest extends IntegrationTestCase
         'app.users',
         'app.activities',
         'app.activities_groups',
-        'app.rubrics',
-        'app.rubrics_items'
+        'app.rubrics'
     ];
 
     /**

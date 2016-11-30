@@ -5,24 +5,11 @@ use App\Model\Table\RubricsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
-/**
- * App\Model\Table\RubricsTable Test Case
- */
 class RubricsTableTest extends TestCase
 {
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\RubricsTable
-     */
     public $Rubrics;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
     public $fixtures = [
         'app.rubrics',
         'app.users',
@@ -30,16 +17,10 @@ class RubricsTableTest extends TestCase
         'app.activities_groups',
         'app.submissions',
         'app.grades',
-        'app.rubrics_items',
         'app.rubric_criterias',
         'app.rubric_levels'
     ];
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
@@ -47,11 +28,6 @@ class RubricsTableTest extends TestCase
         $this->Rubrics = TableRegistry::get('Rubrics', $config);
     }
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
     public function tearDown()
     {
         unset($this->Rubrics);
@@ -59,24 +35,18 @@ class RubricsTableTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    public function testValidationOk() 
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $postData = array(
+            'id' => 1,
+            'name' => 'Rubrica 1',
+            'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+            'created' => '2016-11-09',
+            'modified' => '2016-11-09',
+            'user_id' => 1
+      );
+      $result = $this->Rubrics->newEntity($postData);  
+      $this->assertFalse(empty($result));
     }
 
     /**

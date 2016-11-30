@@ -5,24 +5,11 @@ use App\Model\Table\RubricCriteriasTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
-/**
- * App\Model\Table\RubricCriteriasTable Test Case
- */
 class RubricCriteriasTableTest extends TestCase
 {
 
-    /**
-     * Test subject
-     *
-     * @var \App\Model\Table\RubricCriteriasTable
-     */
     public $RubricCriterias;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
     public $fixtures = [
         'app.rubric_criterias',
         'app.rubrics',
@@ -31,15 +18,9 @@ class RubricCriteriasTableTest extends TestCase
         'app.activities_groups',
         'app.submissions',
         'app.grades',
-        'app.rubrics_items',
         'app.rubric_levels'
     ];
 
-    /**
-     * setUp method
-     *
-     * @return void
-     */
     public function setUp()
     {
         parent::setUp();
@@ -47,11 +28,6 @@ class RubricCriteriasTableTest extends TestCase
         $this->RubricCriterias = TableRegistry::get('RubricCriterias', $config);
     }
 
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
     public function tearDown()
     {
         unset($this->RubricCriterias);
@@ -59,25 +35,19 @@ class RubricCriteriasTableTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    public function testValidation()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    			'id' => 1,
+	            'description' => 'Resuelve problema propuesto.',
+	            'rubric_id' => 1
+    	);
+    	$result = $this->RubricCriterias->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['description']));
     }
-
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+    
 
     /**
      * Test buildRules method

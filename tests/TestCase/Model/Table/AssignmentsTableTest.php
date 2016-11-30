@@ -30,8 +30,7 @@ class AssignmentsTableTest extends TestCase
         'app.users',
         'app.rubrics',
         'app.grades',
-        'app.submissions',
-        'app.rubrics_items'
+        'app.submissions'
     ];
 
     /**

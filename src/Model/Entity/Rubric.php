@@ -16,7 +16,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Activity[] $activities
  * @property \App\Model\Entity\RubricCriteria[] $rubric_criterias
- * @property \App\Model\Entity\RubricsItem[] $rubrics_items
  */
 class Rubric extends Entity
 {

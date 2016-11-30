@@ -42,7 +42,7 @@ class RubricCriteriasFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+            'description' => 'Resuelve problema propuesto.',
             'rubric_id' => 1
         ],
     ];

@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\I18n;
+use Cake\Network\Exception\NotFoundException;
 
 I18n::locale('es');
 

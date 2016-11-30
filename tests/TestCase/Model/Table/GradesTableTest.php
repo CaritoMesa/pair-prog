@@ -29,8 +29,7 @@ class GradesTableTest extends TestCase
         'app.users',
         'app.activities',
         'app.activities_groups',
-        'app.rubrics',
-        'app.rubrics_items'
+        'app.rubrics'
     ];
 
     /**

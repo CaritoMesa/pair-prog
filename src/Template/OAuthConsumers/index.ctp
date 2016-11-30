@@ -16,7 +16,6 @@
                 <td><?= h($oAuthConsumer->key) ?></td>
                 <td><?= h($oAuthConsumer->secret) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $oAuthConsumer->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $oAuthConsumer->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $oAuthConsumer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $oAuthConsumer->id)]) ?>
                 </td>
@@ -30,6 +29,5 @@
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

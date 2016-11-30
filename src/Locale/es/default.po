@@ -136,7 +136,7 @@ msgstr "El Usuario no se pudo guardar. Por favor, inténtelo nuevamente."
 
 #: Controller/UsersController.php:103
 msgid "Usuario eliminado."
-msgstr "El Usuario"
+msgstr "El Usuario ha sido eliminado"
 
 #: Controller/UsersController.php:105
 msgid "Usuario no eliminado. Por favor, intente nuevamente."
@@ -838,6 +838,12 @@ msgstr "Agregar Criterio"
 
 msgid "Related Rubric Criterias"
 msgstr "Criterios Relacionados"
+
+msgid "List Consumer LTI"
+msgstr "Lista de Consumidores LTI"
+
+msgid "New Consumer LTI"
+msgstr "Nuevo Consumidor LTI"
 
 msgid ""
 msgstr ""

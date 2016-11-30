@@ -22,8 +22,7 @@ class AssignmentsControllerTest extends IntegrationTestCase
         'app.users',
         'app.rubrics',
         'app.grades',
-        'app.submissions',
-        'app.rubrics_items'
+        'app.submissions'
     ];
 
     /**

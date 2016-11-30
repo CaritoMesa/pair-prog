@@ -38,8 +38,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= __('LTI')?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?= $this->Html->link(__('List O Auth Consumer'), ['controller' => 'OAuthConsumers', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('New O Auth Consumer'), ['controller' => 'OAuthConsumers', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Consumer LTI'), ['controller' => 'OAuthConsumers', 'action' => 'index']) ?></li>
+            <li><?= $this->Html->link(__('New Consumer LTI'), ['controller' => 'OAuthConsumers', 'action' => 'add']) ?></li>
           </ul>
         </li>
 

@@ -2,16 +2,15 @@
 
 namespace App\Auth;
 
+use Cake\Auth\BaseAuthenticate;
 use Cake\Network\Request;
 use Cake\Network\Response;
-use Cake\Network\Exception\ForbiddenException;
-use Cake\Auth\BaseAuthenticate;
 use Cake\ORM\TableRegistry;
 
+use JacobKiers\OAuth\OAuthException;
+use JacobKiers\OAuth\Request\Request as OAuthRequest;
 use JacobKiers\OAuth\Server;
 use JacobKiers\OAuth\SignatureMethod\HmacSha1;
-use JacobKiers\OAuth\Request\Request as OAuthRequest;
-use JacobKiers\OAuth\OAuthException;
 
 class LtiAuthenticate extends BaseAuthenticate 
 {
@@ -52,7 +51,7 @@ class LtiAuthenticate extends BaseAuthenticate
                 'first_name' => $request->getParameter('lis_person_name_given'),
                 'last_name' => $request->getParameter('lis_person_name_family'),
                 'lti_user_id' => $request->getParameter('user_id'),
-                'username' => $request->getParameter('user_id')
+                'username' => $request->getParameter('username')
             ]);
 
             if ($user->errors()) {
@@ -62,34 +61,6 @@ class LtiAuthenticate extends BaseAuthenticate
             $users->save($user);
         }
 
-        //En este punto, puede dar los permisos de usuario, que recibieron
-        //debido al hecho de que iniciar sesión para usar la plataforma educativa
-        //Lti. Sobre la base de la custom_access parámetro, podemos asignar al usuario
-        //ciertos poderes (por ej. el acceso al número de material 99)
-        //Código de la muestra **podría** tener este aspecto
-        //
-        //if ($request->getParameter('custom_access') == 'material-nr-99') {
-        //  $user->allowAccessToMaterial(99)
-        //}
-        //
-        //$users->save($user)
-        //
-        //Sin embargo, en este ejemplo simplificado la tecla "custom_access 'es simplemente
-        //ista de los nombres de los materiales (sitios web, artículos, sin embargo, no nombrarlos) 
-        //(Separados por comas) a la que el usuario recibirá el acceso
-        //
-        //es decir, si el sistema de educación se establece
-        //access=material0,material1
-        //
-        //Este usuario tendrá acceso a las páginas:
-        // /pages/material0
-        // /pages/material1
-        //
-        //Además, en este ejemplo simplificado que damos el permiso solamente
-        //la duración de la sesión y, por tanto, no se almacenan en la base de datos, solamente
-        //sesión
-        //
-        // La autenticación se implementa en PagesController::isAuthorized
         $hasAccessTo = explode(',', $request->getParameter('custom_access'));
 
         foreach ($hasAccessTo as $key => $value) {

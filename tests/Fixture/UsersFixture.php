@@ -3,19 +3,9 @@ namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
-/**
- * UsersFixture
- *
- */
 class UsersFixture extends TestFixture
 {
 
-    /**
-     * Fields
-     *
-     * @var array
-     */
-    // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'first_name' => ['type' => 'string', 'length' => 30, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -35,24 +25,28 @@ class UsersFixture extends TestFixture
             'collation' => 'utf8_general_ci'
         ],
     ];
-    // @codingStandardsIgnoreEnd
 
-    /**
-     * Records
-     *
-     * @var array
-     */
     public $records = [
         [
             'id' => 1,
-            'first_name' => 'Lorem ipsum dolor sit amet',
-            'last_name' => 'Lorem ipsum dolor sit amet',
+            'first_name' => 'Javier',
+            'last_name' => 'Gonzalez',
             'lti_user_id' => 1,
-            'email' => 'Lorem ipsum dolor sit amet',
-            'username' => 'Lorem ipsum dolor ',
-            'password' => 'Lorem ipsum dolor sit amet',
+            'email' => 'jgonzalez@lti.cl',
+            'username' => 'jgonzalez',
+            'password' => 'jgonzalez',
             'created' => '2016-09-07 02:17:43',
             'modified' => '2016-09-07 02:17:43'
         ],
+        [
+            'id' => 2,
+            'first_name' => 'María',
+            'last_name' => 'Fernandez',
+            'lti_user_id' => 2,
+            'email' => 'lmet@lti.cl',
+            'username' => 'mfernandez',
+            'created' => '2016-09-07 02:17:43',
+            'modified' => '2016-09-07 02:17:43'
+        ]
     ];
 }

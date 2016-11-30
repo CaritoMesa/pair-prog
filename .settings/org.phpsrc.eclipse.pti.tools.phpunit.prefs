@@ -1,0 +1,10 @@
+bootstrap=/pair-prog/tests/bootstrap.php
+debug_print_output=true
+eclipse.preferences.version=1
+generate_code_coverage=true
+pear_library=Pear
+php_executable=zend
+source_file_pattern_folder=
+test_file_pattern_file=%fTest.%e
+test_file_pattern_folder=/%p/tests/%d
+test_file_super_class=PHPUnit_Framework_TestCase
