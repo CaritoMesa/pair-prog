@@ -9,9 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Assignments Model
  *
- * @property \Cake\ORM\Association\BelongsTo $ActivitiesGroups
- * @property \Cake\ORM\Association\BelongsTo $Activities
  * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\BelongsTo $Groups
  *
  * @method \App\Model\Entity\Assignment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Assignment newEntity($data = null, array $options = [])
@@ -42,17 +41,11 @@ class AssignmentsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('ActivitiesGroups', [
-            'foreignKey' => 'activities_group_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Activities', [
-            'foreignKey' => 'activity_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'user_id'
+        ]);
+        $this->belongsTo('Groups', [
+            'foreignKey' => 'group_id'
         ]);
     }
 
@@ -80,9 +73,8 @@ class AssignmentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['activities_group_id'], 'ActivitiesGroups'));
-        $rules->add($rules->existsIn(['activity_id'], 'Activities'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['group_id'], 'Groups'));
 
         return $rules;
     }

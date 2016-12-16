@@ -48,23 +48,5 @@ class UsersTableTest extends TestCase
       $this->assertFalse(is_null($postData['username']));
       $this->assertFalse(is_null($postData['password']));
     }
-	
-    public function testValidationRegistroLTI()
-    {
-    	$postData = array(
-    			'id' => 2,
-	            'first_name' => 'María',
-	            'last_name' => 'Fernandez',
-	            'lti_user_id' => 2,
-	            'email' => 'lmet@lti.cl',
-	            'username' => 'mfernandez',
-	            'created' => '2016-09-07 02:17:43',
-	            'modified' => '2016-09-07 02:17:43'
-    	);
-    	$result = $this->Users->newEntity($postData);
-    	$this->assertFalse(empty($result));
-    	$this->assertTrue(is_integer($postData['id']));
-    	$this->assertTrue(is_null($postData['password']));
-    }
 
 }

@@ -12,14 +12,19 @@
         "cakephp/plugin-installer": "*",
         "jacobkiers/oauth": "^1.0",
         "cakephp/localized": "^3.0",
-        "friendsofcake/bootstrap-ui": "^0.5.1"
+        "friendsofcake/bootstrap-ui": "^0.5.1",
+        "pdepend/pdepend" : "2.3.2",
+        "phpunit/phpunit-selenium": "^3.0",
+        "phpunit/phpunit": "^5.7",
+        "facebook/webdriver": "^1.2"
     },
     "require-dev": {
         "psy/psysh": "@stable",
         "cakephp/debug_kit": "~3.2",
         "cakephp/bake": "~1.1",
-        "phpunit/phpunit": "^5.6",
-        "phpunit/php-code-coverage": "^4.0"
+        "phpunit/php-code-coverage": "^4.0",
+        "phpunit/phpunit": "*",
+        "phpmd/phpmd" : "@stable"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",

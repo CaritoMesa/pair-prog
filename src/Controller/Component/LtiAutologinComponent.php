@@ -2,16 +2,18 @@
 namespace App\Controller\Component;
 
 use Cake\Controller\Component;
-use Cake\Controller\ComponentRegistry;
 use Cake\Event\Event;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * LtiLogin component
  *
- * Odpowiada za logowanie użytkownika
- * jeżeli zapytanie jest zapytaniem lti.
+ * Responsable de inicio de sesión de usuario
+ * si la consulta está pidiendo lti.
  *
- * Jeżeli użytkownik był wcześniej zalogowany zostanie wylogowany
+ * Si había iniciado una sesión previamente será sacado fuera
  */
 class LtiAutologinComponent extends Component
 {

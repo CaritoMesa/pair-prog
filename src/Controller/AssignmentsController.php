@@ -2,6 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
+
 
 /**
  * Assignments Controller
@@ -19,7 +24,7 @@ class AssignmentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ActivitiesGroups', 'Activities', 'Users']
+            'contain' => ['Users', 'Groups']
         ];
         $assignments = $this->paginate($this->Assignments);
 
@@ -37,7 +42,7 @@ class AssignmentsController extends AppController
     public function view($id = null)
     {
         $assignment = $this->Assignments->get($id, [
-            'contain' => ['ActivitiesGroups', 'Activities', 'Users']
+            'contain' => ['Users', 'Groups']
         ]);
 
         $this->set('assignment', $assignment);
@@ -49,7 +54,7 @@ class AssignmentsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($group_id = null)
     {
         $assignment = $this->Assignments->newEntity();
         if ($this->request->is('post')) {
@@ -62,10 +67,9 @@ class AssignmentsController extends AppController
                 $this->Flash->error(__('The assignment could not be saved. Please, try again.'));
             }
         }
-        $activitiesGroups = $this->Assignments->ActivitiesGroups->find('list', ['limit' => 200]);
-        $activities = $this->Assignments->Activities->find('list', ['limit' => 200]);
         $users = $this->Assignments->Users->find('list', ['limit' => 200]);
-        $this->set(compact('assignment', 'activitiesGroups', 'activities', 'users'));
+        $groups = $this->Assignments->Groups->find('list', ['limit' => 200]);
+        $this->set(compact('assignment', 'users', 'groups'));
         $this->set('_serialize', ['assignment']);
     }
 
@@ -75,12 +79,22 @@ class AssignmentsController extends AppController
      * @param string|null $id Assignment id.
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * 
+     * TRABAJANDO AQUI ......
      */
-    public function edit($id = null)
+    public function edit($group_id = null)
     {
-        $assignment = $this->Assignments->get($id, [
-            'contain' => []
-        ]);
+    	$groups = TableRegistry::get('Groups');
+    	$group = $groups->get($group_id);
+    	$this->set('group', $group);
+    	
+    	$assignments = $this->Assignments->find()
+    				->where(['group_id' => $group_id])
+    				->contain(['Users','Groups']);
+    	$this->set('assignments', $assignments); 
+    	
+/* 		
+		
         if ($this->request->is(['patch', 'post', 'put'])) {
             $assignment = $this->Assignments->patchEntity($assignment, $this->request->data);
             if ($this->Assignments->save($assignment)) {
@@ -90,11 +104,24 @@ class AssignmentsController extends AppController
             } else {
                 $this->Flash->error(__('The assignment could not be saved. Please, try again.'));
             }
+        } */
+        
+        
+        
+        /**
+         * Add in modal 1
+         */
+        $save_participant = $this->Assignments->newEntity($this->request->data());
+         
+        if ($this->request->is('post')) {
+        	$save_participant = $this->Assignments->patchEntity($save_participant, $this->request->data);
+        	$save_participant->group_id = $group_id;
+        	if ($this->Assignments->save($save_participant)) {
+        		$this->Flash->success(__('The participant has been saved.'));
+        	}
         }
-        $activitiesGroups = $this->Assignments->ActivitiesGroups->find('list', ['limit' => 200]);
-        $activities = $this->Assignments->Activities->find('list', ['limit' => 200]);
-        $users = $this->Assignments->Users->find('list', ['limit' => 200]);
-        $this->set(compact('assignment', 'activitiesGroups', 'activities', 'users'));
+        $users = $this->Assignments->Users->find('list');
+        $this->set(compact('assignment', 'users'));
         $this->set('_serialize', ['assignment']);
     }
 
@@ -115,28 +142,6 @@ class AssignmentsController extends AppController
             $this->Flash->error(__('The assignment could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
-    }
-    
-    public function submit($idGA = null)
-    {	
-    	/* $id = $assignments ->find('all', [
-    		'conditions' => ['Assignments.activities_group_id >' => $idGA , 
-    							'Assignments.user_id >' => $this->Auth->user('id')],
-    			'contain' => ['id']
-		]);
-    	$assignment = $this->Assignments->get($id, [
-    			'contain' => []
-    	]);
-        $assignment = $this->Assignments->patchEntity($assignment, $this->request->data);
-        if ($this->Assignments->save($assignment)) {
-        	$this->Flash->success(__('The assignment has been saved.'));
-            return $this->redirect(['action' => 'index']);
-        } else {
-        	$this->Flash->error(__('The assignment could not be saved. Please, try again.'));
-        }
-       
-        $this->set(compact('assignment'));
-        $this->set('_serialize', ['assignment']); */
+        return $this->redirect(['controller' => 'Assignments', 'action' => 'edit', $assignment->group_id]);
     }
 }

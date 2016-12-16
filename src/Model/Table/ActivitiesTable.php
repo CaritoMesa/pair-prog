@@ -1,13 +1,10 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\Localized\Validation\FrValidation;
 use Cake\Validation\Validator;
-use Cake\I18n\I18n;
-
-I18n::locale('es');
 
 /**
  * Activities Model
@@ -15,6 +12,7 @@ I18n::locale('es');
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $ActivitiesGroups
  * @property \Cake\ORM\Association\BelongsTo $Rubrics
+ * @property \Cake\ORM\Association\HasMany $Groups
  * @property \Cake\ORM\Association\HasMany $Submissions
  *
  * @method \App\Model\Entity\Activity get($primaryKey, $options = [])
@@ -56,9 +54,13 @@ class ActivitiesTable extends Table
         $this->belongsTo('Rubrics', [
             'foreignKey' => 'rubric_id'
         ]);
+        $this->hasMany('Groups', [
+            'foreignKey' => 'activity_id'
+        ]);
         $this->hasMany('Submissions', [
             'foreignKey' => 'activity_id'
         ]);
+       
     }
 
     /**

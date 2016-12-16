@@ -17,12 +17,15 @@ class AssignmentsControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.assignments',
-        'app.activities_groups',
-        'app.activities',
         'app.users',
+        'app.groups',
+        'app.activities',
+        'app.activities_groups',
         'app.rubrics',
-        'app.grades',
-        'app.submissions'
+        'app.rubric_criterias',
+        'app.rubric_levels',
+        'app.submissions',
+        'app.grades'
     ];
 
     /**

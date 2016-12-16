@@ -10,14 +10,6 @@ use JacobKiers\OAuth\Token\TokenInterface;
 
 use Cake\ORM\TableRegistry;
 
-/**
- * Odpowiada za przechowywanie secretów dla
- * danych consumerów. Consumerem może być system eedukacyjny (Canvas, Moodle, ...)
- *
- * Nie wspiera tokenów - OAuth użyty w LTI jest w wariancie 2-legged 
- * (niektórzy mówią nawet o 1-legged). Jedyna procedura jaka jest przeprowadzana
- * to weryfikacja podpisu, podczas pierwszego zapytania.
- */
 class DatabaseDataStore implements DataStoreInterface
 {
     public function lookupConsumer($key)

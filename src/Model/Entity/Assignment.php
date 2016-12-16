@@ -9,13 +9,11 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property int $activities_group_id
- * @property int $activity_id
  * @property int $user_id
+ * @property int $group_id
  *
- * @property \App\Model\Entity\ActivitiesGroup $activities_group
- * @property \App\Model\Entity\Activity $activity
  * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Group $group
  */
 class Assignment extends Entity
 {

@@ -99,14 +99,6 @@ class PagesController extends AppController
         if ($path[0] == 'material1') {
             return in_array('material1', $access);
         }
-
-        if ($path[0] == 'material2') {
-            return in_array('material2', $access);
-        }
-
-        if ($path[0] == 'material3') {
-            return in_array('material3', $access);
-        }
         
         if ($path[0] == 'view') {
         	return in_array('view', $access);

@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-//use Cake\Core\Configure;
 use Cake\I18n\I18n;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
@@ -121,7 +120,10 @@ public function add()
 
         return $this->redirect(['action' => 'index']);
     }
-    
+    /** 
+     * Metodo para las entregas
+     * Se agrega al LMS
+     */
     public function submit($id = null)
     {
     	$activity = $this->Activities->get($id, [
