@@ -90,24 +90,9 @@ class AssignmentsController extends AppController
     	
     	$assignments = $this->Assignments->find()
     				->where(['group_id' => $group_id])
-    				->contain(['Users','Groups']);
+    				->contain(['Users','Groups','Roles']);
     	$this->set('assignments', $assignments); 
     	
-/* 		
-		
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $assignment = $this->Assignments->patchEntity($assignment, $this->request->data);
-            if ($this->Assignments->save($assignment)) {
-                $this->Flash->success(__('The assignment has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The assignment could not be saved. Please, try again.'));
-            }
-        } */
-        
-        
-        
         /**
          * Add in modal 1
          */
@@ -121,7 +106,8 @@ class AssignmentsController extends AppController
         	}
         }
         $users = $this->Assignments->Users->find('list');
-        $this->set(compact('assignment', 'users'));
+        $roles = $this->Assignments->Roles->find('list');
+        $this->set(compact('assignment', 'users', 'roles'));
         $this->set('_serialize', ['assignment']);
     }
 
