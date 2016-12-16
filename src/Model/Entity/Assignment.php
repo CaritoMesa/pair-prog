@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $modified
  * @property int $user_id
  * @property int $group_id
+ * @property int $role_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Group $group

@@ -4,7 +4,6 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\I18n\I18n;
 use Cake\Network\Exception\NotFoundException;
-use Cake\View\Exception\MissingTemplateException;
 
 I18n::locale('es');
 

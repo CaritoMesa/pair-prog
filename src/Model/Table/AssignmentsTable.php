@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $Groups
+ * @property \Cake\ORM\Association\BelongsTo $Roles
  *
  * @method \App\Model\Entity\Assignment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Assignment newEntity($data = null, array $options = [])
@@ -47,6 +48,9 @@ class AssignmentsTable extends Table
         $this->belongsTo('Groups', [
             'foreignKey' => 'group_id'
         ]);
+        $this->belongsTo('Roles', [
+            'foreignKey' => 'role_id'
+        ]);
     }
 
     /**
@@ -75,6 +79,7 @@ class AssignmentsTable extends Table
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
+        $rules->add($rules->existsIn(['role_id'], 'Roles'));
 
         return $rules;
     }

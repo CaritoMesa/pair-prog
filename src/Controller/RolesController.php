@@ -2,6 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\I18n;
+
+I18n::locale('es');
 
 /**
  * Roles Controller
@@ -22,23 +25,6 @@ class RolesController extends AppController
 
         $this->set(compact('roles'));
         $this->set('_serialize', ['roles']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Role id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $role = $this->Roles->get($id, [
-            'contain' => ['Assignments']
-        ]);
-
-        $this->set('role', $role);
-        $this->set('_serialize', ['role']);
     }
 
     /**
