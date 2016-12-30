@@ -12,6 +12,13 @@ use JacobKiers\OAuth\Request\Request as OAuthRequest;
 use JacobKiers\OAuth\Server;
 use JacobKiers\OAuth\SignatureMethod\HmacSha1;
 
+/**
+ * Metodos:
+ * authenticate
+ * unauthenticated
+ * _createOAuthServer()
+ * _getOAuthRequest()
+ **/
 class LtiAuthenticate extends BaseAuthenticate 
 {
     public function authenticate(Request $_unused, Response $response) 
@@ -24,7 +31,9 @@ class LtiAuthenticate extends BaseAuthenticate
         } catch (OAuthException $e) {
             return false;
         }
-
+        /**
+         * Se indica el tipo respuesta lti
+         **/
         if ($request->getParameter('lti_message_type') !== 'basic-lti-launch-request') {
             return false;
         }
@@ -35,11 +44,13 @@ class LtiAuthenticate extends BaseAuthenticate
         $user = $users->find('all', [
             'conditions' => ['Users.lti_user_id' => $request->getParameter('user_id')]
         ])->first();
-
-        //Si el usuario lti no existe en el sistema que debe ser en el
-        //tiempo para crear dinámicamente. 
-        //Otro ha iniciado sesión no requerirá la creación de un nuevo usuario -
-        //ser utilizado ya creado
+		/**
+		 * Si el usuario lti no existe en el sistema 
+		 * será creado obteniendo los datos de autenticacion.   
+		 *   
+		 * Si el usario ya existe no requiere ser creado nuevamente
+		 * se ultilizará el existente  
+		 **/
         if (empty($user)) {
             if (!$request->getParameter('lis_person_name_given') ||
                 !$request->getParameter('lis_person_name_family')
@@ -51,7 +62,8 @@ class LtiAuthenticate extends BaseAuthenticate
                 'first_name' => $request->getParameter('lis_person_name_given'),
                 'last_name' => $request->getParameter('lis_person_name_family'),
                 'lti_user_id' => $request->getParameter('user_id'),
-                'username' => $request->getParameter('username')
+            	'email' => $request->getParameter('lis_person_contact_email_primary'),
+                'username' => $request->getParameter('custom_username')
             ]);
 
             if ($user->errors()) {
@@ -70,6 +82,9 @@ class LtiAuthenticate extends BaseAuthenticate
         return $user->toArray() + [ 'has_access_to' => $hasAccessTo ];
     }
 
+    /**
+     * En caso de no ser autenticado se enviará mensaje de error
+     **/
     public function unauthenticated(Request $request, Response $response)
     {
         if ($request->is('post') && $request->data['lti_message_type'] === 'basic-lti-launch-request') {
@@ -80,14 +95,19 @@ class LtiAuthenticate extends BaseAuthenticate
         
         return null;
     }
-
+    /**
+     * funcion protegida
+     * firma de autenticacion
+     **/
     protected function _createOAuthServer()
     {
         $server = new Server(new DatabaseDataStore());
         $server->addSignatureMethod(new HmacSha1());
         return $server;
     }
-
+    /**
+     * funcion pretegida
+     **/
     protected function _getOAuthRequest()
     {
         return OAuthRequest::fromRequest();

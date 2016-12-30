@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-11-2016 a las 16:57:25
+-- Tiempo de generación: 20-12-2016 a las 15:30:15
 -- Versión del servidor: 5.5.42
 -- Versión de PHP: 5.6.10
 
@@ -29,7 +29,7 @@ CREATE TABLE `activities` (
   `user_id` int(11) NOT NULL,
   `activities_group_id` int(11) DEFAULT NULL,
   `rubric_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `activities`
@@ -37,10 +37,27 @@ CREATE TABLE `activities` (
 
 INSERT INTO `activities` (`id`, `name`, `description`, `created`, `modified`, `user_id`, `activities_group_id`, `rubric_id`) VALUES
 (1, 'Actividad 1', 'Imprima por pantalla HOLA MUNDO', '2016-08-24 23:59:11', '2016-09-09 14:01:41', 1, 1, 2),
-(2, 'Actividad 2', 'Realice un programa que permita ingresar 2 números por teclado e imprima por pantalla los resultados de las 4 operaciones aritmeticas de dichos numeros.\r\nEjemplo:\r\n6 y 2\r\nSuma 8\r\nResta 4\r\nMultiplicación 12\r\nDivisión 3\r\n', '2016-09-07 03:58:31', '2016-09-24 01:47:28', 2, 1, NULL),
-(4, 'Funciones 1', 'Definir una función max() que tome como argumento dos números y devuelva el mayor de ellos. (Es cierto que python tiene una función max() incorporada, pero hacerla nosotros mismos es un muy buen ejercicio.', '2016-09-08 14:15:25', '2016-09-08 14:15:25', 1, NULL, NULL),
-(5, 'Funciones 2', 'Definir una función max_de_tres(), que tome tres números como argumentos y devuelva el mayor de ellos.', '2016-09-08 14:16:12', '2016-09-08 14:16:12', 1, NULL, NULL),
-(6, 'Rimas', 'Escribe un programa que pida dos palabras y diga si riman o no. \r\nSi coinciden las tres últimas letras tiene que decir que riman.\r\nSi coinciden sólo las dos últimas tiene que decir que riman un poco y si no, que no riman.', '2016-09-09 18:58:03', '2016-09-11 01:13:22', 1, NULL, NULL);
+(2, 'Actividad 2', 'Realice un programa que permita ingresar 2 números por teclado e imprima por pantalla los resultados de las 4 operaciones aritmeticas de dichos numeros.\r\nEjemplo:\r\n6 y 2\r\nSuma 8\r\nResta 4\r\nMultiplicación 12\r\nDivisión 3\r\n', '2016-09-07 03:58:31', '2016-09-24 01:47:28', 1, 1, NULL),
+(3, 'Rimas', 'Escribe un programa que pida dos palabras y diga si riman o no. \r\nSi coinciden las tres últimas letras tiene que decir que riman.\r\nSi coinciden sólo las dos últimas tiene que decir que riman un poco y si no, que no riman.', NULL, '2016-12-20 18:20:01', 2, NULL, NULL),
+(4, 'Práctica 001', 'Definir una función max() que tome como argumento dos números y devuelva el mayor de ellos. (No utilizar función max() incorporada).', NULL, '2016-12-20 18:26:13', 1, NULL, NULL),
+(5, 'Práctica 002', 'Definir una función max_de_tres(), que tome tres números como argumentos y devuelva el mayor de ellos.', NULL, '2016-12-20 18:26:41', 1, NULL, NULL),
+(6, 'Práctica 003', 'Definir una función que calcule la longitud de una lista o una cadena dada. (No utilizar la función len() incorporada en Python).', '2016-09-09 18:58:03', '2016-12-20 18:27:28', 1, NULL, NULL),
+(7, 'Práctica 004', 'Escribir una función que tome un carácter y devuelva True si es una vocal, de lo contrario devuelve False.', '2016-12-20 14:52:37', '2016-12-20 18:27:43', 1, NULL, NULL),
+(8, 'Práctica 005', 'Escribir una funcion sum() y una función multip() que sumen y multipliquen respectivamente todos los números de una lista. Por ejemplo: sum([1,2,3,4]) debería devolver 10 y multip([1,2,3,4]) debería devolver 24.', '2016-12-20 14:52:51', '2016-12-20 18:28:07', 1, NULL, NULL),
+(9, 'Práctica 006', 'Definir una función inversa() que calcule la inversión de una cadena. Por ejemplo la cadena "estoy probando" debería devolver la cadena "odnaborp yotse"', '2016-12-20 14:53:11', '2016-12-20 18:28:22', 1, NULL, NULL),
+(10, 'act4', 'act4', '2016-12-20 14:53:24', '2016-12-20 14:53:24', 1, NULL, NULL),
+(11, 'act5', 'act5', '2016-12-20 14:53:37', '2016-12-20 14:53:37', 1, NULL, NULL),
+(12, 'act6', 'act6', '2016-12-20 14:53:49', '2016-12-20 14:53:49', 1, NULL, NULL),
+(13, 'act7', 'act7', '2016-12-20 14:54:23', '2016-12-20 14:54:23', 1, NULL, NULL),
+(14, 'act8', 'act8', '2016-12-20 14:54:36', '2016-12-20 14:54:36', 1, NULL, NULL),
+(15, 'act9', 'act9', '2016-12-20 14:54:53', '2016-12-20 14:54:53', 1, NULL, NULL),
+(16, 'act10', 'act10', '2016-12-20 14:55:06', '2016-12-20 14:55:06', 1, NULL, NULL),
+(17, 'act11', 'act11', '2016-12-20 14:55:21', '2016-12-20 14:55:21', 1, NULL, NULL),
+(18, 'act12', 'act12', '2016-12-20 14:55:33', '2016-12-20 14:55:33', 1, NULL, NULL),
+(19, 'act13', 'act13', '2016-12-20 14:55:49', '2016-12-20 14:55:49', 1, NULL, NULL),
+(20, 'act14', 'act14', '2016-12-20 14:56:00', '2016-12-20 14:56:00', 1, NULL, NULL),
+(21, 'act15', 'act15', '2016-12-20 14:56:19', '2016-12-20 14:56:19', 1, NULL, NULL),
+(22, 'act16', 'act16', '2016-12-20 14:56:35', '2016-12-20 14:56:35', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,21 +87,21 @@ INSERT INTO `activities_groups` (`id`, `name`, `created`, `modified`) VALUES
 
 CREATE TABLE `assignments` (
   `id` int(11) NOT NULL,
-  `created` date NOT NULL,
-  `modified` date NOT NULL,
-  `activities_group_id` int(11) NOT NULL,
-  `activity_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `assignment` text
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `group_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `assignments`
 --
 
-INSERT INTO `assignments` (`id`, `created`, `modified`, `activities_group_id`, `activity_id`, `user_id`, `assignment`) VALUES
-(1, '2016-09-27', '2016-09-27', 1, 2, 4, ''),
-(2, '2016-09-27', '2016-09-27', 1, 2, 1, '');
+INSERT INTO `assignments` (`id`, `created`, `modified`, `user_id`, `group_id`, `role_id`) VALUES
+(4, '2016-12-16', '2016-12-16', 1, 3, 1),
+(5, '2016-12-16', '2016-12-16', 2, 3, 2),
+(6, '2016-12-20', '2016-12-20', 4, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -104,6 +121,33 @@ CREATE TABLE `grades` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `activity_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `groups`
+--
+
+INSERT INTO `groups` (`id`, `name`, `created`, `modified`, `activity_id`) VALUES
+(1, 'rubrica 1', '2016-12-11', '2016-12-11', 2),
+(2, 'Pareja 01', '2016-12-11', '2016-12-11', 6),
+(3, 'Pareja 01', '2016-12-11', '2016-12-11', 1),
+(4, 'Pareja 02', '2016-12-11', '2016-12-11', 1),
+(5, 'Pareja 03', '2016-12-11', '2016-12-11', 1),
+(6, 'Pareja 04', '2016-12-11', '2016-12-11', 1),
+(7, 'Pareja 05', '2016-12-20', '2016-12-20', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `o_auth_consumers`
 --
 
@@ -119,6 +163,25 @@ CREATE TABLE `o_auth_consumers` (
 
 INSERT INTO `o_auth_consumers` (`id`, `key`, `secret`) VALUES
 (1, 'moodle', 'unab');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'Ejecutor'),
+(2, 'Revisor');
 
 -- --------------------------------------------------------
 
@@ -223,7 +286,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -231,11 +294,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `lti_user_id`, `email`, `username`, `password`, `created`, `modified`) VALUES
 (1, 'Admin', 'Admin', 0, '', 'admin', '$2y$10$/Ft8D6sMKG0tyunqD37oXuaaQMagREL7Q79R32ZFcd3Rgo1LOkksG', NULL, '2016-09-06 22:42:33'),
-(2, 'Carolina', 'Mesa', NULL, '', 'cpmm', '$2y$10$USDZKgbYTVZDNjeUUt9r5OKFOMFy7tgOOOuoERCUx9V76bsIqc1E.', NULL, NULL),
+(2, 'Carolina', 'Mesa Matus de la Parra', NULL, '', 'cpmm', '$2y$10$YMv91wpzbLwtQwLMxLHIK.8Nbnoy6Xw8R2w0ty5dBBhfA7osduAjy', NULL, NULL),
+(3, '- Admin', '-', 2, '', '2', '', NULL, NULL),
 (4, 'Wilson', 'Yevenes', 6, '', '6', '', NULL, NULL),
 (5, 'hito3', 'hito3', 7, '', '7', '', NULL, NULL),
-(6, '- Admin', '-', 2, '', '2', '', NULL, NULL),
-(7, 'Carolina', 'Mesa', 5, '', '5', '', NULL, NULL);
+(6, 'Carolina', 'Mesa', 5, '', '5', '', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -260,10 +323,9 @@ ALTER TABLE `activities_groups`
 --
 ALTER TABLE `assignments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `activities_group_id` (`activities_group_id`),
-  ADD KEY `activity_id` (`activity_id`),
   ADD KEY `user_id` (`user_id`),
-  ADD KEY `act_group` (`activities_group_id`,`activity_id`);
+  ADD KEY `group_id` (`group_id`) USING BTREE,
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Indices de la tabla `grades`
@@ -273,9 +335,22 @@ ALTER TABLE `grades`
   ADD KEY `submission_id` (`submission_id`);
 
 --
+-- Indices de la tabla `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `activity_id` (`activity_id`);
+
+--
 -- Indices de la tabla `o_auth_consumers`
 --
 ALTER TABLE `o_auth_consumers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -321,7 +396,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `activities_groups`
 --
@@ -331,17 +406,27 @@ ALTER TABLE `activities_groups`
 -- AUTO_INCREMENT de la tabla `assignments`
 --
 ALTER TABLE `assignments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `grades`
 --
 ALTER TABLE `grades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT de la tabla `o_auth_consumers`
 --
 ALTER TABLE `o_auth_consumers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rubrics`
 --
@@ -366,7 +451,7 @@ ALTER TABLE `submissions`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- Restricciones para tablas volcadas
 --
@@ -382,7 +467,8 @@ ALTER TABLE `activities`
 -- Filtros para la tabla `assignments`
 --
 ALTER TABLE `assignments`
-  ADD CONSTRAINT `act_group` FOREIGN KEY (`activities_group_id`, `activity_id`) REFERENCES `activities` (`activities_group_id`, `id`),
+  ADD CONSTRAINT `grupos` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`),
+  ADD CONSTRAINT `roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
@@ -390,6 +476,12 @@ ALTER TABLE `assignments`
 --
 ALTER TABLE `grades`
   ADD CONSTRAINT `entrega_calificacion` FOREIGN KEY (`submission_id`) REFERENCES `submissions` (`id`);
+
+--
+-- Filtros para la tabla `groups`
+--
+ALTER TABLE `groups`
+  ADD CONSTRAINT `grupos_actividad` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `rubrics`

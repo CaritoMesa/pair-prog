@@ -1,4 +1,4 @@
-<div class="rubricCriterias index large-9 medium-8 columns content">
+<?= $this->Paginator->numbers(['before' => ''< ' . __('previous')', 'after' => '']) ?><div class="rubricCriterias index large-9 medium-8 columns content">
     <h3><?= __('Rubric Criterias') ?></h3>
     <table class="table" cellpadding="0" cellspacing="0">
         <thead>
@@ -25,7 +25,7 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before' => ''< ' . __('previous')', 'after' => '']) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>

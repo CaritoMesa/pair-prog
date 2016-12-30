@@ -29,7 +29,9 @@ class User extends Entity
         'id' => false
     ];
 
-
+	/** 
+	 * Seteo password
+	 **/
     public function _setPassword($password)
     {
         if (strlen($password) > 0) {

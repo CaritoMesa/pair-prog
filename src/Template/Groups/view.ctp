@@ -40,6 +40,7 @@
                     <dd class="bg-danger"><?php echo "NO se han asignado participantes"?></dd> 
                 <?php endif; ?>
           <?php  endforeach; ?>
+          <br>
         </dl>
         <br>
         <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-default'])  ?>

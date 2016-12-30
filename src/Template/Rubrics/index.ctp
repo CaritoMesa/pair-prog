@@ -3,7 +3,7 @@
         <?= __('Rubrics') ?>
         <button type="button" class="btn btn-primary pull-right" escape="false" data-toggle="modal" data-target="#myModal">
         <span class="glyphicon glyphicon-plus"></span>
-            <?=__('New Rubric')?>
+            <?=__('New')?>
         </button>
     </h2>
 <!-- Modal -->
@@ -31,7 +31,7 @@
     </div>
   </div>
 </div>
-    <table class="table table-striped" cellpadding="0" cellspacing="0">
+    <table class="table table-hover table-condensed">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
@@ -44,12 +44,11 @@
             <?php foreach ($rubrics as $rubric): ?>
             <tr>
                 <td><?= $this->Number->format($rubric->id) ?></td>
-                <td><?= h($rubric->name) ?></td>
+                <td><?= $this->Html->link($rubric->name, ['action' => 'view', $rubric->id]) ?></td>
                 <td><?= h($rubric->description) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Rubrics', 'action' => 'view', $rubric->id], ['class' => 'btn btn-xs btn-info']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubric->id], ['class' => 'btn btn-xs btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rubric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubric->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubric->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rubric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubric->name), 'class' => 'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -58,7 +57,7 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
     </div>

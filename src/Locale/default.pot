@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2016-12-16 01:53+0000\n"
+"POT-Creation-Date: 2016-12-25 23:29+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -54,32 +54,16 @@ msgstr ""
 msgid "The assignment could not be saved. Please, try again."
 msgstr ""
 
-#: Controller/AssignmentsController.php:120
+#: Controller/AssignmentsController.php:105
 msgid "The participant has been saved."
 msgstr ""
 
-#: Controller/AssignmentsController.php:140
+#: Controller/AssignmentsController.php:126
 msgid "The assignment has been deleted."
 msgstr ""
 
-#: Controller/AssignmentsController.php:142
+#: Controller/AssignmentsController.php:128
 msgid "The assignment could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/GradesController.php:59;86
-msgid "The grade has been saved."
-msgstr ""
-
-#: Controller/GradesController.php:63;90
-msgid "The grade could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/GradesController.php:110
-msgid "The grade has been deleted."
-msgstr ""
-
-#: Controller/GradesController.php:112
-msgid "The grade could not be deleted. Please, try again."
 msgstr ""
 
 #: Controller/GroupsController.php:78;125;152
@@ -98,36 +82,20 @@ msgstr ""
 msgid "The group could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/OAuthConsumersController.php:41;67
+#: Controller/OAuthConsumersController.php:49;77
 msgid "The o auth consumer has been saved."
 msgstr ""
 
-#: Controller/OAuthConsumersController.php:45;71
+#: Controller/OAuthConsumersController.php:52;80
 msgid "The o auth consumer could not be saved. Please, try again."
 msgstr ""
 
-#: Controller/OAuthConsumersController.php:90
+#: Controller/OAuthConsumersController.php:101
 msgid "The o auth consumer has been deleted."
 msgstr ""
 
-#: Controller/OAuthConsumersController.php:92
+#: Controller/OAuthConsumersController.php:103
 msgid "The o auth consumer could not be deleted. Please, try again."
-msgstr ""
-
-#: Controller/PeersController.php:55;81
-msgid "The peer has been saved."
-msgstr ""
-
-#: Controller/PeersController.php:59;85
-msgid "The peer could not be saved. Please, try again."
-msgstr ""
-
-#: Controller/PeersController.php:104
-msgid "The peer has been deleted."
-msgstr ""
-
-#: Controller/PeersController.php:106
-msgid "The peer could not be deleted. Please, try again."
 msgstr ""
 
 #: Controller/RolesController.php:41;67
@@ -210,23 +178,23 @@ msgstr ""
 msgid "The submission could not be deleted. Please, try again."
 msgstr ""
 
-#: Controller/UsersController.php:57;84
+#: Controller/UsersController.php:63;90
 msgid "Usuario creado."
 msgstr ""
 
-#: Controller/UsersController.php:61;88
+#: Controller/UsersController.php:67;94
 msgid "Usuario no ingresado. Por favor, intente nuevamente."
 msgstr ""
 
-#: Controller/UsersController.php:107
+#: Controller/UsersController.php:113
 msgid "Usuario eliminado."
 msgstr ""
 
-#: Controller/UsersController.php:109
+#: Controller/UsersController.php:115
 msgid "Usuario no eliminado. Por favor, intente nuevamente."
 msgstr ""
 
-#: Controller/UsersController.php:123
+#: Controller/UsersController.php:129
 msgid "Usuario o contraseña invalidos, intente nuevamente."
 msgstr ""
 
@@ -235,6 +203,17 @@ msgid "Add Activity"
 msgstr ""
 
 #: Template/Activities/add.ctp:11
+#: Template/Assignments/edit.ctp:29
+#: Template/Groups/view.ctp:46
+#: Template/OAuthConsumers/add.ctp:10
+#: Template/OAuthConsumers/edit.ctp:10
+#: Template/Roles/add.ctp:10
+#: Template/Roles/edit.ctp:9
+#: Template/Rubrics/edit.ctp:11
+msgid "Cancel"
+msgstr ""
+
+#: Template/Activities/add.ctp:12
 #: Template/Activities/edit.ctp:12
 #: Template/ActivitiesGroups/add.ctp:9
 #: Template/ActivitiesGroups/edit.ctp:9
@@ -244,8 +223,8 @@ msgstr ""
 #: Template/Grades/edit.ctp:28
 #: Template/Groups/add.ctp:20
 #: Template/Groups/edit.ctp:26
-#: Template/OAuthConsumers/add.ctp:10
-#: Template/OAuthConsumers/edit.ctp:10
+#: Template/OAuthConsumers/add.ctp:11
+#: Template/OAuthConsumers/edit.ctp:11
 #: Template/Pages/view.ctp:21
 #: Template/Peers/add.ctp:31
 #: Template/Peers/edit.ctp:21
@@ -270,17 +249,27 @@ msgstr ""
 msgid "Edit Activity"
 msgstr ""
 
-#: Template/Activities/index.ctp:2
+#: Template/Activities/index.ctp:3
 #: Template/Element/menu.ctp:19
 msgid "Activities"
 msgstr ""
 
-#: Template/Activities/index.ctp:9
+#: Template/Activities/index.ctp:4
+#: Template/ActivitiesGroups/index.ctp:4
+#: Template/Assignments/index.ctp:14
+#: Template/Groups/index.ctp:14
+#: Template/OAuthConsumers/index.ctp:4
+#: Template/Roles/index.ctp:4
+#: Template/Users/index.ctp:3
+msgid "<span class=\"glyphicon glyphicon-plus\"></span> New"
+msgstr ""
+
+#: Template/Activities/index.ctp:12
 #: Template/Activities/view.ctp:34
-#: Template/ActivitiesGroups/index.ctp:7
+#: Template/ActivitiesGroups/index.ctp:10
 #: Template/ActivitiesGroups/view.ctp:10
-#: Template/Assignments/edit.ctp:9
-#: Template/Assignments/index.ctp:3;21
+#: Template/Assignments/edit.ctp:10
+#: Template/Assignments/index.ctp:3;24
 #: Template/Assignments/view.ctp:3
 #: Template/Grades/add.ctp:3
 #: Template/Grades/edit.ctp:3
@@ -288,139 +277,139 @@ msgstr ""
 #: Template/Grades/view.ctp:3
 #: Template/Groups/add.ctp:3
 #: Template/Groups/edit.ctp:3
-#: Template/Groups/index.ctp:3;21
-#: Template/OAuthConsumers/index.ctp:9
+#: Template/Groups/index.ctp:3;24
+#: Template/OAuthConsumers/index.ctp:12
 #: Template/Pages/view.ctp:3;34
 #: Template/Peers/add.ctp:3
 #: Template/Peers/edit.ctp:3
 #: Template/Peers/index.ctp:3;14
 #: Template/Peers/view.ctp:3
-#: Template/Roles/index.ctp:9
+#: Template/Roles/index.ctp:11
 #: Template/RubricCriterias/edit.ctp:3
 #: Template/RubricCriterias/index.ctp:8
 #: Template/RubricCriterias/view.ctp:39
 #: Template/RubricLevels/index.ctp:11
 #: Template/Rubrics/index.ctp:40
-#: Template/Submissions/index.ctp:9
+#: Template/Submissions/index.ctp:10
 #: Template/Submissions/view.ctp:42
-#: Template/Users/index.ctp:10
+#: Template/Users/index.ctp:12
 msgid "Actions"
 msgstr ""
 
-#: Template/Activities/index.ctp:19
+#: Template/Activities/index.ctp:22
 #: Template/Activities/view.ctp:44
-#: Template/ActivitiesGroups/index.ctp:15
+#: Template/ActivitiesGroups/index.ctp:18
 #: Template/ActivitiesGroups/view.ctp:17
-#: Template/Assignments/index.ctp:34
+#: Template/Assignments/index.ctp:37
 #: Template/Grades/index.ctp:38
-#: Template/Groups/index.ctp:34
+#: Template/Groups/index.ctp:37
 #: Template/Groups/view.ctp:27
-#: Template/OAuthConsumers/index.ctp:19
+#: Template/OAuthConsumers/index.ctp:22
 #: Template/Pages/view.ctp:46
 #: Template/Peers/index.ctp:24
-#: Template/Roles/index.ctp:18
+#: Template/Roles/index.ctp:20
 #: Template/RubricCriterias/index.ctp:18
 #: Template/RubricCriterias/view.ctp:51
 #: Template/RubricLevels/index.ctp:24
-#: Template/Rubrics/index.ctp:51
+#: Template/Rubrics/index.ctp:50
 #: Template/Rubrics/view.ctp:20
-#: Template/Submissions/index.ctp:20
+#: Template/Submissions/index.ctp:21
 #: Template/Submissions/view.ctp:55
-#: Template/Users/index.ctp:21
+#: Template/Users/index.ctp:23
 msgid "Edit"
 msgstr ""
 
-#: Template/Activities/index.ctp:20
+#: Template/Activities/index.ctp:23
 #: Template/Activities/view.ctp:45
-#: Template/ActivitiesGroups/index.ctp:17
-#: Template/Assignments/edit.ctp:17
-#: Template/Assignments/index.ctp:35
+#: Template/ActivitiesGroups/index.ctp:19
+#: Template/Assignments/edit.ctp:20
+#: Template/Assignments/index.ctp:38
 #: Template/Grades/edit.ctp:5
 #: Template/Grades/index.ctp:39
 #: Template/Groups/edit.ctp:5
-#: Template/Groups/index.ctp:35
-#: Template/OAuthConsumers/index.ctp:20
+#: Template/Groups/index.ctp:38
+#: Template/OAuthConsumers/index.ctp:23
 #: Template/Pages/view.ctp:47
 #: Template/Peers/edit.ctp:5
 #: Template/Peers/index.ctp:25
-#: Template/Roles/index.ctp:19
+#: Template/Roles/index.ctp:21
 #: Template/RubricCriterias/edit.ctp:5
 #: Template/RubricCriterias/index.ctp:19
 #: Template/RubricCriterias/view.ctp:52
 #: Template/RubricLevels/index.ctp:25
-#: Template/Rubrics/index.ctp:52
+#: Template/Rubrics/index.ctp:51
 #: Template/Rubrics/view.ctp:21
-#: Template/Submissions/index.ctp:21
+#: Template/Submissions/index.ctp:22
 #: Template/Submissions/view.ctp:56
-#: Template/Users/index.ctp:22
+#: Template/Users/index.ctp:24
 msgid "Delete"
 msgstr ""
 
-#: Template/Activities/index.ctp:20
+#: Template/Activities/index.ctp:23
 #: Template/Activities/view.ctp:45
-#: Template/Assignments/index.ctp:35
+#: Template/Assignments/index.ctp:38
 #: Template/Assignments/view.ctp:5
 #: Template/Grades/edit.ctp:7
 #: Template/Grades/index.ctp:39
 #: Template/Grades/view.ctp:5
 #: Template/Groups/edit.ctp:7
-#: Template/Groups/index.ctp:35
-#: Template/OAuthConsumers/index.ctp:20
+#: Template/Groups/index.ctp:38
+#: Template/OAuthConsumers/index.ctp:23
 #: Template/Pages/view.ctp:5;47
 #: Template/Peers/edit.ctp:7
 #: Template/Peers/index.ctp:25
 #: Template/Peers/view.ctp:5
-#: Template/Roles/index.ctp:19
+#: Template/Roles/index.ctp:21
 #: Template/RubricCriterias/edit.ctp:7
 #: Template/RubricCriterias/index.ctp:19
 #: Template/RubricCriterias/view.ctp:52
 #: Template/RubricLevels/index.ctp:25
-#: Template/Rubrics/index.ctp:52
+#: Template/Rubrics/index.ctp:51
 #: Template/Rubrics/view.ctp:21
-#: Template/Submissions/index.ctp:21
+#: Template/Submissions/index.ctp:22
 #: Template/Submissions/view.ctp:56
 msgid "Are you sure you want to delete # {0}?"
 msgstr ""
 
-#: Template/Activities/index.ctp:21
-#: Template/ActivitiesGroups/index.ctp:16
+#: Template/Activities/index.ctp:24
+#: Template/ActivitiesGroups/index.ctp:20
 msgid "LMS"
 msgstr ""
 
-#: Template/Activities/index.ctp:22
-#: Template/Groups/index.ctp:12
+#: Template/Activities/index.ctp:25
+#: Template/Groups/index.ctp:13
 msgid "Groups"
 msgstr ""
 
-#: Template/Activities/index.ctp:30
-#: Template/ActivitiesGroups/index.ctp:25
-#: Template/Assignments/index.ctp:43
+#: Template/Activities/index.ctp:33
+#: Template/ActivitiesGroups/index.ctp:28
+#: Template/Assignments/index.ctp:46
 #: Template/Grades/index.ctp:47
-#: Template/Groups/index.ctp:43
-#: Template/OAuthConsumers/index.ctp:28
+#: Template/Groups/index.ctp:46
+#: Template/OAuthConsumers/index.ctp:31
 #: Template/Peers/index.ctp:33
-#: Template/Roles/index.ctp:27
+#: Template/Roles/index.ctp:29
 #: Template/RubricCriterias/index.ctp:27
 #: Template/RubricLevels/index.ctp:33
-#: Template/Rubrics/index.ctp:60
-#: Template/Submissions/index.ctp:29
-#: Template/Users/index.ctp:30
+#: Template/Rubrics/index.ctp:59
+#: Template/Submissions/index.ctp:30
+#: Template/Users/index.ctp:32
 msgid "previous"
 msgstr ""
 
-#: Template/Activities/index.ctp:32
-#: Template/ActivitiesGroups/index.ctp:27
-#: Template/Assignments/index.ctp:45
+#: Template/Activities/index.ctp:35
+#: Template/ActivitiesGroups/index.ctp:30
+#: Template/Assignments/index.ctp:48
 #: Template/Grades/index.ctp:49
-#: Template/Groups/index.ctp:45
-#: Template/OAuthConsumers/index.ctp:30
+#: Template/Groups/index.ctp:48
+#: Template/OAuthConsumers/index.ctp:33
 #: Template/Peers/index.ctp:35
-#: Template/Roles/index.ctp:29
+#: Template/Roles/index.ctp:31
 #: Template/RubricCriterias/index.ctp:29
 #: Template/RubricLevels/index.ctp:35
-#: Template/Rubrics/index.ctp:62
-#: Template/Submissions/index.ctp:31
-#: Template/Users/index.ctp:32
+#: Template/Rubrics/index.ctp:61
+#: Template/Submissions/index.ctp:32
+#: Template/Users/index.ctp:34
 msgid "next"
 msgstr ""
 
@@ -492,17 +481,16 @@ msgid "User Id"
 msgstr ""
 
 #: Template/Activities/view.ctp:43
-#: Template/Assignments/index.ctp:33
+#: Template/Assignments/index.ctp:36
 #: Template/Grades/index.ctp:37
-#: Template/Groups/index.ctp:33
+#: Template/Groups/index.ctp:36
 #: Template/Pages/view.ctp:45
 #: Template/Peers/index.ctp:23
 #: Template/RubricCriterias/index.ctp:17
 #: Template/RubricCriterias/view.ctp:50
 #: Template/RubricLevels/index.ctp:23
-#: Template/Rubrics/index.ctp:50
 #: Template/Rubrics/view.ctp:19
-#: Template/Submissions/index.ctp:19
+#: Template/Submissions/index.ctp:20
 #: Template/Submissions/view.ctp:54
 msgid "View"
 msgstr ""
@@ -515,12 +503,12 @@ msgstr ""
 msgid "Edit Activities Group"
 msgstr ""
 
-#: Template/ActivitiesGroups/index.ctp:2
-#: Template/Element/menu.ctp:24
+#: Template/ActivitiesGroups/index.ctp:3
+#: Template/Element/menu.ctp:23
 msgid "Activities Groups"
 msgstr ""
 
-#: Template/ActivitiesGroups/index.ctp:17
+#: Template/ActivitiesGroups/index.ctp:19
 msgid "Are you sure you want to delete {0}?"
 msgstr ""
 
@@ -541,31 +529,20 @@ msgstr ""
 msgid "Participants"
 msgstr ""
 
-#: Template/Assignments/edit.ctp:17
+#: Template/Assignments/edit.ctp:9
+msgid "Role"
+msgstr ""
+
+#: Template/Assignments/edit.ctp:20
 msgid "Are you sure you want to delete # {0} {1}?"
 msgstr ""
 
-#: Template/Assignments/edit.ctp:26
-#: Template/Groups/view.ctp:45
-#: Template/Roles/add.ctp:10
-#: Template/Roles/edit.ctp:9
-#: Template/Rubrics/edit.ctp:11
-msgid "Cancel"
-msgstr ""
-
-#: Template/Assignments/edit.ctp:30
+#: Template/Assignments/edit.ctp:33;42
 msgid "Add Participant"
 msgstr ""
 
-#: Template/Assignments/edit.ctp:39
-#: Template/Groups/view.ctp:74
-#: Template/Rubrics/add.ctp:12
-#: Template/Rubrics/index.ctp:15
-msgid "Add Rubric"
-msgstr ""
-
-#: Template/Assignments/edit.ctp:52
-#: Template/Groups/view.ctp:86;121
+#: Template/Assignments/edit.ctp:56
+#: Template/Groups/view.ctp:87;122
 #: Template/Rubrics/add.ctp:25
 #: Template/Rubrics/edit.ctp:12
 #: Template/Rubrics/index.ctp:28
@@ -582,13 +559,11 @@ msgstr ""
 
 #: Template/Assignments/index.ctp:5
 #: Template/Assignments/view.ctp:8
-#: Template/Element/menu.ctp:33
 msgid "List Users"
 msgstr ""
 
 #: Template/Assignments/index.ctp:6
 #: Template/Assignments/view.ctp:9
-#: Template/Element/menu.ctp:34
 msgid "New User"
 msgstr ""
 
@@ -602,11 +577,11 @@ msgstr ""
 #: Template/Assignments/index.ctp:8
 #: Template/Assignments/view.ctp:11
 #: Template/Groups/index.ctp:4
-#: Template/Groups/view.ctp:50
+#: Template/Groups/view.ctp:51
 msgid "New Group"
 msgstr ""
 
-#: Template/Assignments/index.ctp:12
+#: Template/Assignments/index.ctp:13
 msgid "Assignments"
 msgstr ""
 
@@ -654,46 +629,31 @@ msgstr ""
 msgid "List Activities"
 msgstr ""
 
-#: Template/Element/menu.ctp:22
-#: Template/Groups/add.ctp:6
-#: Template/Groups/edit.ctp:12
-#: Template/Groups/index.ctp:6
-msgid "New Activity"
-msgstr ""
-
-#: Template/Element/menu.ctp:25
+#: Template/Element/menu.ctp:24
 #: Template/Submissions/index.ctp:2
 msgid "Submissions"
 msgstr ""
 
-#: Template/Element/menu.ctp:26
+#: Template/Element/menu.ctp:25
 #: Template/Rubrics/index.ctp:3
 msgid "Rubrics"
 msgstr ""
 
-#: Template/Element/menu.ctp:27
-#: Template/Roles/index.ctp:2
+#: Template/Element/menu.ctp:26
+#: Template/Roles/index.ctp:3
 msgid "Roles"
 msgstr ""
 
-#: Template/Element/menu.ctp:31
+#: Template/Element/menu.ctp:29
 #: Template/Users/index.ctp:2
 msgid "Users"
 msgstr ""
 
-#: Template/Element/menu.ctp:39
+#: Template/Element/menu.ctp:30
 msgid "LTI"
 msgstr ""
 
-#: Template/Element/menu.ctp:41
-msgid "List Consumer LTI"
-msgstr ""
-
-#: Template/Element/menu.ctp:42
-msgid "New Consumer LTI"
-msgstr ""
-
-#: Template/Element/menu.ctp:46
+#: Template/Element/menu.ctp:44
 msgid "Salir"
 msgstr ""
 
@@ -776,6 +736,12 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: Template/Groups/add.ctp:6
+#: Template/Groups/edit.ctp:12
+#: Template/Groups/index.ctp:6
+msgid "New Activity"
+msgstr ""
+
 #: Template/Groups/add.ctp:14
 msgid "Add Group"
 msgstr ""
@@ -784,7 +750,13 @@ msgstr ""
 msgid "Edit Group"
 msgstr ""
 
-#: Template/Groups/view.ctp:99
+#: Template/Groups/view.ctp:75
+#: Template/Rubrics/add.ctp:12
+#: Template/Rubrics/index.ctp:15
+msgid "Add Rubric"
+msgstr ""
+
+#: Template/Groups/view.ctp:100
 #: Template/Rubrics/edit.ctp:4
 msgid "Edit Rubric"
 msgstr ""
@@ -797,7 +769,7 @@ msgstr ""
 msgid "Edit O Auth Consumer"
 msgstr ""
 
-#: Template/OAuthConsumers/index.ctp:2
+#: Template/OAuthConsumers/index.ctp:3
 msgid "O Auth Consumers"
 msgstr ""
 
@@ -853,10 +825,6 @@ msgstr ""
 msgid "Edit Role"
 msgstr ""
 
-#: Template/Roles/index.ctp:3
-msgid "New Role"
-msgstr ""
-
 #: Template/RubricCriterias/add copia.ctp:5
 #: Template/RubricCriterias/add.ctp:5
 msgid "Add Rubric Criteria"
@@ -872,7 +840,6 @@ msgstr ""
 
 #: Template/RubricCriterias/edit.ctp:12
 #: Template/Rubrics/add.ctp:3
-#: Template/Rubrics/index.ctp:6
 msgid "New Rubric"
 msgstr ""
 
@@ -932,6 +899,10 @@ msgstr ""
 msgid "Rubric Criteria"
 msgstr ""
 
+#: Template/Rubrics/index.ctp:6
+msgid "New"
+msgstr ""
+
 #: Template/Rubrics/view.ctp:11
 msgid "Related Rubric Criterias"
 msgstr ""
@@ -988,16 +959,16 @@ msgstr ""
 msgid "Edit User"
 msgstr ""
 
-#: Template/Users/index.ctp:22
+#: Template/Users/index.ctp:24
 msgid "Are you sure you want to delete {0} {1}?"
 msgstr ""
 
-#: Template/Users/login.ctp:5
-msgid "Ingrese su usuario y contraseña"
+#: Template/Users/login.ctp:20
+msgid "Sign In"
 msgstr ""
 
-#: Template/Users/login.ctp:10
-msgid "Ingresar"
+#: Template/Users/login.ctp:23
+msgid "Register"
 msgstr ""
 
 #: Template/Users/view.ctp:5

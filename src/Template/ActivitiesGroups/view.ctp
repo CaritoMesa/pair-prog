@@ -11,7 +11,7 @@
             </tr>
             <?php foreach ($activitiesGroup->activities as $activities): ?>
             <tr>
-                <td><?= $this->Html->link(__($activities->name), ['controller' => 'Activities', 'action' => 'view', $activities->id]) ?></td>
+                <td><?= $this->Html->link($activities->name, ['controller' => 'Activities', 'action' => 'view', $activities->id]) ?></td>
                 <td><?= h($activities->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Activities', 'action' => 'edit', $activities->id]) ?>

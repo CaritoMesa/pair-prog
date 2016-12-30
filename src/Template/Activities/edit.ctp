@@ -5,6 +5,7 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('description');
+            echo $this->Form->input('use_groups');
             echo $this->Form->input('activities_group_id', ['options' => $activitiesGroups, 'empty' => true]);
             echo $this->Form->input('rubric_id', ['options' => $rubrics, 'empty' => true]);
         ?>

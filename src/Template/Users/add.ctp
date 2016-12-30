@@ -3,10 +3,11 @@
     <fieldset>
         <legend><?= __('Nuevo Usuario') ?></legend>
         <?php
-            echo $this->Form->input('first_name', ['label' => 'Nombres']);
-            echo $this->Form->input('last_name', ['label' => 'Apellidos']);
-            echo $this->Form->input('username', ['label' => 'Nombre de usuario']);
-            echo $this->Form->input('password', ['type' => 'password', 'label' => 'Contraseña', 'value' => '']);
+            echo $this->Form->input(__('first_name'));
+            echo $this->Form->input(__('last_name'));
+            echo $this->Form->input('email');
+            echo $this->Form->input(__('username'));
+            echo $this->Form->input(__('password'), ['type' => 'password', 'value' => '']);
         ?>
     </fieldset>
     <a class="btn btn-default" href="/users/index" role="button">Cancel</a>

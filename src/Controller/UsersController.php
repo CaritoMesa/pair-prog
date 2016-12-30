@@ -10,6 +10,9 @@ I18n::locale('es');
  * Users Controller
  *
  * @property \App\Model\Table\UsersTable $Users
+ * 
+ * Contine usuarios creados via aplicacion web y
+ * usuarios creados por LTI
  */
 class UsersController extends AppController
 {
@@ -17,6 +20,9 @@ class UsersController extends AppController
      * Index method
      *
      * @return \Cake\Network\Response|null
+     * 
+     * Muestra listado de Usuarios
+     * OK
      */
     public function index()
     {
@@ -28,6 +34,7 @@ class UsersController extends AppController
 
     /**
      * View method
+     * Muestra los campos del usurio consultado
      *
      * @param string|null $id User id.
      * @return \Cake\Network\Response|null
@@ -45,6 +52,12 @@ class UsersController extends AppController
 
     /**
      * Add method
+     * 
+     * @first_name: nombres
+     * @last_name: apellidos
+     * @email: email
+     * @username: nombre de usuario
+     * @password: contraseña
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
@@ -54,11 +67,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Usuario creado.'));
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('Usuario no ingresado. Por favor, intente nuevamente.'));
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
         $this->set(compact('user'));
@@ -81,11 +94,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Usuario creado.'));
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('Usuario no ingresado. Por favor, intente nuevamente.'));
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
         $this->set(compact('user'));
@@ -104,9 +117,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('Usuario eliminado.'));
+            $this->Flash->success(__('The user has been saved.'));
         } else {
-            $this->Flash->error(__('Usuario no eliminado. Por favor, intente nuevamente.'));
+            $this->Flash->error(__('The activity could not be saved. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
@@ -128,7 +141,7 @@ class UsersController extends AppController
     {
         parent::initialize();
         // Add logout to the allowed actions list.
-        $this->Auth->allow(['logout', 'add']);
+        $this->Auth->allow(['add']);
     }
 
     public function logout()

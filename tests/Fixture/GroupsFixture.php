@@ -44,7 +44,7 @@ class GroupsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'name' => 'Lorem ipsum dolor sit amet',
+            'name' => 'Pareja 01',
             'created' => '2016-12-11',
             'modified' => '2016-12-11',
             'activity_id' => 1

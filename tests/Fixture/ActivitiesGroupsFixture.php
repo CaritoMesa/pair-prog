@@ -39,7 +39,7 @@ class ActivitiesGroupsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'name' => 'Lorem ipsum dolor sit amet',
+            'name' => 'Actividades de Funciones',
             'created' => '2016-09-07',
             'modified' => '2016-09-07'
         ],

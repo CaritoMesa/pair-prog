@@ -61,32 +61,24 @@ class GroupsTableTest extends TestCase
     }
 
     /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
      * Test validationDefault method
      *
      * @return void
      */
-    public function testValidationDefault()
+    public function testValidation()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    		'id' => 1,
+            'name' => 'Lorem ipsum dolor sit amet',
+            'created' => '2016-12-11',
+            'modified' => '2016-12-11',
+            'activity_id' => 1
+    	);
+    	$result = $this->Groups->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['name']));
+    	$this->assertFalse(is_null($postData['activity_id']));
     }
 
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

@@ -3,7 +3,16 @@
     <table class="table">
         <tr>
             <th><?= __('User') ?></th>
-            <td><?= h($activity->user->first_name) ?></td>
+            <td><?= h($activity->user->first_name) ?> <?= h($activity->user->last_name) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Use Groups') ?></th>
+            <td><?php if ($activity->use_groups == 1):?>
+                    Si
+                <?php else:?>
+                    No
+                <?php endif; ?>
+            </td> 
         </tr>
         <tr>
             <th><?= __('Rubric') ?></th>

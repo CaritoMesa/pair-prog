@@ -9,7 +9,10 @@
     </ul>
 </nav>
 <div class="assignments index large-9 medium-8 columns content">
-    <h3><?= __('Assignments') ?></h3>
+    <h3>
+        <?= __('Assignments') ?>
+        <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span> New'), ['controller' => 'Assignments', 'action' => 'add'], ['class' => 'btn btn-primary pull-right', 'escape' => false]) ?>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -41,7 +44,7 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>

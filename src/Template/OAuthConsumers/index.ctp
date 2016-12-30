@@ -1,6 +1,9 @@
 <div class="oAuthConsumers index large-9 medium-8 columns content">
-    <h3><?= __('O Auth Consumers') ?></h3>
-    <table class="table" cellpadding="0" cellspacing="0">
+    <h1>
+        <?= __('O Auth Consumers') ?>
+        <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span> New'), ['controller' => 'OAuthConsumers', 'action' => 'add'], ['class' => 'btn btn-primary pull-right', 'escape' => false]) ?>
+    </h1>
+    <table class="table table-hover table-condensed">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
@@ -16,8 +19,8 @@
                 <td><?= h($oAuthConsumer->key) ?></td>
                 <td><?= h($oAuthConsumer->secret) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $oAuthConsumer->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $oAuthConsumer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $oAuthConsumer->id)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $oAuthConsumer->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $oAuthConsumer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $oAuthConsumer->key), 'class' => 'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -26,7 +29,7 @@
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before' => '', 'after' => '']) ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
     </div>

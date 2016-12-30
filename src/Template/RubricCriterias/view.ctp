@@ -10,7 +10,7 @@
     <table class="table">
         <tr>
             <?php foreach ($rubric_criterias as $rubricCriterias): ?>
-            <th><?= __($rubricCriteria->description) ?></th>
+            <th><?= $rubricCriteria->description ?></th>
             <?php endforeach; ?>
 
 

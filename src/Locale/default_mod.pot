@@ -1,0 +1,525 @@
+
+#: Template/Groups/add.ctp:6
+#: Template/Groups/edit.ctp:12
+#: Template/Groups/index.ctp:6
+msgid "New Activity"
+msgstr ""
+
+#: Template/Groups/add.ctp:14
+msgid "Add Group"
+msgstr ""
+
+#: Template/Groups/edit.ctp:20
+msgid "Edit Group"
+msgstr ""
+
+#: Template/Groups/view.ctp:75
+#: Template/Rubrics/add.ctp:12
+#: Template/Rubrics/index.ctp:15
+msgid "Add Rubric"
+msgstr ""
+
+#: Template/Groups/view.ctp:100
+#: Template/Rubrics/edit.ctp:4
+msgid "Edit Rubric"
+msgstr ""
+
+#: Template/OAuthConsumers/add.ctp:4
+msgid "Add O Auth Consumer"
+msgstr ""
+
+#: Template/OAuthConsumers/edit.ctp:4
+msgid "Edit O Auth Consumer"
+msgstr ""
+
+#: Template/OAuthConsumers/index.ctp:3
+msgid "O Auth Consumers"
+msgstr ""
+
+#: Template/Pages/home.ctp:5
+msgid "Bienvenido"
+msgstr ""
+
+#: Template/Pages/material1.ctp:21
+msgid "Realizar entrega Actividad 1"
+msgstr ""
+
+#: Template/Pages/view.ctp:5
+msgid "Delete Activity"
+msgstr ""
+
+#: Template/Pages/view.ctp:29
+msgid "Activity Id"
+msgstr ""
+
+#: Template/Peers/add.ctp:4
+#: Template/Peers/edit.ctp:10
+#: Template/Peers/view.ctp:6
+msgid "List Peers"
+msgstr ""
+
+#: Template/Peers/add.ctp:10
+msgid "Add Peer"
+msgstr ""
+
+#: Template/Peers/edit.ctp:16
+#: Template/Peers/view.ctp:4
+msgid "Edit Peer"
+msgstr ""
+
+#: Template/Peers/index.ctp:4
+#: Template/Peers/view.ctp:7
+msgid "New Peer"
+msgstr ""
+
+#: Template/Peers/index.ctp:8
+msgid "Peers"
+msgstr ""
+
+#: Template/Peers/view.ctp:5
+msgid "Delete Peer"
+msgstr ""
+
+#: Template/Roles/add.ctp:4
+msgid "Add Role"
+msgstr ""
+
+#: Template/Roles/edit.ctp:4
+msgid "Edit Role"
+msgstr ""
+
+#: Template/RubricCriterias/add copia.ctp:5
+#: Template/RubricCriterias/add.ctp:5
+msgid "Add Rubric Criteria"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:10
+msgid "List Rubric Criterias"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:11
+msgid "List Rubrics"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:12
+#: Template/Rubrics/add.ctp:3
+msgid "New Rubric"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:13
+msgid "List Rubric Levels"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:14
+#: Template/Rubrics/view.ctp:36
+msgid "New Rubric Level"
+msgstr ""
+
+#: Template/RubricCriterias/edit.ctp:20
+msgid "Edit Rubric Criteria"
+msgstr ""
+
+#: Template/RubricCriterias/index.ctp:2
+msgid "Rubric Criterias"
+msgstr ""
+
+#: Template/RubricCriterias/view.ctp:2
+#: Template/Rubrics/view.ctp:2
+msgid "< Volver"
+msgstr ""
+
+#: Template/RubricCriterias/view.ctp:29
+msgid "Related Rubric Levels"
+msgstr ""
+
+#: Template/RubricCriterias/view.ctp:34
+#: Template/RubricLevels/view.ctp:26
+msgid "Definition"
+msgstr ""
+
+#: Template/RubricCriterias/view.ctp:37
+#: Template/RubricLevels/view.ctp:21
+msgid "Modiefied"
+msgstr ""
+
+#: Template/RubricCriterias/view.ctp:38
+msgid "Rubric Criteria Id"
+msgstr ""
+
+#: Template/RubricLevels/add.ctp:4
+msgid "Add Rubric Level"
+msgstr ""
+
+#: Template/RubricLevels/edit.ctp:4
+msgid "Edit Rubric Level"
+msgstr ""
+
+#: Template/RubricLevels/index.ctp:2
+msgid "Rubric Levels"
+msgstr ""
+
+#: Template/RubricLevels/view.ctp:5
+msgid "Rubric Criteria"
+msgstr ""
+
+#: Template/Rubrics/index.ctp:6
+msgid "New"
+msgstr ""
+
+#: Template/Rubrics/view.ctp:11
+msgid "Related Rubric Criterias"
+msgstr ""
+
+#: Template/Rubrics/view.ctp:44
+msgid "New Rubric Criteria"
+msgstr ""
+
+#: Template/Submissions/edit.ctp:4
+msgid "Edit Submission"
+msgstr ""
+
+#: Template/Submissions/view.ctp:12
+msgid "Activity"
+msgstr ""
+
+#: Template/Submissions/view.ctp:28
+msgid "Grade"
+msgstr ""
+
+#: Template/Submissions/view.ctp:35
+msgid "id"
+msgstr ""
+
+#: Template/Submissions/view.ctp:36
+msgid "achievement"
+msgstr ""
+
+#: Template/Submissions/view.ctp:37
+msgid "created"
+msgstr ""
+
+#: Template/Submissions/view.ctp:38
+msgid "modified"
+msgstr ""
+
+#: Template/Submissions/view.ctp:39
+msgid "submission_id"
+msgstr ""
+
+#: Template/Submissions/view.ctp:40
+msgid "rubrics_item_id"
+msgstr ""
+
+#: Template/Submissions/view.ctp:41
+msgid "score"
+msgstr ""
+
+#: Template/Users/add.ctp:4
+msgid "Nuevo Usuario"
+msgstr ""
+
+#: Template/Users/edit.ctp:4
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/index.ctp:24
+msgid "Are you sure you want to delete {0} {1}?"
+msgstr ""
+
+#: Template/Users/login.ctp:20
+msgid "Sign In"
+msgstr ""
+
+#: Template/Users/login.ctp:23
+msgid "Register"
+msgstr ""
+
+#: Template/Users/view.ctp:5
+msgid "First Name"
+msgstr ""
+
+#: Template/Users/view.ctp:9
+msgid "Last Name"
+msgstr ""
+
+#: Template/Users/view.ctp:13
+msgid "Lti User Id"
+msgstr ""
+
+#: Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr ""
+
+#: Template/Error/error400.ctp:38
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:464
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:155
+msgid "Missing CSRF token cookie"
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:159
+msgid "CSRF token mismatch."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:251
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:253
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: I18n/Number.php:90
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:92
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:94
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:96
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:88
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} from now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} after"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} before"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:114
+msgid "just now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:151
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:152
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:153
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:154;332
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:155;333
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:156;334
+msgid "about a month ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:157;335
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:168
+msgid "in about a second"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:169
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:170
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:171;346
+msgid "in about a day"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:172;347
+msgid "in about a week"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:173;348
+msgid "in about a month"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:174;349
+msgid "in about a year"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:304
+msgid "today"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:370
+msgid "%s ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:371
+msgid "on %s"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:47;126;316
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:51;129;319
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:57;132;322
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:59;135;325
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:64;138
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:68;141
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:72;144
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: Network/Response.php:1473
+msgid "The requested file was not found"
+msgstr ""
+
+#: ORM/RulesChecker.php:57
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:104
+msgid "This value does not exist"
+msgstr ""
+
+#: ORM/RulesChecker.php:128
+msgid "The count does not match {0}{1}"
+msgstr ""
+
+#: Utility/Text.php:894
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:103
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:104
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:1712
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:973
+msgid "New %s"
+msgstr ""
+
+#: View/Helper/FormHelper.php:976
+msgid "Edit %s"
+msgstr ""
+
+#: View/Helper/HtmlHelper.php:791
+msgid "Home"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:542
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:543
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:544
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:545
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:546
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:547
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:548
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:549
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:550
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:551
+msgid "December"
+msgstr ""
+
