@@ -13,10 +13,7 @@
         "jacobkiers/oauth": "^1.0",
         "cakephp/localized": "^3.0",
         "friendsofcake/bootstrap-ui": "^0.5.1",
-        "pdepend/pdepend" : "2.3.2",
-        "phpunit/phpunit-selenium": "^3.0",
-        "phpunit/phpunit": "^5.7",
-        "facebook/webdriver": "^1.2"
+        "phpunit/phpunit": "^5.7"
     },
     "require-dev": {
         "psy/psysh": "@stable",
@@ -24,7 +21,11 @@
         "cakephp/bake": "~1.1",
         "phpunit/php-code-coverage": "^4.0",
         "phpunit/phpunit": "*",
-        "phpmd/phpmd" : "@stable"
+        "behat/behat": "^3.3",
+        "behat/mink": "^1.7",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-selenium2-driver": "*"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",

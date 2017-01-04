@@ -6,7 +6,7 @@
     <?= $this->Flash->render('auth') ?>
 		<?= $this->Form->create() ?>
 			<fieldset>
-				<h2>Please Sign In</h2>
+				<h2><?= __('Please Sign In') ?></h2>
 				<hr class="colorgraph">
 				<div class="form-group">
                     <?= $this->Form->input('username', ['class' => 'form-control input-lg', 'placeholder' => 'Username', 'label' => false, 'required']) ?>

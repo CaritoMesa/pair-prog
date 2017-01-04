@@ -7,6 +7,7 @@ use App\Controller\RubricLevelsController;
 use Cake\Datasource\ConnectionManager;
 use Cake\I18n\I18n;
 use Cake\ORM\TableRegistry;
+use PhpParser\Node\Expr\AssignOp\Concat;
 
 I18n::locale('es');
 
@@ -62,24 +63,11 @@ class RubricsController extends AppController
             'contain' => ['RubricCriterias']
         ]);
         
-       	$c = $this->Rubrics->RubricCriterias->find()->where(['rubric_id' => $id])->contain(['Rubrics','RubricLevels'])->toArray();
-       	//$c = $this->Rubrics->RubricCriterias->RubricLevels->find()->where(['Rubrics.id' => $id])->toArray();
-        
-
-		/* foreach ($criteria as $criterias) {
-		    debug($criterias);
-		    foreach ($criterias->rubric_levels as $levels) {
-		    	debug($levels);
-		    }
-		}
-		debug($levels); 
-		 */
+       	$c = $this->Rubrics->RubricCriterias->find()
+       			->where(['rubric_id' => $id])
+       			->contain(['Rubrics','RubricLevels'])
+       			->toArray();
         $criteria = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
-       	//debug($criteria);
-       	//$query = TableRegistry::get('RubricLevels')->find()->toArray();
-       	//debug($query);
-       	//debug($query[0]);
-       	
         $this->set([
         		'rubric' => $rubric,
         		'criteria' => $criteria
@@ -134,4 +122,43 @@ class RubricsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
+    /**
+     * Aplicar Rubrica method
+     */
+    public function applyRubric($id = null)
+    {
+    	$rubric = $this->Rubrics->get($id, [
+    			'contain' => ['RubricCriterias']
+    	]);
+    	$criterias = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
+    	
+    	$options = array();//Guarda las opciones para los botones de radio
+    	$filas = array();//Cada fila de criterios de la rubrica
+    	$idCriteria = $criterias[0]->rubric_criteria_id;
+    	foreach ($criterias as $criteria){
+    		$levels = array();
+    		$levels['value'] = $criteria->score;
+    		$levels['text'] = $criteria->definition. ' ('. $criteria->score. ' pts)';
+    		if ($criteria->rubric_criteria_id === $idCriteria){
+    			array_push($filas, $levels);
+    		}
+    		else {
+    			$filas['rubric_criteria_id'] = $idCriteria;
+    			array_push($options, $filas);
+    			
+    			$idCriteria = $criteria->rubric_criteria_id;
+    			$filas = array();
+    			array_push($filas, $levels);
+    		}
+    	}
+    	$filas['rubric_criteria_id'] = $idCriteria;
+    	array_push($options, $filas);
+    	$this->set([
+    			'rubric' => $rubric,
+    			'criterias' => $criterias,
+    			'options' => $options
+    	]);
+    	$this->set('_serialize', ['rubric',
+    			'criterias', 'options']);
+    }
 }

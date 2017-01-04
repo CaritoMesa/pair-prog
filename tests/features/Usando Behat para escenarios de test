@@ -1,0 +1,135 @@
+Usando Behat para escenarios de test
+
+/* Instalaciones
+
+Using version ^3.3 for behat/behat
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing symfony/translation (v3.2.1)
+    Downloading: 100%         
+
+  - Installing symfony/event-dispatcher (v3.2.1)
+    Downloading: 100%         
+
+  - Installing symfony/class-loader (v3.2.1)
+    Downloading: 100%         
+
+  - Installing container-interop/container-interop (1.1.0)
+    Downloading: 100%         
+
+  - Installing behat/transliterator (v1.1.0)
+    Downloading: 100%         
+
+  - Installing behat/gherkin (v4.4.5)
+    Downloading: 100%         
+
+  - Installing behat/behat (v3.3.0)
+    Downloading: 100%         
+
+Using version ^1.7 for behat/mink
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing symfony/css-selector (v3.2.1)
+    Downloading: 100%         
+
+  - Installing behat/mink (v1.7.1)
+    Downloading: 100%         
+
+Using version ^1.2 for behat/mink-goutte-driver
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing guzzlehttp/promises (v1.3.1)
+    Downloading: 100%         
+
+  - Installing guzzlehttp/psr7 (1.3.1)
+    Downloading: 100%         
+
+  - Installing guzzlehttp/guzzle (6.2.2)
+    Downloading: 100%         
+
+  - Installing symfony/dom-crawler (v3.2.1)
+    Downloading: 100%         
+
+  - Installing symfony/browser-kit (v3.2.1)
+    Downloading: 100%         
+
+  - Installing fabpot/goutte (v3.2.0)
+    Downloading: 100%         
+
+  - Installing behat/mink-browserkit-driver (v1.3.2)
+    Downloading: 100%         
+
+  - Installing behat/mink-goutte-driver (v1.2.1)
+    Downloading: 100%         
+
+symfony/browser-kit suggests installing symfony/process ()
+
+
+Using version ^1.3 for behat/mink-selenium2-driver
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing instaclick/php-webdriver (1.4.3)
+    Downloading: 100%         
+
+  - Installing behat/mink-selenium2-driver (v1.3.1)
+    Downloading: 100%         
+
+
+/* Configuracion
+
+#behat.yml
+default:
+  autoload:
+    '': %paths.base%/tests/features/bootstrap
+  suites:
+    default:
+      paths:
+        - %paths.base%/tests/features
+  extensions: 
+    Behat\MinkExtension:
+      goutte: ~
+
+
+MacBook-Air-de-Carolina:pair-prog carolinamesa$ vendor/bin/behat tests/features
+No scenarios
+No steps
+0m0.16s (4.91Mb)
+
+MacBook-Air-de-Carolina:pair-prog carolinamesa$ vendor/bin/behat --init
++d features - place your *.feature files here
++d features/bootstrap - place your context classes here
++f features/bootstrap/FeatureContext.php - place your definitions, transformations and hooks here
+
+
+# language: es
+Característica: Internal operations
+  In order to stay secret
+  As a secret organization
+  We need to be able to erase past agents' memory
+
+  Antecedentes:
+    [Dados|Dadas|Dada|Dado|*] there is agent A
+    [*|Y|E] there is agent B
+
+  Escenario: Erasing agent memory
+    [Dados|Dadas|Dada|Dado|*] there is agent J
+    [*|Y|E] there is agent K
+    [Cuando|*] I erase agent K's memory
+    [Entonces|*] there should be agent J
+    [Pero|*] there should not be agent K
+
+  Esquema del escenario: Erasing other agents' memory
+    [Dados|Dadas|Dada|Dado|*] there is agent <agent1>
+    [*|Y|E] there is agent <agent2>
+    [Cuando|*] I erase agent <agent2>'s memory
+    [Entonces|*] there should be agent <agent1>
+    [Pero|*] there should not be agent <agent2>
+
+    Ejemplos:
+      | agent1 | agent2 |
+      | D      | M      |
+

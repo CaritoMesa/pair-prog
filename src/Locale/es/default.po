@@ -1123,3 +1123,15 @@ msgstr "Resgistrarse"
 
 msgid "Users"
 msgstr "Usuarios"
+
+msgid "Please Sign In"
+msgstr "Por Favor Ingrese"
+
+msgid "Sign In"
+msgstr "Ingresar"
+
+msgid "Apply Rubric"
+msgstr "Aplica Rúbrica"
+
+msgid ""
+msgstr ""

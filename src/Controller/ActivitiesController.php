@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 use Cake\I18n\I18n;
 use Cake\Network\Exception\NotFoundException;
 
@@ -9,6 +10,13 @@ I18n::locale('es');
 
 /**
  * Activities Controller
+ * Metodos implementados:
+ * - index()
+ * - view()
+ * - add(id)
+ * - edit(id)
+ * - delete(id)
+ * - submit(id)
  *
  * @property \App\Model\Table\ActivitiesTable $Activities
  */
@@ -53,7 +61,7 @@ class ActivitiesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-public function add()
+	public function add()
     {
         $activity = $this->Activities->newEntity();
         if ($this->request->is('post')) {
@@ -120,17 +128,28 @@ public function add()
         return $this->redirect(['action' => 'index']);
     }
     /** 
+     * Submit method
      * Metodo para las entregas
      * Se agrega al LMS
      */
     public function submit($id = null)
     {
     	$activity = $this->Activities->get($id, [
-    			'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
+    			'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions', 'Groups']
     	]);
     	
+    	$groups = $this->Activities->Groups->find()->where(['activity_id' => $id])->contain('Assignments');
+    	
+    	foreach ($groups as $group)
+    		foreach ($group->assignments as $assignment)
+    			if ($assignment->user_id == $this->Auth->user('id'))
+    		    	$role = $assignment->role_id;
+
+    	            
     	$this->set('activity', $activity);
     	$this->set('_serialize', ['activity']);
+    	$this->set('role', $role);
+    	$this->set('_serialize', ['groups']);
     }
     
 }
