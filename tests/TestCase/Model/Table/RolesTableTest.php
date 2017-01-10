@@ -24,7 +24,7 @@ class RolesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.roles',
+        'app.roles'/*,
         'app.assignments',
         'app.users',
         'app.groups',
@@ -33,8 +33,7 @@ class RolesTableTest extends TestCase
         'app.rubrics',
         'app.rubric_criterias',
         'app.rubric_levels',
-        'app.submissions',
-        'app.grades'
+        'app.submissions'*/
     ];
 
     /**
@@ -68,16 +67,14 @@ class RolesTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    			'id' => 1,
+            'name' => 'Ejecutor'
+    	);
+    	$result = $this->Assignments->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['name']));
     }
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

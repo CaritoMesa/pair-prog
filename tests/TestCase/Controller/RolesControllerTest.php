@@ -25,8 +25,7 @@ class RolesControllerTest extends IntegrationTestCase
         'app.rubrics',
         'app.rubric_criterias',
         'app.rubric_levels',
-        'app.submissions',
-        'app.grades'
+        'app.submissions'
     ];
 
     /**
@@ -36,7 +35,30 @@ class RolesControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$this->get('/groups');
+    	 
+    	$this->assertResponseOk();
+    }
+    
+    public function testIndexQueryData()
+    {
+    	$this->get('/groups?page=1');
+    
+    	$this->assertResponseOk();
+    }
+    
+    public function testIndexPostData()
+    {
+    	$data = [
+    			'id' => 1,
+            	'name' => 'Ejecutor'
+    	];
+    	$this->post('/groups', $data);
+    
+    	$this->assertResponseSuccess();
+    	$articles = TableRegistry::get('Groups');
+    	$query = $articles->find()->where(['id' => $data['id']]);
+    	$this->assertEquals(1, $query->count());
     }
 
     /**

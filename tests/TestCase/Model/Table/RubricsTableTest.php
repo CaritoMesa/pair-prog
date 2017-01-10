@@ -16,7 +16,6 @@ class RubricsTableTest extends TestCase
         'app.activities',
         'app.activities_groups',
         'app.submissions',
-        'app.grades',
         'app.rubric_criterias',
         'app.rubric_levels'
     ];

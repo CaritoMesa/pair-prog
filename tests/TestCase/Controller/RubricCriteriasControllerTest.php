@@ -22,7 +22,6 @@ class RubricCriteriasControllerTest extends IntegrationTestCase
         'app.activities',
         'app.activities_groups',
         'app.submissions',
-        'app.grades',
         'app.rubric_levels'
     ];
 

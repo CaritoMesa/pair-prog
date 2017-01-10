@@ -3,6 +3,7 @@ namespace App\Test\TestCase\Controller;
 
 use App\Controller\GroupsController;
 use Cake\TestSuite\IntegrationTestCase;
+use Cake\ORM\TableRegistry;
 
 /**
  * App\Controller\GroupsController Test Case
@@ -24,7 +25,6 @@ class GroupsControllerTest extends IntegrationTestCase
         'app.rubric_criterias',
         'app.rubric_levels',
         'app.submissions',
-        'app.grades',
         'app.assignments'
     ];
 
@@ -35,46 +35,32 @@ class GroupsControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test view method
-     *
-     * @return void
-     */
-    public function testView()
+    	$this->get('/groups');
+    	
+    	$this->assertResponseOk();
+    } 
+    
+    public function testIndexQueryData()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$this->get('/groups?page=1');
+    
+    	$this->assertResponseOk();
     }
-
-    /**
-     * Test add method
-     *
-     * @return void
-     */
-    public function testAdd()
+    
+    public function testIndexPostData()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEdit()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$data = [
+    			'id' => 1,
+            'name' => 'Lorem ipsum dolor sit amet',
+            'created' => '2016-12-11',
+            'modified' => '2016-12-11',
+            'activity_id' => 1
+    	];
+    	$this->post('/groups', $data);
+    
+    	$this->assertResponseSuccess();
+    	$articles = TableRegistry::get('Groups');
+    	$query = $articles->find()->where(['id' => $data['id']]);
+    	$this->assertEquals(1, $query->count());
     }
 }

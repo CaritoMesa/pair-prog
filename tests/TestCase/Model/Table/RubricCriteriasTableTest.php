@@ -11,14 +11,14 @@ class RubricCriteriasTableTest extends TestCase
     public $RubricCriterias;
 
     public $fixtures = [
-        'app.rubric_criterias',
+        'app.rubric_criterias'/*,
         'app.rubrics',
         'app.users',
         'app.activities',
         'app.activities_groups',
         'app.submissions',
         'app.grades',
-        'app.rubric_levels'
+        'app.rubric_levels'*/
     ];
 
     public function setUp()

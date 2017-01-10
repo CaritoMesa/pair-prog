@@ -24,7 +24,7 @@ class GroupsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.groups',
+        'app.groups'/*,
         'app.activities',
         'app.users',
         'app.activities_groups',
@@ -32,8 +32,7 @@ class GroupsTableTest extends TestCase
         'app.rubric_criterias',
         'app.rubric_levels',
         'app.submissions',
-        'app.grades',
-        'app.assignments'
+        'app.assignments'*/
     ];
 
     /**

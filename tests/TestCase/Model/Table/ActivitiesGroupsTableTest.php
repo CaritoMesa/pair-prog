@@ -24,10 +24,10 @@ class ActivitiesGroupsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.activities_groups',
+        'app.activities_groups'/*,
         'app.activities',
         'app.users',
-        'app.submissions'
+        'app.submissions'*/
     ];
 
     /**
@@ -61,7 +61,16 @@ class ActivitiesGroupsTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    			'id' => 1,
+	            'name' => 'Actividades de Funciones',
+	            'created' => '2016-09-07',
+	            'modified' => '2016-09-07'
+    	);
+    	$result = $this->ActivitiesGroups->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['name']));
     }
 
     /**

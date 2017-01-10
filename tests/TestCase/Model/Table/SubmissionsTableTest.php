@@ -15,8 +15,7 @@ class SubmissionsTableTest extends TestCase
         'app.activities',
         'app.users',
         'app.activities_groups',
-        'app.rubrics',
-        'app.grades'
+        'app.rubrics'
     ];
 
     public function setUp()

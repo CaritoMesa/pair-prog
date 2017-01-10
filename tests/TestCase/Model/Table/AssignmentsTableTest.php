@@ -24,7 +24,7 @@ class AssignmentsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.assignments',
+        'app.assignments'/*,
         'app.users',
         'app.groups',
         'app.activities',
@@ -33,7 +33,7 @@ class AssignmentsTableTest extends TestCase
         'app.rubric_criterias',
         'app.rubric_levels',
         'app.submissions',
-        'app.grades'
+        'app.grades'*/
     ];
 
     /**
@@ -67,26 +67,20 @@ class AssignmentsTableTest extends TestCase
      */
     public function testInitialize()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$postData = array(
+    			 'id' => 1,
+	            'created' => '2016-12-16',
+	            'modified' => '2016-12-16',
+	            'user_id' => 1,
+	            'group_id' => 1,
+	            'role_id' => 1
+    	);
+    	$result = $this->Assignments->newEntity($postData);
+    	$this->assertFalse(empty($result));
+    	$this->assertTrue(is_integer($postData['id']));
+    	$this->assertFalse(is_null($postData['user_id']));
+    	$this->assertFalse(is_null($postData['group_id']));
+    	$this->assertFalse(is_null($postData['role_id']));
     }
 
-    /**
-     * Test validationDefault method
-     *
-     * @return void
-     */
-    public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

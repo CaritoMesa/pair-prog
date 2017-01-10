@@ -41,7 +41,6 @@ class RubricsController extends AppController
         if ($this->request->is('post')) {
         	$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
         	$rubric->user_id = $this->Auth->user('id');
-        	 
         	if ($rubricsTable->save($rubric)) {
         		$id = $rubric->id;        
         		$this->Flash->success(__('The rubric has been saved.'));
@@ -118,7 +117,6 @@ class RubricsController extends AppController
         } else {
             $this->Flash->error(__('The rubric could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
     

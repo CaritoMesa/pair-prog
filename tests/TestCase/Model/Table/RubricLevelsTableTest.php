@@ -17,8 +17,7 @@ class RubricLevelsTableTest extends TestCase
         'app.users',
         'app.activities',
         'app.activities_groups',
-        'app.submissions',
-        'app.grades'
+        'app.submissions'
     ];
 
     public function setUp()

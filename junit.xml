@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="App Test Suite" tests="17" assertions="53" failures="3" errors="0" time="2.974036">
+    <testsuite name="App\Test\TestCase\Controller\ActivitiesControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/ActivitiesControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\ActivitiesGroupsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/ActivitiesGroupsControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\AssignmentsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/AssignmentsControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\GroupsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/GroupsControllerTest.php" tests="1" assertions="4" failures="1" errors="0" time="0.499615">
+      <testcase name="testIndex" class="App\Test\TestCase\Controller\GroupsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/GroupsControllerTest.php" line="35" assertions="4" time="0.499615">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">App\Test\TestCase\Controller\GroupsControllerTest::testIndex
+Status code is not between 200 and 204
+Failed asserting that 302 is equal to 204 or is less than 204.
+
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:684
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:619
+/Users/carolinamesa/pair-prog/tests/TestCase/Controller/GroupsControllerTest.php:39
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Controller\OAuthConsumersControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/OAuthConsumersControllerTest.php" tests="1" assertions="4" failures="1" errors="0" time="0.214238">
+      <testcase name="testIndex" class="App\Test\TestCase\Controller\OAuthConsumersControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/OAuthConsumersControllerTest.php" line="14" assertions="4" time="0.214238">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">App\Test\TestCase\Controller\OAuthConsumersControllerTest::testIndex
+Status code is not between 200 and 204
+Failed asserting that 302 is equal to 204 or is less than 204.
+
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:684
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:619
+/Users/carolinamesa/pair-prog/tests/TestCase/Controller/OAuthConsumersControllerTest.php:18
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Controller\RolesControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/RolesControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\RubricCriteriasControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/RubricCriteriasControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\RubricLevelsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/RubricLevelsControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\RubricsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/RubricsControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\SubmissionsControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/SubmissionsControllerTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Controller\UsersControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/UsersControllerTest.php" tests="2" assertions="5" failures="1" errors="0" time="0.251933">
+      <testcase name="testTrue" class="App\Test\TestCase\Controller\UsersControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/UsersControllerTest.php" line="15" assertions="1" time="0.023863"/>
+      <testcase name="testIndex" class="App\Test\TestCase\Controller\UsersControllerTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Controller/UsersControllerTest.php" line="25" assertions="4" time="0.228070">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">App\Test\TestCase\Controller\UsersControllerTest::testIndex
+Status code is not between 200 and 204
+Failed asserting that 302 is equal to 204 or is less than 204.
+
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:684
+/Users/carolinamesa/pair-prog/vendor/cakephp/cakephp/src/TestSuite/IntegrationTestCase.php:619
+/Users/carolinamesa/pair-prog/tests/TestCase/Controller/UsersControllerTest.php:29
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\ActivitiesGroupsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/ActivitiesGroupsTableTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.344005">
+      <testcase name="testInitialize" class="App\Test\TestCase\Model\Table\ActivitiesGroupsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/ActivitiesGroupsTableTest.php" line="62" assertions="3" time="0.344005"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\ActivitiesTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/ActivitiesTableTest.php" tests="2" assertions="9" failures="0" errors="0" time="0.558474">
+      <testcase name="testValidationActivity" class="App\Test\TestCase\Model\Table\ActivitiesTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/ActivitiesTableTest.php" line="55" assertions="6" time="0.087617"/>
+      <testcase name="testBuildRules" class="App\Test\TestCase\Model\Table\ActivitiesTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/ActivitiesTableTest.php" line="75" assertions="3" time="0.470857"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\AssignmentsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/AssignmentsTableTest.php" tests="3" assertions="5" failures="0" errors="0" time="0.124273">
+      <testcase name="testInitialize" class="App\Test\TestCase\Model\Table\AssignmentsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/AssignmentsTableTest.php" line="68" assertions="5" time="0.066605"/>
+      <testcase name="testValidationDefault" class="App\Test\TestCase\Model\Table\AssignmentsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/AssignmentsTableTest.php" line="91" assertions="0" time="0.023714"/>
+      <testcase name="testBuildRules" class="App\Test\TestCase\Model\Table\AssignmentsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/AssignmentsTableTest.php" line="101" assertions="0" time="0.033954"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\GroupsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/GroupsTableTest.php" tests="1" assertions="4" failures="0" errors="0" time="0.117626">
+      <testcase name="testValidation" class="App\Test\TestCase\Model\Table\GroupsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/GroupsTableTest.php" line="67" assertions="4" time="0.117626"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\OAuthConsumersTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/OAuthConsumersTableTest.php" tests="1" assertions="4" failures="0" errors="0" time="0.069740">
+      <testcase name="testValidation" class="App\Test\TestCase\Model\Table\OAuthConsumersTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/OAuthConsumersTableTest.php" line="29" assertions="4" time="0.069740"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\RolesTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RolesTableTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="App\Test\TestCase\Model\Table\RubricCriteriasTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricCriteriasTableTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.090267">
+      <testcase name="testValidation" class="App\Test\TestCase\Model\Table\RubricCriteriasTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricCriteriasTableTest.php" line="38" assertions="3" time="0.090267"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\RubricLevelsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricLevelsTableTest.php" tests="1" assertions="4" failures="0" errors="0" time="0.116405">
+      <testcase name="testValidation" class="App\Test\TestCase\Model\Table\RubricLevelsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricLevelsTableTest.php" line="37" assertions="4" time="0.116405"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\RubricsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricsTableTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.089395">
+      <testcase name="testValidationOk" class="App\Test\TestCase\Model\Table\RubricsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/RubricsTableTest.php" line="37" assertions="1" time="0.089395"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\SubmissionsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/SubmissionsTableTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.069564">
+      <testcase name="testValidationOk" class="App\Test\TestCase\Model\Table\SubmissionsTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/SubmissionsTableTest.php" line="35" assertions="1" time="0.069564"/>
+    </testsuite>
+    <testsuite name="App\Test\TestCase\Model\Table\UsersTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/UsersTableTest.php" tests="1" assertions="6" failures="0" errors="0" time="0.428501">
+      <testcase name="testValidationRegistroWeb" class="App\Test\TestCase\Model\Table\UsersTableTest" file="/Users/carolinamesa/pair-prog/tests/TestCase/Model/Table/UsersTableTest.php" line="30" assertions="6" time="0.428501"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

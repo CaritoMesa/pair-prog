@@ -19,4 +19,37 @@ class FeatureContext implements Context
     public function __construct()
     {
     }
+    
+    /**
+     * @Given I go to :arg1
+     */
+    public function iGoTo($arg1)
+    {
+    	throw new PendingException();
+    }
+    
+    /**
+     * @When I fill in :arg1 with :arg2
+     */
+    public function iFillInWith($arg1, $arg2)
+    {
+    	throw new PendingException();
+    }
+    
+    /**
+     * @When I press :arg1
+     */
+    public function iPress($arg1)
+    {
+    	throw new PendingException();
+    }
+    
+    /**
+     * @Then I should see :arg1
+     */
+    public function iShouldSee($arg1)
+    {
+    	throw new PendingException();
+    }
+    
 }

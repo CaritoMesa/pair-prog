@@ -24,8 +24,7 @@ class AssignmentsControllerTest extends IntegrationTestCase
         'app.rubrics',
         'app.rubric_criterias',
         'app.rubric_levels',
-        'app.submissions',
-        'app.grades'
+        'app.submissions'
     ];
 
     /**
@@ -35,9 +34,36 @@ class AssignmentsControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+    	$this->get('/assignments');
+    	 
+    	$this->assertResponseOk();
     }
-
+    
+    public function testIndexQueryData()
+    {
+    	$this->get('/assignments?page=1');
+    
+    	$this->assertResponseOk();
+    }
+    
+    public function testIndexPostData()
+    {
+    	$data = [
+    			'id' => 1,
+	            'created' => '2016-12-16',
+	            'modified' => '2016-12-16',
+	            'user_id' => 1,
+	            'group_id' => 1,
+	            'role_id' => 1
+    	];
+    	$this->post('/assignments', $data);
+    
+    	$this->assertResponseSuccess();
+    	$articles = TableRegistry::get('Assignments');
+    	$query = $articles->find()->where(['id' => $data['id']]);
+    	$this->assertEquals(1, $query->count());
+    }
+    
     /**
      * Test view method
      *

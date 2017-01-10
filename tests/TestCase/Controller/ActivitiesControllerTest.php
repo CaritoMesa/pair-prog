@@ -20,7 +20,6 @@ class ActivitiesControllerTest extends IntegrationTestCase
         'app.users',
         'app.activities_groups',
         'app.rubrics',
-        'app.grades',
         'app.submissions'
     ];
 

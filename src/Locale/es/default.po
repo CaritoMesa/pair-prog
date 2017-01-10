@@ -1133,5 +1133,14 @@ msgstr "Ingresar"
 msgid "Apply Rubric"
 msgstr "Aplica Rúbrica"
 
+msgid "Rubrics"
+msgstr "Rúbricas"
+
+msgid "Submissions"
+msgstr "Entregas"
+
+msgid "New"
+msgstr "Nueva"
+
 msgid ""
 msgstr ""
