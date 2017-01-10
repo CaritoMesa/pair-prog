@@ -525,7 +525,7 @@ msgstr "Nombre"
 
 #: Template/Assignments/add.ctp:6
 msgid "Add Assignment"
-msgstr "Agrgar asignación"
+msgstr "Agregar asignación"
 
 #: Template/Assignments/edit.ctp:5
 msgid "Participants"
@@ -544,7 +544,7 @@ msgstr "Agregar Participante"
 #: Template/Rubrics/add.ctp:12
 #: Template/Rubrics/index.ctp:15
 msgid "Add Rubric"
-msgstr "Agrgar Rúbrica"
+msgstr "Agregar Rúbrica"
 
 #: Template/Assignments/edit.ctp:52
 #: Template/Groups/view.ctp:86;121

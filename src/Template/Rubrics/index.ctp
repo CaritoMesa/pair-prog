@@ -1,37 +1,19 @@
-<div class="rubrics index large-9 medium-8 columns content">
-    <h2>
+<div>
+    <h1>
         <?= __('Rubrics') ?>
-        <button type="button" class="btn btn-primary pull-right" escape="false" data-toggle="modal" data-target="#myModal">
-        <span class="glyphicon glyphicon-plus"></span>
-            <?=__('New')?>
-        </button>
-    </h2>
+        <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span> New'), ['controller' => 'Rubrics', 'action' => 'add'], ['class' => 'btn btn-primary pull-right', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?> 
+        
+    </h1>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><?= __('Add Rubric') ?></h4>
-      </div>
-      <div class="modal-body">
-        <?= $this->Form->create($rubric) ?>
-        <?= $this->Flash->render() ?>
-        <fieldset>
-            <?php
-                echo $this->Form->input('name');
-                echo $this->Form->input('description');
-            ?>
-        </fieldset>       
-      </div>
-      <div class="modal-footer">
-        <?= $this->Form->button(__('Save'), ['class' => 'btn btn-primary pull-right']) ?>
-        <?= $this->Form->end() ?>
-      </div>
-    </div>
-  </div>
-</div>
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
+</div>
     <table class="table table-hover table-condensed">
         <thead>
             <tr>
@@ -46,7 +28,7 @@
             <tr>
                 <td><?= $this->Number->format($rubric->id) ?></td>
                 <td><?= $this->Html->link($rubric->name, ['action' => 'view', $rubric->id]) ?></td>
-                <td><?= h($rubric->description) ?></td>
+                <td><?= $this->Text->truncate($rubric->description, 60, ['ellipsis' => '...', 'exact' => false]) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubric->id], ['class' => 'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rubric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubric->name), 'class' => 'btn btn-sm btn-danger']) ?>

@@ -75,7 +75,25 @@ class RubricsController extends AppController
         				'criteria']);
         
     }
-
+	
+    /**
+     * Add method
+     *
+     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
+     */
+    public function add()
+    {
+    	$rubric = $this->Rubrics->newEntity();
+    	if ($this->request->is('post')) {
+    		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
+    		$rubric->user_id = $this->Auth->user('id');
+    		if ($this->Rubrics->save($rubric)) {
+    			$this->Flash->success(__('The rubric has been saved.'));
+    			return $this->redirect(['action' => 'index']);
+    		}
+    	}
+    }
+    
     /**
      * Edit method
      *
