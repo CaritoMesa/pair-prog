@@ -2,10 +2,10 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
 #, fuzzy
-msgid ""
-msgstr ""
+# msgid ""
+# msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2016-12-16 01:53+0000\n"
+"POT-Creation-Date: 2016-09-09 18:43+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -13,6 +13,19 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr "Error"
+
+#: Template/Error/error400.ctp:38
+msgid "The requested address %s was not found on this server."
+msgstr "Error"
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr "Error"
 
 #: Controller/ActivitiesController.php:63;90
 msgid "The activity has been saved."
@@ -697,7 +710,7 @@ msgstr "Nuevo Rol"
 #: Template/RubricCriterias/add copia.ctp:5
 #: Template/RubricCriterias/add.ctp:5
 msgid "Add Rubric Criteria"
-msgstr "Agregar Criterio de Rúbrica"
+msgstr "Agregar Criterio"
 
 #: Template/RubricCriterias/edit.ctp:10
 msgid "List Rubric Criterias"
@@ -711,7 +724,7 @@ msgstr "Lista Rúbricas"
 #: Template/Rubrics/add.ctp:3
 #: Template/Rubrics/index.ctp:6
 msgid "New Rubric"
-msgstr "Nueva RúbricaRúbrica"
+msgstr "Nueva Rúbrica"
 
 #: Template/RubricCriterias/edit.ctp:13
 msgid "List Rubric Levels"
@@ -720,7 +733,7 @@ msgstr "Lista de Niveles de Rúbrica"
 #: Template/RubricCriterias/edit.ctp:14
 #: Template/Rubrics/view.ctp:36
 msgid "New Rubric Level"
-msgstr "Nuevo Niveles de Rúbrica"
+msgstr "Nuevo Nivel"
 
 #: Template/RubricCriterias/edit.ctp:20
 msgid "Edit Rubric Criteria"
@@ -729,11 +742,6 @@ msgstr "Editar Criterios de Rúbrica"
 #: Template/RubricCriterias/index.ctp:2
 msgid "Rubric Criterias"
 msgstr "Criterios de Rúbrica"
-
-#: Template/RubricCriterias/view.ctp:2
-#: Template/Rubrics/view.ctp:2
-msgid "< Volver"
-msgstr "< Volver"
 
 #: Template/RubricCriterias/view.ctp:29
 msgid "Related Rubric Levels"

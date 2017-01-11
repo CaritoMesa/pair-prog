@@ -60,20 +60,13 @@ class RubricsController extends AppController
     {
         $rubric = $this->Rubrics->get($id, [
             'contain' => ['RubricCriterias']
-        ]);
-        
-       	$c = $this->Rubrics->RubricCriterias->find()
-       			->where(['rubric_id' => $id])
-       			->contain(['Rubrics','RubricLevels'])
-       			->toArray();
-        $criteria = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
+        ]);      
+        $criterias = $this->Rubrics->RubricCriterias->find()->where(['rubric_id' => $id])->contain('RubricLevels');
         $this->set([
         		'rubric' => $rubric,
-        		'criteria' => $criteria
+        		'criterias' => $criterias
         ]);
-        $this->set('_serialize', ['rubric',
-        				'criteria']);
-        
+        $this->set('_serialize', ['rubric','criterias']);
     }
 	
     /**

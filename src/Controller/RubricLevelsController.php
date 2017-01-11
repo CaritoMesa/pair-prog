@@ -2,6 +2,10 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\I18n;
+use Cake\ORM\TableRegistry;
+
+I18n::locale('es');
 
 /**
  * RubricLevels Controller
@@ -55,16 +59,21 @@ class RubricLevelsController extends AppController
         if ($this->request->is('post')) {
             $rubricLevel = $this->RubricLevels->patchEntity($rubricLevel, $this->request->data);
             $rubricLevel->rubric_criteria_id = $criteria_id;
+            $criteriasTable = TableRegistry::get('RubricCriterias');
+            $criteria = $criteriasTable->find()->where(['id' => $criteria_id])->first();
             if ($this->RubricLevels->save($rubricLevel)) {
                 $this->Flash->success(__('The rubric level has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect([
+                		'controller' => 'Rubrics',
+                		'action' => 'view', $criteria->rubric_id
+                ]);
             } else {
                 $this->Flash->error(__('The rubric level could not be saved. Please, try again.'));
             }
         }
         $this->set(compact('rubricLevel'));
         $this->set('_serialize', ['rubricLevel']);
+        $this->set('rubric_id', $criteria->rubric_id);
     }
 
     /**

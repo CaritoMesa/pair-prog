@@ -30,7 +30,7 @@
                 <td><?= $this->Html->link($rubric->name, ['action' => 'view', $rubric->id]) ?></td>
                 <td><?= $this->Text->truncate($rubric->description, 60, ['ellipsis' => '...', 'exact' => false]) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubric->id], ['class' => 'btn btn-sm btn-primary']) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rubric->id], ['class' => 'btn btn-sm btn-primary', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rubric->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rubric->name), 'class' => 'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>

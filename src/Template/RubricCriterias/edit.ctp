@@ -1,28 +1,17 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $rubricCriteria->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $rubricCriteria->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Rubric Criterias'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rubric'), ['controller' => 'Rubrics', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Rubric Levels'), ['controller' => 'RubricLevels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rubric Level'), ['controller' => 'RubricLevels', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="rubricCriterias form large-9 medium-8 columns content">
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><?= __('Edit Rubric Criteria') ?></h4>
+</div>
+<div class="modal-body">
     <?= $this->Form->create($rubricCriteria) ?>
     <fieldset>
-        <legend><?= __('Edit Rubric Criteria') ?></legend>
         <?php
             echo $this->Form->input('description');
-            echo $this->Form->input('rubric_id', ['options' => $rubrics]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Html->link(__('Close'), ['controller' => 'Rubrics', 'action' => 'view', $rubric_id], ['class' => 'btn btn-default']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
+</div>
+<div class="modal-footer">
 </div>
