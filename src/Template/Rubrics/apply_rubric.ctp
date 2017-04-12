@@ -13,22 +13,11 @@
                     <?= h($rubricCriterias->description) ?>
                     <?= $this->Html->link(__('Evaluar'), ['controller' => 'Grades', 'action' => 'add', $rubricCriterias->id], ['class' => 'btn btn-primary pull-right', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
                 </td>
-                <td>
-                    <?php foreach ($prueba as $pp): ?>
-                        <?php if ($pp->rubric_criteria_id === $rubricCriterias->id): ?>     
-                            <?php echo $this->Form->radio($id, $pp->definition);
-                            echo ' ('.$pp->score.' pts.)';?> 
-                            <br />
-                        <?php endif; ?>
-                    <?php endforeach; ?>     
-                </td>
-                <?php ++$id ?>
             </tr>
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
     <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'submit'], ['class' => 'btn btn-primary']) ?>
-    <?= $this->Form->button(__('Submit')) ?>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

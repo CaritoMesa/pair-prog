@@ -143,23 +143,6 @@ class RubricsController extends AppController
     	$submissionsTable = TableRegistry::get('Submissions');
     	$submissions = $submissionsTable->find();
     	
-    	$grades = TableRegistry::get('Grades');
-    	$grade = $grades->newEntity();
-    	
-    	
-    	if ($this->request->is('post')) {
-    		$grade = $grades>patchEntity($grade, $this->request->data);
-    		$grade->user_id = $this->Auth->user('id');
-    		$grade->submission_id = $submissions->id;
-    		
-    		
-    		if ($grades->save($grade)) {
-    			$this->Flash->success(__('The rubric has been saved.'));
-    			return $this->redirect(['action' => 'index']);
-    		} else {
-    				$this->Flash->error(__('The grades could not be saved. Please, try again.'));
-    		}
-    	}
     	
     	$this->set(['rubric' => $rubric, 'prueba' => $p]);
     	$this->set('_serialize', ['rubric', 'prueba']);

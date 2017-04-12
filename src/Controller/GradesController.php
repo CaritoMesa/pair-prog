@@ -50,8 +50,9 @@ class GradesController extends AppController
             }
         }
         $score = $this->Grades->RubricCriterias->RubricLevels->find()->where(['rubric_criteria_id' => $idCriteria])->combine('score', 'definition');
-        $this->set(compact('grade', 'score'));
+        $this->set(compact('grade', 'score', 'title'));
         $this->set('_serialize', ['grade']);
+        
     }
 
     /**
