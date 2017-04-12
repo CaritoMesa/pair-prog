@@ -10,13 +10,6 @@ I18n::locale('es');
 
 /**
  * Activities Controller
- * Metodos implementados:
- * - index()
- * - view()
- * - add(id)
- * - edit(id)
- * - delete(id)
- * - submit(id)
  *
  * @property \App\Model\Table\ActivitiesTable $Activities
  */
@@ -49,9 +42,8 @@ class ActivitiesController extends AppController
     public function view($id = null)
     {
         $activity = $this->Activities->get($id, [
-        		'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions']
+        		'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions','Groups']
         ]);
-        
         $this->set('activity', $activity);
         $this->set('_serialize', ['activity']);
     }

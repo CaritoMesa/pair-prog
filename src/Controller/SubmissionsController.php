@@ -39,7 +39,7 @@ class SubmissionsController extends AppController
     public function view($id = null)
     {
         $submission = $this->Submissions->get($id, [
-            'contain' => ['Activities', 'Users']
+            'contain' => ['Activities', 'Users', 'Grades']
         ]);
 
         $this->set('submission', $submission);

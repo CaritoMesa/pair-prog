@@ -1,10 +1,13 @@
+<nav>
+    <ul class="nav nav-pills">
+        <li><?= $this->Html->link(__('Rubric'), ['controller' => 'Rubrics', 'action' => 'view', $activity->rubric->id]) ?></li>
+        <li><?= $this->Html->link(__('Groups'), ['controller' => 'Groups', 'action' => 'view', $activity->id]) ?></li>
+        <li><?= $this->Html->link(__('Entregas'), ['controller' => 'Submissions', 'action' => 'index']) ?></li>
+    </ul>
+</nav>
 <div class="activities view large-9 medium-8 columns content">
     <h3><?= h($activity->name) ?></h3>
     <table class="table">
-        <tr>
-            <th><?= __('User') ?></th>
-            <td><?= h($activity->user->first_name) ?> <?= h($activity->user->last_name) ?></td>
-        </tr>
         <tr>
             <th><?= __('Use Groups') ?></th>
             <td><?php if ($activity->use_groups == 1):?>
@@ -14,40 +17,30 @@
                 <?php endif; ?>
             </td> 
         </tr>
-        <tr>
-            <th><?= __('Rubric') ?></th>
-            <td><?= $activity->has('rubric') ? $this->Html->link($activity->rubric->name, ['controller' => 'Rubrics', 'action' => 'view', $activity->rubric->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Created') ?></th>
-            <td><?= h($activity->created) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Modified') ?></th>
-            <td><?= h($activity->modified) ?></td>
-        </tr>
     </table>
     <div class="row">
         <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($activity->description)); ?>
+        <blockquote>
+            <?= $this->Text->autoParagraph(h($activity->description)); ?>    
+        </blockquote>
     </div>
     <div class="related">
         <h4><?= __('Related Submissions') ?></h4>
         <?php if (!empty($activity->submissions)): ?>
         <table class="table" cellpadding="0" cellspacing="0">
             <tr>
-                <th><?= __('Submission') ?></th>
+                <th><?= __('User') ?></th>
                 <th><?= __('Created') ?></th>
                 <th><?= __('Modified') ?></th>
-                <th><?= __('User Id') ?></th>
+                <th><?= __('Calificación') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($activity->submissions as $submissions): ?>
             <tr>
-                <td><?= h($submissions->submission) ?></td>
+                <td><?= h($submissions->user_id) ?></td>
                 <td><?= h($submissions->created) ?></td>
                 <td><?= h($submissions->modified) ?></td>
-                <td><?= h($submissions->user_id) ?></td>
+                <td></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Submissions', 'action' => 'view', $submissions->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Submissions', 'action' => 'edit', $submissions->id]) ?>

@@ -139,35 +139,29 @@ class RubricsController extends AppController
     	$rubric = $this->Rubrics->get($id, [
     			'contain' => ['RubricCriterias']
     	]);
-    	$criterias = $this->Rubrics->RubricCriterias->RubricLevels->find()->toArray();
+    	$p= $this->Rubrics->RubricCriterias->RubricLevels->find('');
+    	$submissionsTable = TableRegistry::get('Submissions');
+    	$submissions = $submissionsTable->find();
     	
-    	$options = array();//Guarda las opciones para los botones de radio
-    	$filas = array();//Cada fila de criterios de la rubrica
-    	$idCriteria = $criterias[0]->rubric_criteria_id;
-    	foreach ($criterias as $criteria){
-    		$levels = array();
-    		$levels['value'] = $criteria->score;
-    		$levels['text'] = $criteria->definition. ' ('. $criteria->score. ' pts)';
-    		if ($criteria->rubric_criteria_id === $idCriteria){
-    			array_push($filas, $levels);
-    		}
-    		else {
-    			$filas['rubric_criteria_id'] = $idCriteria;
-    			array_push($options, $filas);
-    			
-    			$idCriteria = $criteria->rubric_criteria_id;
-    			$filas = array();
-    			array_push($filas, $levels);
+    	$grades = TableRegistry::get('Grades');
+    	$grade = $grades->newEntity();
+    	
+    	
+    	if ($this->request->is('post')) {
+    		$grade = $grades>patchEntity($grade, $this->request->data);
+    		$grade->user_id = $this->Auth->user('id');
+    		$grade->submission_id = $submissions->id;
+    		
+    		
+    		if ($grades->save($grade)) {
+    			$this->Flash->success(__('The rubric has been saved.'));
+    			return $this->redirect(['action' => 'index']);
+    		} else {
+    				$this->Flash->error(__('The grades could not be saved. Please, try again.'));
     		}
     	}
-    	$filas['rubric_criteria_id'] = $idCriteria;
-    	array_push($options, $filas);
-    	$this->set([
-    			'rubric' => $rubric,
-    			'criterias' => $criterias,
-    			'options' => $options
-    	]);
-    	$this->set('_serialize', ['rubric',
-    			'criterias', 'options']);
+    	
+    	$this->set(['rubric' => $rubric, 'prueba' => $p]);
+    	$this->set('_serialize', ['rubric', 'prueba']);
     }
 }

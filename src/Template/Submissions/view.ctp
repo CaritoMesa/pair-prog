@@ -1,3 +1,11 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('List Grades'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="submissions view large-9 medium-8 columns content">
     <table class="table" class="vertical-table">
         <tr>
@@ -20,20 +28,24 @@
             <th><?= __('Modified') ?></th>
             <td><?= h($submission->modified) ?></td>
         </tr>
+        <tr>
+            <th><?= __('Calificación') ?></th>
+            <td>14</td>
+        </tr>
     </table>
     <div class="row">
         <h4><?= __('Submission') ?></h4>
+        <pre class="brush: py">
         <?= $this->Text->autoParagraph(h($submission->submission)); ?>
+        </pre>
     </div>
-    <?= $this->Html->link(__('Grade'), ['controller' => 'Grades', 'action' => 'add', $submission->id]) ?>
-
+    <?= $this->Html->link(__('Apply Rubric'), ['controller' => 'Rubrics', 'action' => 'applyRubric', $submission->activity->rubric_id], ['class' => 'btn btn-sm btn-primary']) ?>
     <div class="related">
-        <h4><?= __('Grades') ?></h4>
+        <h4><?= __('Detalle Calificación') ?></h4>
         <?php if (!empty($submission->grades)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table">
             <tr>
                 <th><?= __('id') ?></th>
-                <th><?= __('achievement') ?></th>
                 <th><?= __('created') ?></th>
                 <th><?= __('modified') ?></th>
                 <th><?= __('submission_id') ?></th>
@@ -44,12 +56,11 @@
             <?php foreach ($submission->grades as $grades): ?>
             <tr>
                 <td><?= $this->Number->format($grades->id) ?></td>
-                <td><?= h($grade->achievement) ?></td>
-                <td><?= h($grade->created) ?></td>
-                <td><?= h($grade->modified) ?></td>
-                <td><?= $grade->has('submission') ? $this->Html->link($grade->submission->id, ['controller' => 'Submissions', 'action' => 'view', $grade->submission->id]) : '' ?></td>
-                <td><?= $grade->has('rubrics_item') ? $this->Html->link($grade->rubrics_item->id, ['controller' => 'RubricsItems', 'action' => 'view', $grade->rubrics_item->id]) : '' ?></td>
-                <td><?= $this->Number->format($grade->score) ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>7</td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $grade->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $grade->id]) ?>
@@ -57,6 +68,7 @@
             </tr>
             <?php endforeach; ?>
         </table>
+
         <?php endif; ?>
     </div>
 </div>

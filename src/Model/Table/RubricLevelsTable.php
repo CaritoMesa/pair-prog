@@ -35,7 +35,7 @@ class RubricLevelsTable extends Table
         parent::initialize($config);
 
         $this->table('rubric_levels');
-        $this->displayField('id');
+        $this->displayField('definition', '-', 'score');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
