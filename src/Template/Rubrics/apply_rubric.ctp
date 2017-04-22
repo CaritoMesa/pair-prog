@@ -17,7 +17,7 @@
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
-    <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'submit'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-primary']) ?>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

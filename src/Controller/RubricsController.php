@@ -134,17 +134,14 @@ class RubricsController extends AppController
     /**
      * Aplicar Rubrica method
      */
-    public function applyRubric($id = null)
+    public function applyRubric($id = null, $idSubmission = null)
     {
     	$rubric = $this->Rubrics->get($id, [
-    			'contain' => ['RubricCriterias']
+    			'contain' => ['RubricCriterias','Activities']
     	]);
-    	$p= $this->Rubrics->RubricCriterias->RubricLevels->find('');
-    	$submissionsTable = TableRegistry::get('Submissions');
-    	$submissions = $submissionsTable->find();
+
     	
-    	
-    	$this->set(['rubric' => $rubric, 'prueba' => $p]);
-    	$this->set('_serialize', ['rubric', 'prueba']);
+    	$this->set(['rubric' => $rubric]);
+    	$this->set('_serialize', ['rubric', 'submission']);
     }
 }
