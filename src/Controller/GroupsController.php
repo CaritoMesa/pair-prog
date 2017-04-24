@@ -92,20 +92,6 @@ class GroupsController extends AppController
     		}
     	}*/
     }
-    /**
-     * segundo combobox
-     */
-/*     public function get_participants_ajax() {
-    	echo "estoy en get_participants_ajax";
-    	Configure::write('debug', 0);
-    	if($this->RequestHandler->isAjax()) {
-    		debug($this->set('participants', $this->Groups->Assignments->find('list',
-    				array('conditions' =>
-    						array('Assignments.group_id' => $this->params['url']['groupId']),
-    						'recursive' => -1)))
-    				);
-    	}
-    } */
     	
     /**
      * Add method

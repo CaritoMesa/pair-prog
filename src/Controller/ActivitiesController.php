@@ -51,14 +51,13 @@ class ActivitiesController extends AppController
         $criteria = $criterias->find()->where(['rubric_id' => $activity->rubric_id])->contain('RubricLevels');
         $this->set(['criteria' => $criteria]);
         $this->set('_serialize', ['criteria']);
-        //Grupos - parejas
-        
+        //Grupos - parejas        
          
         $groups = TableRegistry::get('Groups');
-        $this->set('groups', $users->find());
+        $this->set('groups', $groups->find());
         
-        $assignments = $this->Groups->Assignments->find()
-        ->where(['Groups.activity_id' => $actv_id])
+        $assignments = $groups->Assignments->find()
+        ->where(['Groups.activity_id' => $id])
         ->contain(['Groups','Users'])
         ->toArray();
         $this->set('assignments', $assignments);
@@ -70,7 +69,7 @@ class ActivitiesController extends AppController
         /**
          * Add in modal 1
          */
-        $save_group = $this->Groups->newEntity($this->request->data());
+        $save_group = TableRegistry::get('Groups')->newEntity($this->request->data());
          
         if ($this->request->is('post')) {
         	$save_group = $this->Groups->patchEntity($save_group, $this->request->data);
