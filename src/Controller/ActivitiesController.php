@@ -46,6 +46,41 @@ class ActivitiesController extends AppController
         ]);
         $this->set('activity', $activity);
         $this->set('_serialize', ['activity']);
+        //criterio rubricas
+        $criterias = TableRegistry::get('RubricCriterias');
+        $criteria = $criterias->find()->where(['rubric_id' => $activity->rubric_id])->contain('RubricLevels');
+        $this->set(['criteria' => $criteria]);
+        $this->set('_serialize', ['criteria']);
+        //Grupos - parejas
+        
+         
+        $groups = TableRegistry::get('Groups');
+        $this->set('groups', $users->find());
+        
+        $assignments = $this->Groups->Assignments->find()
+        ->where(['Groups.activity_id' => $actv_id])
+        ->contain(['Groups','Users'])
+        ->toArray();
+        $this->set('assignments', $assignments);
+        $this->set('_serialize', ['assignments']);
+         
+        //Primer combobox
+        //$this->set('names', $this->Groups->find('list')->where(['activity_id' => $actv_id]));
+         
+        /**
+         * Add in modal 1
+         */
+        $save_group = $this->Groups->newEntity($this->request->data());
+         
+        if ($this->request->is('post')) {
+        	$save_group = $this->Groups->patchEntity($save_group, $this->request->data);
+        	$save_group->activity_id = $actv_id;
+        	 
+        	if ($this->Groups->save($save_group)) {
+        		$this->Flash->success(__('The group has been saved.'));
+        	}
+        }
+         
     }
 
     /**

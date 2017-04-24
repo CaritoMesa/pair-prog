@@ -38,8 +38,6 @@ class GroupsController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      * 
-     * Llamado desde Activities->index
-     * Trabajando........
      */
     public function view($actv_id = null)
     {
@@ -59,8 +57,6 @@ class GroupsController extends AppController
     			->toArray();
     	$this->set('assignments', $assignments);
     	$this->set('_serialize', ['assignments']);
-    	
-    	
     	
     	//Primer combobox
     	//$this->set('names', $this->Groups->find('list')->where(['activity_id' => $actv_id]));

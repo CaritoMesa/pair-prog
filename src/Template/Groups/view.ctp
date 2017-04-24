@@ -8,7 +8,6 @@
   <?php //echo $this->Form->input('User.name', array('empty' => 'Select ...', 'type' => 'select', 'id' => 'user-name')); ?>
 </div> -->
 
-
 <!-- Agregar Parejas -->
 <h1><?= h($activity->name) ?></h1>
 <blockquote>
