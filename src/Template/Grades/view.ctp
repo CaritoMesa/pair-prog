@@ -9,6 +9,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Submissions'), ['controller' => 'Submissions', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Submission'), ['controller' => 'Submissions', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Rubric Criterias'), ['controller' => 'RubricCriterias', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Rubric Criteria'), ['controller' => 'RubricCriterias', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="grades view large-9 medium-8 columns content">
@@ -23,12 +25,12 @@
             <td><?= $grade->has('submission') ? $this->Html->link($grade->submission->id, ['controller' => 'Submissions', 'action' => 'view', $grade->submission->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($grade->id) ?></td>
+            <th scope="row"><?= __('Rubric Criteria') ?></th>
+            <td><?= $grade->has('rubric_criteria') ? $this->Html->link($grade->rubric_criteria->id, ['controller' => 'RubricCriterias', 'action' => 'view', $grade->rubric_criteria->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Criteria Id') ?></th>
-            <td><?= $this->Number->format($grade->criteria_id) ?></td>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($grade->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Score') ?></th>

@@ -10,7 +10,7 @@
             echo $rubricCriteria->rubric_id;
         ?>
     </fieldset>
-    <?= $this->Html->link(__('Close'), ['controller' => 'Rubrics', 'action' => 'view', $rubric_id], ['class' => 'btn btn-default']) ?>
+    <?= $this->Html->link(__('Close'), ['controller' => 'Activities', 'action' => 'view', $actv_id], ['class' => 'btn btn-default']) ?>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>

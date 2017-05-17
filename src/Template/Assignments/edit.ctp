@@ -26,7 +26,7 @@
 
     <!-- Boton Agregar Parejas -->
     <br>
-    <?= $this->Html->link(__('Cancel'), ['controller' => 'Groups', 'action' => 'view', $assignment->group->activity_id], ['class' => 'btn btn-default'])  ?>
+    <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'view', $assignment->group->activity_id], ['class' => 'btn btn-default'])  ?>
 
     <button type="button" class="btn btn-primary" escape="false" data-toggle="modal" data-target="#myModal1">
         <span class="glyphicon glyphicon-plus"></span>

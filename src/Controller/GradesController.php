@@ -12,6 +12,22 @@ class GradesController extends AppController
 {
 
     /**
+     * Index method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function index()
+    {
+        $this->paginate = [
+            'contain' => ['Users', 'Submissions', 'RubricCriterias']
+        ];
+        $grades = $this->paginate($this->Grades);
+
+        $this->set(compact('grades'));
+        $this->set('_serialize', ['grades']);
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Grade id.
@@ -21,7 +37,7 @@ class GradesController extends AppController
     public function view($id = null)
     {
         $grade = $this->Grades->get($id, [
-            'contain' => ['Users', 'Submissions', 'Criterias']
+            'contain' => ['Users', 'Submissions', 'RubricCriterias']
         ]);
 
         $this->set('grade', $grade);
@@ -33,26 +49,24 @@ class GradesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add($idCriteria = null)
+    public function add()
     {
         $grade = $this->Grades->newEntity();
         if ($this->request->is('post')) {
             $grade = $this->Grades->patchEntity($grade, $this->request->data);
-            $grade->user_id = $this->Auth->user('id');
-            $grade->criteria_id = $idCriteria;
-            $grade->submission_id = 1;
             if ($this->Grades->save($grade)) {
                 $this->Flash->success(__('The grade has been saved.'));
 
-                return $this->redirect(['controller' => 'Rubrics', 'action' => 'applyRubric', 2]);
+                return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The grade could not be saved. Please, try again.'));
             }
         }
-        $score = $this->Grades->RubricCriterias->RubricLevels->find()->where(['rubric_criteria_id' => $idCriteria])->combine('score', 'definition');
-        $this->set(compact('grade', 'score', 'title'));
+        $users = $this->Grades->Users->find('list', ['limit' => 200]);
+        $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
+        $rubricCriterias = $this->Grades->RubricCriterias->find('list', ['limit' => 200]);
+        $this->set(compact('grade', 'users', 'submissions', 'rubricCriterias'));
         $this->set('_serialize', ['grade']);
-        
     }
 
     /**
@@ -72,15 +86,14 @@ class GradesController extends AppController
             if ($this->Grades->save($grade)) {
                 $this->Flash->success(__('The grade has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Rubrics', 'action' => 'apply_rubric', $grade->submission_id]);
             } else {
                 $this->Flash->error(__('The grade could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Grades->Users->find('list', ['limit' => 200]);
-        $submissions = $this->Grades->Submissions->find('list', ['limit' => 200]);
-        $criterias = $this->Grades->Criterias->find('list', ['limit' => 200]);
-        $this->set(compact('grade', 'users', 'submissions', 'criterias'));
+        $criteria = $this->Grades->find()->select(['criteria_id'])->where(['id' => $id])->first();
+        $radio = $this->Grades->RubricCriterias->RubricLevels->find()->where(['rubric_criteria_id' => $criteria->criteria_id])->combine('score', 'definition');
+        $this->set(compact('grade', 'radio', 'title'));
         $this->set('_serialize', ['grade']);
     }
 

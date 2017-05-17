@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -64,7 +65,7 @@ class GradesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('score')
+            ->numeric('score')
             ->allowEmpty('score');
 
         return $validator;

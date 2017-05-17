@@ -21,7 +21,7 @@ class GradesFixture extends TestFixture
         'user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'submission_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'criteria_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'score' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'score' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         '_indexes' => [
             'calificador' => ['type' => 'index', 'columns' => ['user_id'], 'length' => []],
             'criterio' => ['type' => 'index', 'columns' => ['criteria_id'], 'length' => []],
@@ -30,9 +30,9 @@ class GradesFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'entrega' => ['type' => 'foreign', 'columns' => ['submission_id'], 'references' => ['submissions', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'calificador' => ['type' => 'foreign', 'columns' => ['user_id'], 'references' => ['users', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'criteria' => ['type' => 'foreign', 'columns' => ['criteria_id'], 'references' => ['rubric_criterias', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'entrega' => ['type' => 'foreign', 'columns' => ['submission_id'], 'references' => ['submissions', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

@@ -47,34 +47,26 @@
   <div class="col-xs-6">
     <div class="related">
         <h2><?= h($rubric->name) ?></h2>
-        <br /><?= $this->Text->autoParagraph(h($rubric->description)); ?><br />
+        <?= $this->Text->autoParagraph(h($rubric->description)); ?>
     <?php if (!empty($rubric->rubric_criterias)): ?>
         <?php $id=0 ?>
         <table class="table table-bordered">
-            <tr>
-                <th>Item</th>
-                <th>Puntaje</th>
-                <th>Acciones</th>
-            </tr>
             <?php foreach ($rubric->rubric_criterias as $rubricCriterias): ?>
             <tr>
-                <td><?= h($rubricCriterias->description) ?></td>        
-                <td>
-                    <?php foreach ($grade as $valor): ?>
-                        <?php if ($rubricCriterias->id == $valor->criteria_id): ?>
-                            <?= h($valor->score) ?>
+                <td class="active">
+                    <?= h($rubricCriterias->description) ?>
+                    <?= $this->Html->link(__('Evaluar'), ['controller' => 'Grades', 'action' => 'add', $rubricCriterias->id], ['class' => 'btn btn-primary pull-right', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
                 </td>
-                <td>        
-                            <?= $this->Html->link(__('Evaluar'), ['controller' => 'Grades', 'action' => 'edit', $valor->id], ['class' => 'btn btn-primary pull-center', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
-                
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </td>
+
             </tr>
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
     <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-primary']) ?>
+</div>
+<div>
+      <?php include(['controller' => 'Activities', 'action' => 'index']); ?>
+
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

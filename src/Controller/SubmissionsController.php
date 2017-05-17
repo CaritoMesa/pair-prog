@@ -141,4 +141,22 @@ public function submit($idActivity = null)
     	$this->set('_serialize', ['submission']);
     
     }
+    
+    /**
+     * Aplicar Rubrica method
+     */
+    public function applyRubric($sub_id = null)
+    {
+    	//entrega
+    	$submissions = TableRegistry::get('Submissions');
+    	$submission = $submissions->find()->where(['Submissions.id' => $sub_id])->contain(['Users','Activities'])->first();
+    	$this->set(['submission' => $submission]);
+    	$this->set('_serialize', ['submission']);
+    	//rubrica
+    	$rubrics = TableRegistry::get('Rubrics');//$this->Rubrics->get($sub_id, ['contain' => ['RubricCriterias','Activities']]);
+    	$rubric = $rubrics->find()->where(['Rubrics.id' => $submission->activity->rubric_id])->contain(['RubricCriterias'])->first();
+    	//debug($rubric);
+    	$this->set(['rubric' => $rubric]);
+    	$this->set('_serialize', ['rubric']);
+    }
 }

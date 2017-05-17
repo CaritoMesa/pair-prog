@@ -34,8 +34,7 @@ class GradesTableTest extends TestCase
         'app.rubric_levels',
         'app.groups',
         'app.assignments',
-        'app.roles',
-        'app.criterias'
+        'app.roles'
     ];
 
     /**

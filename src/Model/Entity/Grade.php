@@ -10,11 +10,11 @@ use Cake\ORM\Entity;
  * @property int $user_id
  * @property int $submission_id
  * @property int $criteria_id
- * @property int $score
+ * @property float $score
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Submission $submission
- * @property \App\Model\Entity\Criteria $criteria
+ * @property \App\Model\Entity\RubricCriteria $rubric_criteria
  */
 class Grade extends Entity
 {

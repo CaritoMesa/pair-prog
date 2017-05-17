@@ -62,9 +62,9 @@ class ActivitiesController extends AppController
         ->toArray();
         $this->set('assignments', $assignments);
         $this->set('_serialize', ['assignments']);
-         
-        //Primer combobox
-        //$this->set('names', $this->Groups->find('list')->where(['activity_id' => $actv_id]));
+        //todos los usurios registrados
+        $users = TableRegistry::get('Users');
+        $this->set('users', $users->find());
          
         /**
          * Add in modal 1
@@ -78,8 +78,7 @@ class ActivitiesController extends AppController
         	if ($this->Groups->save($save_group)) {
         		$this->Flash->success(__('The group has been saved.'));
         	}
-        }
-         
+        }       
     }
 
     /**

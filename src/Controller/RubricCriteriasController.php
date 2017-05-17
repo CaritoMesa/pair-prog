@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * RubricCriterias Controller
@@ -16,8 +17,12 @@ class RubricCriteriasController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add($rubric_id = null)
+    public function add($actv_id = null)
     {
+    	$activities = TableRegistry::get('Activities');
+    	$activity = $activities->find()->where(['id' => $actv_id])->first();
+    	$rubric_id = $activity->rubric_id;
+    	
         $rubricCriteria = $this->RubricCriterias->newEntity();
         if ($this->request->is('post')) {
             $rubricCriteria = $this->RubricCriterias->patchEntity($rubricCriteria, $this->request->data);
@@ -26,8 +31,8 @@ class RubricCriteriasController extends AppController
                 $this->Flash->success(__('The rubric criteria has been saved.'));
 
                 return $this->redirect([
-    					'controller' => 'Rubrics',
-    					'action' => 'view', $rubric_id
+    					'controller' => 'Activities',
+    					'action' => 'view', $actv_id
 				]);
             } else {
                 $this->Flash->error(__('The rubric criteria could not be saved. Please, try again.'));
@@ -36,6 +41,7 @@ class RubricCriteriasController extends AppController
         $this->set(compact('rubricCriteria'));
         $this->set('_serialize', ['rubricCriteria']);
         $this->set('rubric_id', $rubric_id);
+        $this->set('actv_id', $actv_id);
     }
 
     /**
