@@ -7,8 +7,8 @@
 
             <?php if ($role == 1): ?>
                 <?= $this->Html->link(__('Related Submission'), ['controller' => 'Submissions', 'action' => 'submit', $activity->id], ['class' => 'btn btn-sm btn-primary']) ?>
-            <?php elseif($role == 2): ?>
-                <?= $this->Html->link(__('Apply Rubric'), ['controller' => 'Rubrics', 'action' => 'applyRubric', $activity->rubric_id], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?php elseif($role == 2): ?>                
+                <?= $this->Html->link(__('Apply Rubric'), ['controller' => 'Rubrics', 'action' => 'applyRubric', $sub], ['class' => 'btn btn-sm btn-primary']) ?>
             <?php else: ?>
                 <p class="bg-danger">No tiene rol asignado.</p>
             <?php endif; ?>

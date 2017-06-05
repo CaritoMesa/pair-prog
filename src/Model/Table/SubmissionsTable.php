@@ -36,7 +36,7 @@ class SubmissionsTable extends Table
         parent::initialize($config);
 
         $this->table('submissions');
-        $this->displayField('id');
+        $this->displayField('name');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

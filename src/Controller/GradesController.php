@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Grades Controller
@@ -34,14 +35,18 @@ class GradesController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($submission_id = null)
     {
-        $grade = $this->Grades->get($id, [
-            'contain' => ['Users', 'Submissions', 'RubricCriterias']
-        ]);
+    	$grades_table = TableRegistry::get('Grades');
+    	$grades = $grades_table->find()->where(['Grades.submission_id' => $submission_id])->contain(['Users','Submissions', 'RubricCriterias'])->all();
+    	$this->set(['grades' => $grades]);
+    	$this->set('_serialize', ['grades']);
+// entrega
+    	$submissions = TableRegistry::get('Submissions');
+    	$submission = $submissions->find()->where(['Submissions.id' => $submission_id])->contain(['Users','Activities'])->first();
+    	$this->set(['submission' => $submission]);
+    	$this->set('_serialize', ['submission']);
 
-        $this->set('grade', $grade);
-        $this->set('_serialize', ['grade']);
     }
 
     /**
@@ -115,5 +120,10 @@ class GradesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+    public function nivel ($level_id = null)
+    {
+    	return $level_id;
     }
 }

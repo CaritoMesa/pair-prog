@@ -6,18 +6,17 @@
       <h3><?= h($activity->name) ?></h3>
       <table class="table">
         <tr>
-          <th><?= __('Use Groups') ?></th>
-          <td><?php if ($activity->use_groups == 1):?>
-              Si
-            <?php else:?>
-              No
+          <th><?= __('Utiliza Grupos') ?></th>
+          <td><?php if ($activity->use_groups == 1):?> Si
+            <?php else:?> No
             <?php endif; ?>
           </td> 
         </tr>
+        <tr>
+          <th><?= __('Descripción') ?></th>
+          <td><?= $this->Text->autoParagraph(h($activity->description)); ?></td> 
+        </tr>
       </table>  
-      <blockquote>
-        <?= $this->Text->autoParagraph(h($activity->description)); ?>    
-      </blockquote>
     </div>
     <!-- Acordeón -->
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -29,6 +28,9 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
+            <?php if (empty($activity->rubric_id)):?>
+              <?= $this->Html->link(__('Crear Rúbrica'), ['controller' => 'Rubrics', 'action' => 'add', $activity->id], ['class' => 'btn btn-default'])?>
+            <?php else:?> 
             <h4><?= h($activity->rubric->name) ?></h4>
             <?= $this->Text->autoParagraph(h($activity->rubric->description)); ?>
             <!-- Modal -->
@@ -40,6 +42,8 @@
             </div><!-- /.modal -->
             <!-- Cirterios Rubrica --> 
             <div class="related">
+
+            
               <h4><?= __('Related Rubric Criterias') ?></h4>
               <?php if (!empty($criteria)): ?>
                 <table class="table table-hover">
@@ -78,6 +82,7 @@
             </div>
             <?= $this->Html->link(__('New Rubric Criteria'), ['controller' => 'RubricCriterias', 'action' => 'add', $activity->id], ['class' => 'btn btn-primary', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modal1']) ?>
             </div>
+          <?php endif;?>
           </div>
         </div>
       </div>
@@ -137,7 +142,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><?= __('Add Rubric') ?></h4>
+                    <h4 class="modal-title" id="myModalLabel"><?= __('Nueva Pareja') ?></h4>
                   </div>
                   <div class="modal-body">
                     <?= $this->Form->create($save_group) ?>
@@ -188,7 +193,8 @@
                     <?= $this->Html->link(__('View'), ['controller' => 'Submissions', 'action' => 'view', $submissions->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Submissions', 'action' => 'edit', $submissions->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Submissions', 'action' => 'delete', $submissions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $submissions->id)]) ?>
-                    <?= $this->Html->link('Calificar', ['controller' => 'Rubrics', 'action' => 'apply_rubric', $submissions->id]) ?>
+                    <?= $this->Html->link('Revisar Entrega', ['controller' => 'Rubrics', 'action' => 'apply_rubric', $submissions->id]) ?>
+                    <?= $this->Html->link('Calificar', ['controller' => 'Grades', 'action' => 'view', $submissions->id]) ?>
                   </td>
                 </tr>
                 <?php endforeach; ?>

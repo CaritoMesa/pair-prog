@@ -47,7 +47,7 @@
   <div class="col-xs-6">
     <div class="related">
         <h2><?= h($rubric->name) ?></h2>
-        <br /><?= $this->Text->autoParagraph(h($rubric->description)); ?><br />
+        <br /><?= $this->Text->autoParagraph(h($rubric->description)); ?><br />...
     <?php if (!empty($rubric->rubric_criterias)): ?>
         <?php $id=0 ?>
         <table class="table table-bordered">
@@ -76,6 +76,10 @@
     <?php endif; ?>
     <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-primary']) ?>
 </div>
+<?php  
+echo $this->Html->script('wysiwyg', ['block' => 'scriptBottom']);
+echo $this->fetch('scriptBottom');
+?>
 <!-- Modal -->
 <div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

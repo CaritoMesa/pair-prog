@@ -74,15 +74,20 @@ class RubricsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($act_id = null)
     {
     	$rubric = $this->Rubrics->newEntity();
     	if ($this->request->is('post')) {
     		$rubric = $this->Rubrics->patchEntity($rubric, $this->request->data);
-    		$rubric->user_id = $this->Auth->user('id');
+    		$rubric->user_id = $this->Auth->user('id');	
     		if ($this->Rubrics->save($rubric)) {
+    			$activities = TableRegistry::get('Activities');
+    			$activity = $activities->find()->where(['id' => $act_id])->first();
+    			$activity->rubric_id = $rubric->id;
+    			$activities->save($activity);
+    			debug($activity);
     			$this->Flash->success(__('The rubric has been saved.'));
-    			return $this->redirect(['action' => 'index']);
+    			return $this->redirect(['controller' => 'Activities', 'action' => 'index']);
     		}
     	}
     }
@@ -143,6 +148,7 @@ class RubricsController extends AppController
     	$submission = $submissions->find()->where(['Submissions.id' => $sub_id])->contain(['Users','Activities'])->first();
     	$this->set(['submission' => $submission]);
     	$this->set('_serialize', ['submission']);
+    	
     	//rubrica
     	
     	$rubric = $rubrics->find()->where(['Rubrics.id' => $submission->activity->rubric_id])->contain(['RubricCriterias'])->first();
@@ -153,8 +159,7 @@ class RubricsController extends AppController
     	
     	$user = $this->Auth->user('id');
     	foreach ($rubric->rubric_criterias as $rubricCriterias){
-    		$criteria = $rubricCriterias->id;
-    		
+    		$criteria = $rubricCriterias->id;		
     		$existe_grade = $grades
     						->find()
     						->where(['Grades.submission_id' => $sub_id])
@@ -164,7 +169,6 @@ class RubricsController extends AppController
     		if ($rubricCriterias->id != $existe_grade->criteria_id){
     			$add_grade = $grades->newEntity(['submission_id' => $sub_id, 'user_id' => $user, 'criteria_id' => $criteria]);
     			$grades->save($add_grade);
-    			debug($existe_grade);
     		}
     	}
     	//$users = TableRegistry::get('Users');
@@ -178,5 +182,51 @@ class RubricsController extends AppController
     	$this->set(['grade' => $grade]);
     	$this->set('_serialize', ['grade']);
     }
-
+    public function grade($sub_id = null)
+    {
+    	$submissions = TableRegistry::get('Submissions');
+    	$rubrics = TableRegistry::get('Rubrics');
+    	$grades = TableRegistry::get('Grades');
+    	//entregas
+    	$submission = $submissions->find()->where(['Submissions.id' => $sub_id])->contain(['Users','Activities'])->first();
+    	$this->set(['submission' => $submission]);
+    	$this->set('_serialize', ['submission']);
+    	//calificación compañero
+    	$compañero = $grades->find();
+    	debug($compañero);
+    	
+    	//rubrica
+    	
+    	$rubric = $rubrics->find()->where(['Rubrics.id' => $submission->activity->rubric_id])->contain(['RubricCriterias'])->first();
+    	$this->set(['rubric' => $rubric]);
+    	$this->set('_serialize', ['rubric']);
+    	
+    	//crear criterio de calificación en caso de que no exista
+    	
+    	$user = $this->Auth->user('id');
+    	foreach ($rubric->rubric_criterias as $rubricCriterias){
+    		$criteria = $rubricCriterias->id;
+    		$existe_grade = $grades
+    		->find()
+    		->where(['Grades.submission_id' => $sub_id])
+    		->andWhere(['Grades.criteria_id' => $criteria])
+    		->andWhere(['Grades.user_id' => $user])
+    		->first();
+    		if ($rubricCriterias->id != $existe_grade->criteria_id){
+    			$add_grade = $grades->newEntity(['submission_id' => $sub_id, 'user_id' => $user, 'criteria_id' => $criteria]);
+    			$grades->save($add_grade);
+    		}
+    	}
+    	//$users = TableRegistry::get('Users');
+    	//$user = $users->newEntity(['email' => 'mark@example.com']);
+    	//$users->save($user);
+    	
+    	//calificaciones
+    	
+    	$grade = $grades->find()->where(['Grades.submission_id' => $sub_id])->andWhere(['Grades.user_id' => $user])->contain(['Users','Submissions'])->all();
+    	//debug($grade);
+    	$this->set(['grade' => $grade]);
+    	$this->set('_serialize', ['grade']);
+    }
+    
 }

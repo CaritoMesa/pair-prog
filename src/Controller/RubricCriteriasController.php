@@ -22,7 +22,6 @@ class RubricCriteriasController extends AppController
     	$activities = TableRegistry::get('Activities');
     	$activity = $activities->find()->where(['id' => $actv_id])->first();
     	$rubric_id = $activity->rubric_id;
-    	
         $rubricCriteria = $this->RubricCriterias->newEntity();
         if ($this->request->is('post')) {
             $rubricCriteria = $this->RubricCriterias->patchEntity($rubricCriteria, $this->request->data);

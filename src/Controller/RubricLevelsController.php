@@ -63,10 +63,7 @@ class RubricLevelsController extends AppController
             $criteria = $criteriasTable->find()->where(['id' => $criteria_id])->first();
             if ($this->RubricLevels->save($rubricLevel)) {
                 $this->Flash->success(__('The rubric level has been saved.'));
-                return $this->redirect([
-                		'controller' => 'Rubrics',
-                		'action' => 'view', $criteria->rubric_id
-                ]);
+                return $this->redirect(['controller' => 'Activities', 'action' => 'index']);
             } else {
                 $this->Flash->error(__('The rubric level could not be saved. Please, try again.'));
             }

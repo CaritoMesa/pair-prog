@@ -10,7 +10,7 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css(['bootstrap.min', 'style']) ?>
-    <?= $this->Html->script(['jquery-3.1.1.min', 'bootstrap.min']) ?>
+    <?= $this->Html->script(['jquery-3.1.1.min', 'bootstrap.min', 'wysiwyg']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

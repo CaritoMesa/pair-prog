@@ -10,7 +10,7 @@
             echo $this->Form->input('score');
         ?>
     </fieldset>
-    <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Close') ?></button>
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Cerrar') ?></button>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>

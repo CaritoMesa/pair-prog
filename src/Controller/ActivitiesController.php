@@ -161,20 +161,34 @@ class ActivitiesController extends AppController
     {
     	$activity = $this->Activities->get($id, [
     			'contain' => ['Users', 'ActivitiesGroups', 'Rubrics', 'Submissions', 'Groups']
-    	]);
-    	
+    	]); 	
     	$groups = $this->Activities->Groups->find()->where(['activity_id' => $id])->contain('Assignments');
-    	
-    	foreach ($groups as $group)
+    	foreach ($groups as $group){
     		foreach ($group->assignments as $assignment)
-    			if ($assignment->user_id == $this->Auth->user('id'))
+    			if ($assignment->user_id == $this->Auth->user('id')){
     		    	$role = $assignment->role_id;
-
-    	            
+    		    	if ($role == 2){
+    		    		foreach ($group->assignments as $assignment)
+    		    			if ($assignment->role_id == 1)
+    		    				$compañero = $assignment->user_id; 
+    		    	}   				
+    			}
+    	}
+    	$submission = $this->Activities->Submissions->find()->where(['user_id' => $compañero])->first();
+    	$this->set('sub', $submission->id);
+    	debug($submission->id);
     	$this->set('activity', $activity);
     	$this->set('_serialize', ['activity']);
     	$this->set('role', $role);
     	$this->set('_serialize', ['groups']);
+    	
+    	//$submissions = TableRegistry::get('Submissions');
+    	//$existe_grade = $grades
+    	//->find()
+    	//->where(['Grades.submission_id' => $sub_id])
+    	//->andWhere(['Grades.criteria_id' => $criteria])
+    	//->andWhere(['Grades.user_id' => $user])
+    	//->first();
     }
     
 }
