@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\I18n;
+use Cake\ORM\TableRegistry;
 
 I18n::locale('es');
 /**
@@ -38,12 +39,44 @@ class SubmissionsController extends AppController
      */
     public function view($id = null)
     {
-        $submission = $this->Submissions->get($id, [
+    	$users = TableRegistry::get('Users');
+    	$sum = 0;
+    	$submission = $this->Submissions->get($id, [
             'contain' => ['Activities', 'Users', 'Grades']
         ]);
-
+    	$porcentual = $submission->activity->grade_estudiantes;
+        foreach ($submission->grades as $grade){
+        	$user_id = $grade->user_id;
+        	$user = $users->find()->where(['id' => $user_id])->first();
+        	if (!empty($user->lti_user_id)){
+        		$sum = $sum + $grade->score * ($porcentual / 100);
+        	}else{
+        		$sum = $sum + $grade->score * ((100 - $porcentual) / 100);
+        	}
+        }
+        
+        $pje_aprob = ($submission->activity->exigencia * $submission->activity->score_max) / 100;
+        if ($sum <= $pje_aprob){
+        	$nota_min = $submission->activity->grade_min;
+        	$nota_alumno = $submission->activity->grade_aprobacion - $submission->activity->grade_min;
+        	$nota_alumno = $nota_alumno / $pje_aprob;
+//         	$nota_alumno = $nota_alumno * $sum;
+//         	$nota_alumno = $nota_alumno + $nota_min;
+        }else{
+        	
+        }
+        debug($nota_alumno);
+        
+		$data = ['score' => $sum];
+		$submission = $this->Submissions->patchEntity($submission, $data);
+		$this->Submissions->save($submission);
         $this->set('submission', $submission);
         $this->set('_serialize', ['submission']);
+        
+        $grades_table= TableRegistry::get('Grades');
+        $grades= $grades_table->find()->where(['submission_id' => $id])->contain('Users');
+        $this->set(['grades' => $grades]);
+        $this->set('_serialize', ['grades']);
     }
 
     /**
@@ -59,7 +92,6 @@ class SubmissionsController extends AppController
             $submission->user_id = $this->Auth->user('id');
             if ($this->Submissions->save($submission)) {
                 $this->Flash->success(__('The submission has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The submission could not be saved. Please, try again.'));

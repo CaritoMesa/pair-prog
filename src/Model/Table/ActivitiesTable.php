@@ -83,6 +83,11 @@ class ActivitiesTable extends Table
             ->requirePresence('description', 'create')
             ->notEmpty('description');
 
+        $validator
+            ->add('grade_estudiantes', 'validValue', [
+            		'rule' => ['range', 0, 100]
+            ]);
+
         return $validator;
     }
 

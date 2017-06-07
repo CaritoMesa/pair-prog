@@ -63,7 +63,7 @@ class LtiAuthenticate extends BaseAuthenticate
                 'last_name' => $request->getParameter('lis_person_name_family'),
                 'lti_user_id' => $request->getParameter('user_id'),
             	'email' => $request->getParameter('lis_person_contact_email_primary'),
-                'username' => $request->getParameter('custom_username')
+//                 'username' => $request->getParameter('custom_username')
             ]);
 
             if ($user->errors()) {

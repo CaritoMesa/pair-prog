@@ -5,6 +5,11 @@
         <?= h($submission->activity->name) ?>
     </dd>
     <br />
+    <dt>Puntaje Total</dt>
+    <dd>
+        <?= h($submission->score) ?>
+    </dd>
+    <br />
     <dt>Calificación</dt>
     <dd>
         <?= h($submission->grade) ?>
@@ -33,27 +38,25 @@
     <br />
     <div class="related">
         <h4><?= __('Puntaje Obtenido') ?></h4>
-        <?php if (!empty($submission->grades)): ?>
+        <?php if (!empty($grades)): ?>
         <table class="table  table-bordered table-hover">
             <tr>
                 <th scope="col"><?= __('User') ?></th>
-                <th scope="col"><?= __('Submission Id') ?></th>
                 <th scope="col"><?= __('Criteria Id') ?></th>
                 <th scope="col"><?= __('Level Id') ?></th>
                 <th scope="col"><?= __('Score') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($submission->grades as $grades): ?>
+            <?php foreach ($grades as $grade): ?>
             <tr>
-                <td><?= h($grades->users->first_name) ?></td>
-                <td><?= h($grades->submission_id) ?></td>
-                <td><?= h($grades->criteria_id) ?></td>
-                <td><?= h($grades->level_id) ?></td>
-                <td><?= h($grades->score) ?></td>
+                <td><?= h($grade->user->first_name) ?> <?= h($grade->user->last_name) ?></td>
+                <td><?= h($grade->criteria_id) ?></td>
+                <td><?= h($grade->level_id) ?></td>
+                <td><?= h($grade->score) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Grades', 'action' => 'view', $grades->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Grades', 'action' => 'edit', $grades->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Grades', 'action' => 'delete', $grades->id], ['confirm' => __('Are you sure you want to delete # {0}?', $grades->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Grades', 'action' => 'view', $grade->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Grades', 'action' => 'edit', $grade->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Grades', 'action' => 'delete', $grade->id], ['confirm' => __('Are you sure you want to delete # {0}?', $grade->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

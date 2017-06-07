@@ -65,6 +65,11 @@ class ActivitiesController extends AppController
         //todos los usurios registrados
         $users = TableRegistry::get('Users');
         $this->set('users', $users->find());
+//         entregas
+        $submissions_table= TableRegistry::get('Submissions');
+        $submissions= $submissions_table->find()->where(['activity_id' => $id])->contain('Users');
+        $this->set(['submissions' => $submissions]);
+        $this->set('_serialize', ['submissions']);
          
         /**
          * Add in modal 1
