@@ -17,7 +17,7 @@ class DatabaseDataStore implements DataStoreInterface
         $oAuthConsumers = TableRegistry::get('OAuthConsumers');
 
         $consumer = $oAuthConsumers->find('all', [
-            'conditions' => ['OAuthConsumers.key' => $key ]
+            'conditions' => ['OAuthConsumers.key_auth' => $key ]
         ])->first();
 
         if (!$consumer) {

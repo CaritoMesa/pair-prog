@@ -48,18 +48,19 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('first_name')
             ->notEmpty('first_name');
 
         $validator
-            ->requirePresence('last_name')
             ->notEmpty('last_name');
+        
+        $validator
+            ->email('email');
 
         $validator
             ->requirePresence('lti_user_id', function ($c) {
                 return empty($c['data']['password']);
             })
-            ->notEmpty('lti_user_id', 'Lti user id or password is required ', function ($c) {
+            ->notEmpty('lti_user_id', 'Usuario LTI o Contraseña son requeridos', function ($c) {
                 return empty($c['data']['password']);
             })
             ->add('lti_user_id', 'custom', [
@@ -69,7 +70,7 @@ class UsersTable extends Table
                 'on' => function ($c) {
                     return !empty($c['data']['password']);
                 },
-                'message' => 'Lti user should not have a password. Leave this field blank'
+                'message' => 'Usuario LTI no debe tener una contraseña. Deje este campo en blanco'
             ])
         ;
 
@@ -77,7 +78,7 @@ class UsersTable extends Table
             ->requirePresence('password', function ($c) {
                 return empty($c['data']['lti_user_id']);
             })
-            ->notEmpty('password', 'Lti user id or password is required',function ($c) {
+            ->notEmpty('password', 'Usuario LTI o Contraseña son requeridos',function ($c) {
                 return empty($c['data']['lti_user_id']);
             })
             ->add('password', 'custom', [
@@ -87,12 +88,11 @@ class UsersTable extends Table
                 'on' => function ($c) {
                     return !empty($c['data']['lti_user_id']);
                 },
-                'message' => 'Password should be empty if it is an lti user'
+                'message' => 'La contraseña debe estar vacía si es un usuario LTI'
             ])
         ;
 
         $validator
-            ->requirePresence('username')
             ->notEmpty('username');
 
         return $validator;

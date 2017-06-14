@@ -195,11 +195,9 @@
                   <td><?= h($submission->created) ?></td>
                   <td><?= h($submission->modified) ?></td>
                   <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Submissions', 'action' => 'view', $submission->id], ['class' => 'btn btn-success btn-xs']) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Submissions', 'action' => 'edit', $submission->id], ['class' => 'btn btn-primary btn-xs']) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Submissions', 'action' => 'delete', $submission->id], ['class' => 'btn btn-danger btn-xs'], ['confirm' => __('Are you sure you want to delete # {0}?', $submission->id)]) ?>
                     <?= $this->Html->link('Revisar Entrega', ['controller' => 'Rubrics', 'action' => 'apply_rubric', $submission->id], ['class' => 'btn btn-info btn-xs']) ?>
-                    <?= $this->Html->link('Calificar', ['controller' => 'Grades', 'action' => 'view', $submission->id], ['class' => 'btn btn-warning btn-xs']) ?>
+                    <?= $this->Html->link('Calificar', ['controller' => 'Submissions', 'action' => 'view', $submission->id], ['class' => 'btn btn-success btn-xs']) ?>
                   </td>
                 </tr>
                 <?php endforeach; ?>

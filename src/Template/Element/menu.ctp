@@ -8,7 +8,7 @@
           <span class="icon-bar">.</span>
           <span class="icon-bar">.</span>
         </button>
-        <a class="navbar-brand" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'index']) ?>"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>  Peers    </a>
+        <a class="navbar-brand" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'index']) ?>"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,18 +21,17 @@
               <li><?= $this->Html->link(__('List Activities'), ['controller' => 'Activities', 'action' => 'index']) ?></li>
               <li role="separator" class="divider"></li>
               <li><?= $this->Html->link(__('Activities Groups'), ['controller' => 'ActivitiesGroups', 'action' => 'index']) ?></li>
-              <li><?= $this->Html->link(__('Submissions'), ['controller' => 'Submissions', 'action' => 'index']) ?></li>
-              <li><?= $this->Html->link(__('Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?></li>
-              <li><?= $this->Html->link(__('Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
             </ul>
           </li>
+          <li><?= $this->Html->link(__('Rubrics'), ['controller' => 'Rubrics', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('LTI'), ['controller' => 'OAuthConsumers', 'action' => 'index']) ?></li>
         <?php endif ?>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-          <?= $this->Html->link($this->request->session()->read('Auth.User.first_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')]) ?> 
+          <?= $this->Html->link($this->request->session()->read('Auth.User.first_name'.' '.'Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')]) ?> 
           </li>
           <li><?= $this->Form->postLink(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>        
         </ul>

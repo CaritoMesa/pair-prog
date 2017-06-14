@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * OAuthConsumer Entity
  *
  * @property int $id
- * @property string $key
+ * @property string $key_auth
  * @property string $secret
  */
 class OAuthConsumer extends Entity

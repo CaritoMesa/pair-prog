@@ -31,7 +31,7 @@ class OAuthConsumersTable extends Table
         parent::initialize($config);
 
         $this->table('o_auth_consumers');
-        $this->displayField('id');
+        $this->displayField('key_auth');
         $this->primaryKey('id');
     }
 
@@ -48,8 +48,8 @@ class OAuthConsumersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('key', 'create')
-            ->notEmpty('key');
+            ->requirePresence('key_auth', 'create')
+            ->notEmpty('key_auth');
 
         $validator
             ->requirePresence('secret', 'create')

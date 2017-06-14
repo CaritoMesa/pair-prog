@@ -57,17 +57,19 @@ class SubmissionsController extends AppController
         
         $pje_aprob = ($submission->activity->exigencia * $submission->activity->score_max) / 100;
         if ($sum <= $pje_aprob){
-        	$nota_min = $submission->activity->grade_min;
         	$nota_alumno = $submission->activity->grade_aprobacion - $submission->activity->grade_min;
         	$nota_alumno = $nota_alumno / $pje_aprob;
-//         	$nota_alumno = $nota_alumno * $sum;
-//         	$nota_alumno = $nota_alumno + $nota_min;
+        	$nota_alumno = $nota_alumno * $sum;
+        	$nota_alumno = $nota_alumno + $submission->activity->grade_min;
         }else{
-        	
+        	$nota_alumno = $submission->activity->grade_max - $submission->activity->grade_aprobacion;
+        	$nota_alumno = $nota_alumno / ($submission->activity->score_max - $pje_aprob);
+        	$nota_alumno = $nota_alumno * ($sum - $pje_aprob);
+        	$nota_alumno = $nota_alumno + $submission->activity->grade_aprobacion;
         }
-        debug($nota_alumno);
-        
-		$data = ['score' => $sum];
+		$data = ['score' => $sum,
+				 'grade' => $nota_alumno
+				];
 		$submission = $this->Submissions->patchEntity($submission, $data);
 		$this->Submissions->save($submission);
         $this->set('submission', $submission);

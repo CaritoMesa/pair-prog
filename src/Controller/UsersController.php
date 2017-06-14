@@ -33,24 +33,6 @@ class UsersController extends AppController
     }
 
     /**
-     * View method
-     * Muestra los campos del usurio consultado
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('user', $user);
-        $this->set('_serialize', ['user']);
-    }
-
-    /**
      * Add method
      * 
      * @first_name: nombres
@@ -67,11 +49,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('El usuario ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('El usuario no ha sido guardado. Por favor, intente nuevamente.'));
             }
         }
         $this->set(compact('user'));
@@ -94,11 +76,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('El usuario ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('El usuario no ha sido guardado. Por favor, intente nuevamente.'));
             }
         }
         $this->set(compact('user'));
@@ -117,9 +99,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been saved.'));
+            $this->Flash->success(__('El usuario ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The activity could not be saved. Please, try again.'));
+            $this->Flash->error(__('El usuario no ha sido eliminado. Por favor, intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
@@ -158,5 +140,24 @@ class UsersController extends AppController
         if ($this->request->action === 'logout') {
             return true;
         }
+    }
+    
+    public function password($id = null)
+    {   	
+    	$user = $this->Users->get($id, [
+    			'contain' => []
+    	]);
+    	if ($this->request->is(['patch', 'post', 'put'])) {
+    		$user = $this->Users->patchEntity($user, $this->request->data);
+    		if ($this->Users->save($user)) {
+    			$this->Flash->success(__('La contraseña ha sido actualizada.'));
+    			
+    			return $this->redirect(['action' => 'index']);
+    		} else {
+    			$this->Flash->error(__('La contraseña no se ha actualizado. Por favor, intente nuevamente.'));
+    		}
+    	}
+    	$this->set(compact('user'));
+    	$this->set('_serialize', ['user']);
     }
 }

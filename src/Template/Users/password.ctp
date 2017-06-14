@@ -1,14 +1,11 @@
 <div class="modal-header">   
-    <h4 class="modal-title">Editar Usuario</h4>
+    <h4 class="modal-title">Cambiar Contraseña</h4>
 </div>
 <div class="modal-body">
     <?= $this->Form->create($user, ['novalidate' => true]) ?>
     <fieldset>
         <?php
-            echo $this->Form->input(__('first_name'), ['label' => 'Nombres']);
-            echo $this->Form->input(__('last_name'), ['label' => 'Apellidos']);
-            echo $this->Form->input('email', ['label' => 'E-mail']);
-            echo $this->Form->input(__('username'), ['label' => 'Nombre de Usuario']);
+            echo $this->Form->input(__('password'), ['type' => 'password', 'value' => '']);
         ?>
     </fieldset>
     <?= $this->Html->link('Cancelar', ['action' => 'index'], ['class' => 'btn btn-default']) ?>

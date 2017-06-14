@@ -1,13 +1,15 @@
-<div class="oAuthConsumers form large-9 medium-8 columns content">
+<div class="modal-header">   
+    <h4 class="modal-title">Editar Consumidor LTI</h4>
+</div>
+<div class="modal-body">
     <?= $this->Form->create($oAuthConsumer) ?>
     <fieldset>
-        <legend><?= __('Edit O Auth Consumer') ?></legend>
-        <?php
-            echo $this->Form->input('key');
-            echo $this->Form->input('secret');
-        ?>
+    <?php
+        echo $this->Form->input('key_auth', ['label' => 'Llave']);
+        echo $this->Form->input('secret', ['label' => 'Contraseña']);
+    ?>
     </fieldset>
-     <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'btn btn-default']) ?>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+        <?= $this->Html->link('Cancelar', ['action' => 'index'], ['class' => 'btn btn-default']) ?>
+    <?= $this->Form->button(__('Enviar'), ['class' => 'btn btn-primary pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>

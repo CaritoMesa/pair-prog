@@ -12,7 +12,7 @@
     <br />
     <dt>Calificación</dt>
     <dd>
-        <?= h($submission->grade) ?>
+        <?= h($this->Number->precision($submission->grade, 1)) ?>
     </dd>
     <br />
     <dt>Fecha Creación Registro</dt>
@@ -25,17 +25,6 @@
         <?= h($submission->modified) ?>
     </dd>
     <br />
-    <dt>Entrega</dt>
-    <div class="row">
-        <div class="thumbnail">
-            <div class="caption">
-                <pre class="brush: py">
-                    <?= $this->Text->autoParagraph(h($submission->submission)); ?>
-                </pre>
-            </div>
-        </div>
-    </div>
-    <br />
     <div class="related">
         <h4><?= __('Puntaje Obtenido') ?></h4>
         <?php if (!empty($grades)): ?>
@@ -45,7 +34,6 @@
                 <th scope="col"><?= __('Criteria Id') ?></th>
                 <th scope="col"><?= __('Level Id') ?></th>
                 <th scope="col"><?= __('Score') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($grades as $grade): ?>
             <tr>
@@ -53,11 +41,6 @@
                 <td><?= h($grade->criteria_id) ?></td>
                 <td><?= h($grade->level_id) ?></td>
                 <td><?= h($grade->score) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Grades', 'action' => 'view', $grade->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Grades', 'action' => 'edit', $grade->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Grades', 'action' => 'delete', $grade->id], ['confirm' => __('Are you sure you want to delete # {0}?', $grade->id)]) ?>
-                </td>
             </tr>
             <?php endforeach; ?>
         </table>
