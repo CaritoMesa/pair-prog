@@ -85,9 +85,8 @@ class RubricsController extends AppController
     			$activity = $activities->find()->where(['id' => $act_id])->first();
     			$activity->rubric_id = $rubric->id;
     			$activities->save($activity);
-    			debug($activity);
     			$this->Flash->success(__('The rubric has been saved.'));
-    			return $this->redirect(['controller' => 'Activities', 'action' => 'index']);
+    			return $this->redirect(['controller' => 'Activities', 'action' => 'view', $act_id]);
     		}
     	}
     }
@@ -171,14 +170,8 @@ class RubricsController extends AppController
     			$grades->save($add_grade);
     		}
     	}
-    	//$users = TableRegistry::get('Users');
-    	//$user = $users->newEntity(['email' => 'mark@example.com']);
-    	//$users->save($user);
-    	
     	//calificaciones
-    	
     	$grade = $grades->find()->where(['Grades.submission_id' => $sub_id])->andWhere(['Grades.user_id' => $user])->contain(['Users','Submissions'])->all();
-    	//debug($grade);
     	$this->set(['grade' => $grade]);
     	$this->set('_serialize', ['grade']);
     }
@@ -224,7 +217,6 @@ class RubricsController extends AppController
     	//calificaciones
     	
     	$grade = $grades->find()->where(['Grades.submission_id' => $sub_id])->andWhere(['Grades.user_id' => $user])->contain(['Users','Submissions'])->all();
-    	//debug($grade);
     	$this->set(['grade' => $grade]);
     	$this->set('_serialize', ['grade']);
     }

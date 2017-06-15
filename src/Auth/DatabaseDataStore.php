@@ -12,12 +12,12 @@ use Cake\ORM\TableRegistry;
 
 class DatabaseDataStore implements DataStoreInterface
 {
-    public function lookupConsumer($key)
+	public function lookupConsumer($key)
     {
         $oAuthConsumers = TableRegistry::get('OAuthConsumers');
 
         $consumer = $oAuthConsumers->find('all', [
-            'conditions' => ['OAuthConsumers.key_auth' => $key ]
+        		'conditions' => ['OAuthConsumers.key' => $key]
         ])->first();
 
         if (!$consumer) {

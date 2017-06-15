@@ -61,9 +61,11 @@ class RubricLevelsController extends AppController
             $rubricLevel->rubric_criteria_id = $criteria_id;
             $criteriasTable = TableRegistry::get('RubricCriterias');
             $criteria = $criteriasTable->find()->where(['id' => $criteria_id])->first();
+            $activities = TableRegistry::get('Activities');
+            $activity = $activities->find()->where(['Rubrics.id' => $criteria->rubric_id])->contain('Rubrics')->first();
             if ($this->RubricLevels->save($rubricLevel)) {
                 $this->Flash->success(__('The rubric level has been saved.'));
-                return $this->redirect(['controller' => 'Activities', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Activities', 'action' => 'view', $activity->id]);
             } else {
                 $this->Flash->error(__('The rubric level could not be saved. Please, try again.'));
             }
@@ -71,6 +73,7 @@ class RubricLevelsController extends AppController
         $this->set(compact('rubricLevel'));
         $this->set('_serialize', ['rubricLevel']);
         $this->set('rubric_id', $criteria->rubric_id);
+        
     }
 
     /**
@@ -90,7 +93,7 @@ class RubricLevelsController extends AppController
             if ($this->RubricLevels->save($rubricLevel)) {
                 $this->Flash->success(__('The rubric level has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'activities', 'action' => 'index']);
             } else {
                 $this->Flash->error(__('The rubric level could not be saved. Please, try again.'));
             }
@@ -117,7 +120,7 @@ class RubricLevelsController extends AppController
             $this->Flash->error(__('The rubric level could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'activities', 'action' => 'index']);
     }
     
     

@@ -42,7 +42,7 @@
           <br>
         </dl>
         <br>
-        <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-default'])  ?>
+        <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'view', $group->activity_id], ['class' => 'btn btn-default'])  ?>
 
         <!-- Boton Agregar Parejas -->
         <button type="button" class="btn btn-primary" escape="false" data-toggle="modal" data-target="#myModal1">

@@ -46,8 +46,8 @@
             <?= $this->Flash->render() ?>
             <fieldset>
                 <?php
-                    echo $this->Form->input('user_id', ['options' => $users ]);
-                    echo $this->Form->input('role_id', ['options' => $roles ]);
+                    echo $this->Form->input('user_id', ['options' => $users]);
+                    echo $this->Form->input('role_id', ['options' => $roles]);
                 ?>
             </fieldset>       
           </div>

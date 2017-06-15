@@ -30,17 +30,17 @@
         <?php if (!empty($grades)): ?>
         <table class="table  table-bordered table-hover">
             <tr>
-                <th scope="col"><?= __('User') ?></th>
-                <th scope="col"><?= __('Criteria Id') ?></th>
-                <th scope="col"><?= __('Level Id') ?></th>
-                <th scope="col"><?= __('Score') ?></th>
+                <th scope="col"><?= __('Usuario Calificador') ?></th>
+                <th scope="col"><?= __('Criterio Calificado') ?></th>
+                <th scope="col"><?= __('Puntaje Obtenido') ?></th>
+                <th scope="col"><?= __('Descripción del Puntaje Obtenido') ?></th>      
             </tr>
             <?php foreach ($grades as $grade): ?>
             <tr>
                 <td><?= h($grade->user->first_name) ?> <?= h($grade->user->last_name) ?></td>
-                <td><?= h($grade->criteria_id) ?></td>
-                <td><?= h($grade->level_id) ?></td>
+                <td><?= h($grade->rubric_criteria->description) ?></td>
                 <td><?= h($grade->score) ?></td>
+                <td><?= h($grade->rubric_level->definition) ?></td>
             </tr>
             <?php endforeach; ?>
         </table>

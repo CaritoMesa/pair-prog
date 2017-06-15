@@ -50,6 +50,10 @@ class GradesTable extends Table
             'foreignKey' => 'criteria_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('RubricLevels', [
+        		'foreignKey' => 'level_id',
+        		'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -83,6 +87,7 @@ class GradesTable extends Table
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['submission_id'], 'Submissions'));
         $rules->add($rules->existsIn(['criteria_id'], 'RubricCriterias'));
+        $rules->add($rules->existsIn(['level_id'], 'RubricLevels'));
 
         return $rules;
     }

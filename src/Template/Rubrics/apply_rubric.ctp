@@ -25,10 +25,6 @@
                         <th><?= __('Activity') ?></th>
                         <td><?= $submission->activity->description ?></td>
                     </tr>
-                    <tr>
-                        <th><?= __('Calificación') ?></th>
-                        <td>...</td>
-                    </tr>
                 </table>
             </div>
         </div>
@@ -47,12 +43,12 @@
   <div class="col-xs-6">
     <div class="related">
         <h2><?= h($rubric->name) ?></h2>
-        <br /><?= $this->Text->autoParagraph(h($rubric->description)); ?><br />...
+        <br /><?= $this->Text->autoParagraph(h($rubric->description)); ?><br />
     <?php if (!empty($rubric->rubric_criterias)): ?>
         <?php $id=0 ?>
         <table class="table table-bordered">
             <tr>
-                <th>Item</th>
+                <th>Criterio a calificar</th>
                 <th>Puntaje</th>
                 <th>Acciones</th>
             </tr>
@@ -65,7 +61,7 @@
                             <?= h($valor->score) ?>
                 </td>
                 <td>        
-                            <?= $this->Html->link(__('Evaluar'), ['controller' => 'Grades', 'action' => 'edit', $valor->id], ['class' => 'btn btn-primary pull-center', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
+                            <?= $this->Html->link(__('Evaluar'), ['controller' => 'Grades', 'action' => 'edit', $valor->id], ['class' => 'btn btn-sm btn-primary pull-center', 'escape' => false, 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?>
                 
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -74,12 +70,9 @@
             <?php endforeach; ?>
         </table>
     <?php endif; ?>
-    <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'index'], ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link(__('Cancel'), ['controller' => 'Activities', 'action' => 'view', $submission->activity_id], ['class' => 'btn btn-default']) ?>
 </div>
-<?php  
-echo $this->Html->script('wysiwyg', ['block' => 'scriptBottom']);
-echo $this->fetch('scriptBottom');
-?>
+
 <!-- Modal -->
 <div class="modal fade" id="modalOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

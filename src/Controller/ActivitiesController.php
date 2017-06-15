@@ -2,9 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
 use Cake\I18n\I18n;
 use Cake\Network\Exception\NotFoundException;
+use Cake\ORM\TableRegistry;
 
 I18n::locale('es');
 
@@ -57,12 +57,12 @@ class ActivitiesController extends AppController
         $this->set('groups', $groups->find());
         
         $assignments = $groups->Assignments->find()
-        ->where(['Groups.activity_id' => $id])
-        ->contain(['Groups','Users'])
-        ->toArray();
+	        ->where(['Groups.activity_id' => $id])
+	        ->contain(['Groups','Users'])
+	        ->toArray();
         $this->set('assignments', $assignments);
         $this->set('_serialize', ['assignments']);
-        //todos los usurios registrados
+        //todos los usuarios registrados
         $users = TableRegistry::get('Users');
         $this->set('users', $users->find());
 //         entregas
@@ -74,16 +74,18 @@ class ActivitiesController extends AppController
         /**
          * Add in modal 1
          */
-        $save_group = TableRegistry::get('Groups')->newEntity($this->request->data());
-         
+        $table_group = TableRegistry::get('Groups');
+        $save_group = $table_group->newEntity();         
         if ($this->request->is('post')) {
         	$save_group = $this->Groups->patchEntity($save_group, $this->request->data);
-        	$save_group->activity_id = $actv_id;
-        	 
+        	$save_group->activity_id = $actv_id;        	 
         	if ($this->Groups->save($save_group)) {
         		$this->Flash->success(__('The group has been saved.'));
+        		return $this->redirect(['action' => 'index']);
+        	} else {
+        		$this->Flash->error(__('The group could not be saved. Please, try again.'));
         	}
-        }       
+        }  
     }
 
     /**
@@ -127,7 +129,7 @@ class ActivitiesController extends AppController
             if ($this->Activities->save($activity)) {
                 $this->Flash->success(__('The activity has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $id]);
             } else {
                 $this->Flash->error(__('The activity could not be saved. Please, try again.'));
             }
@@ -179,21 +181,12 @@ class ActivitiesController extends AppController
     		    	}   				
     			}
     	}
-    	$submission = $this->Activities->Submissions->find()->where(['user_id' => $compañero])->first();
+    	$submission = $this->Activities->Submissions->find()->where(['Submissions.user_id' => $compañero])->first();
     	$this->set('sub', $submission->id);
-    	debug($submission->id);
     	$this->set('activity', $activity);
     	$this->set('_serialize', ['activity']);
     	$this->set('role', $role);
     	$this->set('_serialize', ['groups']);
-    	
-    	//$submissions = TableRegistry::get('Submissions');
-    	//$existe_grade = $grades
-    	//->find()
-    	//->where(['Grades.submission_id' => $sub_id])
-    	//->andWhere(['Grades.criteria_id' => $criteria])
-    	//->andWhere(['Grades.user_id' => $user])
-    	//->first();
+
     }
-    
 }

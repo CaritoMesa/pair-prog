@@ -15,22 +15,6 @@ class SubmissionsController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Activities', 'Users']
-        ];
-        $submissions = $this->paginate($this->Submissions);
-
-        $this->set(compact('submissions'));
-        $this->set('_serialize', ['submissions']);
-    }
-
-    /**
      * View method
      *
      * @param string|null $id Submission id.
@@ -76,7 +60,7 @@ class SubmissionsController extends AppController
         $this->set('_serialize', ['submission']);
         
         $grades_table= TableRegistry::get('Grades');
-        $grades= $grades_table->find()->where(['submission_id' => $id])->contain('Users');
+        $grades= $grades_table->find()->where(['submission_id' => $id])->contain(['Users','RubricCriterias','RubricLevels']);
         $this->set(['grades' => $grades]);
         $this->set('_serialize', ['grades']);
     }
@@ -121,7 +105,10 @@ class SubmissionsController extends AppController
             if ($this->Submissions->save($submission)) {
                 $this->Flash->success(__('The submission has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect([
+                		'controller' => 'Pages',
+                		'action' => 'home'
+                ]);
             } else {
                 $this->Flash->error(__('The submission could not be saved. Please, try again.'));
             }
@@ -193,4 +180,5 @@ public function submit($idActivity = null)
     	$this->set(['rubric' => $rubric]);
     	$this->set('_serialize', ['rubric']);
     }
+    
 }

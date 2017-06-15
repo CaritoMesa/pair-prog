@@ -13,22 +13,6 @@ class GradesController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Users', 'Submissions', 'RubricCriterias']
-        ];
-        $grades = $this->paginate($this->Grades);
-
-        $this->set(compact('grades'));
-        $this->set('_serialize', ['grades']);
-    }
-
-    /**
      * View method
      *
      * @param string|null $id Grade id.
@@ -41,7 +25,7 @@ class GradesController extends AppController
     	$grades = $grades_table->find()->where(['Grades.submission_id' => $submission_id])->contain(['Users','Submissions', 'RubricCriterias'])->all();
     	$this->set(['grades' => $grades]);
     	$this->set('_serialize', ['grades']);
-// entrega
+		// entrega
     	$submissions = TableRegistry::get('Submissions');
     	$submission = $submissions->find()->where(['Submissions.id' => $submission_id])->contain(['Users','Activities'])->first();
     	$this->set(['submission' => $submission]);
@@ -60,11 +44,11 @@ class GradesController extends AppController
         if ($this->request->is('post')) {
             $grade = $this->Grades->patchEntity($grade, $this->request->data);
             if ($this->Grades->save($grade)) {
-                $this->Flash->success(__('The grade has been saved.'));
+                $this->Flash->success(__('El puntaje se ha guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The grade could not be saved. Please, try again.'));
+                $this->Flash->error(__('El puntaje no se ha guardado. Por favor, intente nuevamente.'));
             }
         }
         $users = $this->Grades->Users->find('list', ['limit' => 200]);
@@ -86,18 +70,23 @@ class GradesController extends AppController
         $grade = $this->Grades->get($id, [
             'contain' => []
         ]);
+        $levels = TableRegistry::get('RubricLevels');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $grade = $this->Grades->patchEntity($grade, $this->request->data);
+            $level = $levels->find()->where(['id' => $grade->level_id])->first();
+            $grade->score = $level->score;
             if ($this->Grades->save($grade)) {
-                $this->Flash->success(__('The grade has been saved.'));
-
+                $this->Flash->success(__('El puntaje se ha guardado.'));
                 return $this->redirect(['controller' => 'Rubrics', 'action' => 'apply_rubric', $grade->submission_id]);
             } else {
-                $this->Flash->error(__('The grade could not be saved. Please, try again.'));
+                $this->Flash->error(__('El puntaje no se ha guardado. Por favor, intente nuevamente.'));
             }
         }
         $criteria = $this->Grades->find()->select(['criteria_id'])->where(['id' => $id])->first();
-        $radio = $this->Grades->RubricCriterias->RubricLevels->find()->where(['rubric_criteria_id' => $criteria->criteria_id])->combine('score', 'definition');
+        $radio = $this->Grades->RubricCriterias->RubricLevels
+        	->find()
+        	->where(['rubric_criteria_id' => $criteria->criteria_id])
+        	->combine('id', 'definition');
         $this->set(compact('grade', 'radio', 'title'));
         $this->set('_serialize', ['grade']);
     }
@@ -114,16 +103,12 @@ class GradesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $grade = $this->Grades->get($id);
         if ($this->Grades->delete($grade)) {
-            $this->Flash->success(__('The grade has been deleted.'));
+            $this->Flash->success(__('Se ha eliminado.'));
         } else {
-            $this->Flash->error(__('The grade could not be deleted. Please, try again.'));
+            $this->Flash->error(__('No se ha eliminado. Por favor, intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
     }
     
-    public function nivel ($level_id = null)
-    {
-    	return $level_id;
-    }
 }

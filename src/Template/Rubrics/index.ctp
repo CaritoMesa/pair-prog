@@ -9,7 +9,6 @@
             <table class="table  table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th><?= $this->Paginator->sort('id') ?></th>
                         <th><?= $this->Paginator->sort('name') ?></th>
                         <th><?= $this->Paginator->sort('description') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
@@ -18,7 +17,6 @@
                 <tbody>
                     <?php foreach ($rubrics as $rubric): ?>
                     <tr>
-                        <td><?= $this->Number->format($rubric->id) ?></td>
                         <td><?= $this->Html->link($rubric->name, ['action' => 'view', $rubric->id]) ?></td>
                         <td><?= $this->Text->truncate($rubric->description, 60, ['ellipsis' => '...', 'exact' => false]) ?></td>
                         <td class="actions">

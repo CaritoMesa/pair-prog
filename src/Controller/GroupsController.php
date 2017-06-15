@@ -16,22 +16,6 @@ class GroupsController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Activities']
-        ];
-        $groups = $this->paginate($this->Groups);
-
-        $this->set(compact('groups'));
-        $this->set('_serialize', ['groups']);
-    }
-
-    /**
      * View method
      *
      * @param string|null $actv_id Activity id.
@@ -58,8 +42,6 @@ class GroupsController extends AppController
     	$this->set('assignments', $assignments);
     	$this->set('_serialize', ['assignments']);
     	
-    	//Primer combobox
-    	//$this->set('names', $this->Groups->find('list')->where(['activity_id' => $actv_id]));
     	
     	/**
     	 * Add in modal 1
@@ -74,23 +56,7 @@ class GroupsController extends AppController
     			$this->Flash->success(__('The group has been saved.'));
     		}
     	}
-    	
-    	/**
-    	 * Add in modal 2
-    	 */
-    	//if ($)
-    	/*$save_assignment = $this->Groups->Assignments->get($id, [
-    			'contain' => []
-    	]);
-    	 
-    	if ($this->request->is('post')) {
-    		$save_assignment = $this->Groups->patchEntity($save_assignment, $this->request->data);
-    		$save_assignment->activity_id = $actv_id;
-    		 
-    		if ($this->Groups->save($save_assignment)) {
-    			$this->Flash->success(__('The group has been saved.'));
-    		}
-    	}*/
+
     }
     	
     /**

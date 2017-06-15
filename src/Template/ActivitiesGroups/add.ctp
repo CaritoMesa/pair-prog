@@ -1,11 +1,14 @@
-<div class="activitiesGroups form large-9 medium-8 columns content">
+<div class="modal-header">Crear Grupo de Actividades</h4>
+</div>
+<div class="modal-body">
     <?= $this->Form->create($activitiesGroup) ?>
     <fieldset>
-        <legend><?= __('Add Activities Group') ?></legend>
         <?php
             echo $this->Form->input('name');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'btn btn-default']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary pull-right']) ?>
     <?= $this->Form->end() ?>
+    <br />
 </div>

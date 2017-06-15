@@ -31,7 +31,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-          <?= $this->Html->link($this->request->session()->read('Auth.User.first_name'.' '.'Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')]) ?> 
+          <?= $this->Html->link($this->request->session()->read('Auth.User.first_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['disabled' => 'disabled']) ?> 
           </li>
           <li><?= $this->Form->postLink(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>        
         </ul>

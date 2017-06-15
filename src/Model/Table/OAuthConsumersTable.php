@@ -1,8 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -31,7 +29,7 @@ class OAuthConsumersTable extends Table
         parent::initialize($config);
 
         $this->table('o_auth_consumers');
-        $this->displayField('key_auth');
+        $this->displayField('id');
         $this->primaryKey('id');
     }
 
@@ -48,8 +46,8 @@ class OAuthConsumersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('key_auth', 'create')
-            ->notEmpty('key_auth');
+            ->requirePresence('key', 'create')
+            ->notEmpty('key');
 
         $validator
             ->requirePresence('secret', 'create')

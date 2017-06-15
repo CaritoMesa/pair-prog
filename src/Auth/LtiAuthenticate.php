@@ -75,8 +75,8 @@ class LtiAuthenticate extends BaseAuthenticate
 
         $hasAccessTo = explode(',', $request->getParameter('custom_access'));
 
-        foreach ($hasAccessTo as $key => $value) {
-            $hasAccessTo[$key] = trim($value);
+        foreach ($hasAccessTo as $key=> $value) {
+        	$hasAccessTo[$key] = trim($value);
         }
 
         return $user->toArray() + [ 'has_access_to' => $hasAccessTo ];

@@ -27,14 +27,14 @@ class RubricCriteriasController extends AppController
             $rubricCriteria = $this->RubricCriterias->patchEntity($rubricCriteria, $this->request->data);
             $rubricCriteria->rubric_id = $rubric_id;
             if ($this->RubricCriterias->save($rubricCriteria)) {
-                $this->Flash->success(__('The rubric criteria has been saved.'));
+                $this->Flash->success(__('El criterio ha sido guardado.'));
 
                 return $this->redirect([
     					'controller' => 'Activities',
     					'action' => 'view', $actv_id
 				]);
             } else {
-                $this->Flash->error(__('The rubric criteria could not be saved. Please, try again.'));
+                $this->Flash->error(__('El criterio no se ha guardado. Porfavor, intente nuevamente.'));
             }
         }
         $this->set(compact('rubricCriteria'));
@@ -55,13 +55,15 @@ class RubricCriteriasController extends AppController
         $rubricCriteria = $this->RubricCriterias->get($id, [
             'contain' => []
         ]);
+        $activities = TableRegistry::get('Activities');
+        $activity = $activities->find()->where(['Rubrics.id' => $rubricCriteria->rubric_id])->contain('Rubrics')->first();     
         if ($this->request->is(['patch', 'post', 'put'])) {
             $rubricCriteria = $this->RubricCriterias->patchEntity($rubricCriteria, $this->request->data);
             if ($this->RubricCriterias->save($rubricCriteria)) {
                 $this->Flash->success(__('The rubric criteria has been saved.'));
                 return $this->redirect([
-                		'controller' => 'Rubrics', 
-                		'action' => 'view', $rubricCriteria->rubric_id
+                		'controller' => 'Activities', 
+                		'action' => 'view', $activity->id
                 ]);
             } else {
                 $this->Flash->error(__('The rubric criteria could not be saved. Please, try again.'));
@@ -69,7 +71,8 @@ class RubricCriteriasController extends AppController
         }
         $this->set(compact('rubricCriteria'));
         $this->set('_serialize', ['rubricCriteria']);
-        $this->set('rubric_id', $rubricCriteria->rubric_id);
+        $this->set('rubric_id', $rubricCriteria->rubric_id); 
+        $this->set('actv_id', $activity->id);
     }
 
     /**
@@ -83,6 +86,8 @@ class RubricCriteriasController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $rubricCriteria = $this->RubricCriterias->get($id);
+        $activities = TableRegistry::get('Activities');
+        $activity = $activities->find()->where(['Rubrics.id' => $rubricCriteria->rubric_id])->contain('Rubrics')->first();
         if ($this->RubricCriterias->delete($rubricCriteria)) {
             $this->Flash->success(__('The rubric criteria has been deleted.'));
         } else {
@@ -90,43 +95,8 @@ class RubricCriteriasController extends AppController
         }
 
         return $this->redirect([
-        		'controller' => 'Rubrics',
-        		'action' => 'view', $rubricCriteria->rubric_id
+        		'controller' => 'Activities',
+        		'action' => 'view', $activity->id
         ]);
-    }
-    
-    /**
-     * Aplicar Rubrica method
-     */
-    public function applyRubric($id = null)
-    {
-    	$rubricCriteria = $this->RubricCriterias->get($id, [
-    			'contain' => ['RubricLevels']
-    	]);
-    	
-    	/* $p= $this->Rubrics->RubricCriterias->RubricLevels->find('');
-    	$submissionsTable = TableRegistry::get('Submissions');
-    	$submissions = $submissionsTable->find();
-    	 
-    	$grades = TableRegistry::get('Grades');
-    	$grade = $grades->newEntity();
-    	 
-    	 
-    	if ($this->request->is('post')) {
-    		$grade = $grades>patchEntity($grade, $this->request->data);
-    		$grade->user_id = $this->Auth->user('id');
-    		$grade->submission_id = $submissions->id;
-    
-    
-    		if ($grades->save($grade)) {
-    			$this->Flash->success(__('The rubric has been saved.'));
-    			return $this->redirect(['action' => 'index']);
-    		} else {
-    			$this->Flash->error(__('The grades could not be saved. Please, try again.'));
-    		}
-    	}
-    	 
-    	$this->set(['rubric' => $rubric, 'prueba' => $p]);
-    	$this->set('_serialize', ['rubric', 'prueba']); */
     }
 }

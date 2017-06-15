@@ -80,7 +80,6 @@ class AssignmentsController extends AppController
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      * 
-     * TRABAJANDO AQUI ......
      */
     public function edit($group_id = null)
     {
@@ -105,6 +104,7 @@ class AssignmentsController extends AppController
         		$this->Flash->success(__('The participant has been saved.'));
         	}
         }
+        //$users = $this->Assignments->Users->find('list');
         $users = $this->Assignments->Users->find('list');
         $roles = $this->Assignments->Roles->find('list');
         $this->set(compact('assignment', 'users', 'roles'));

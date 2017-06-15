@@ -17,11 +17,11 @@
                 <tbody>
                     <?php foreach ($oAuthConsumers as $oAuthConsumer): ?>
                     <tr>
-                        <td><?= h($oAuthConsumer->key_auth) ?></td>
+                        <td><?= h($oAuthConsumer->key) ?></td>
                         <td><?= h($oAuthConsumer->secret) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('Editar'), ['controller' => 'OAuthConsumers', 'action' => 'edit', $oAuthConsumer->id], ['class' => 'btn btn-sm btn-primary', 'data-toggle' => 'modal', 'data-target' => '#modalOther']) ?> 
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $oAuthConsumer->id], ['confirm' => __('Are you sure you want to delete {0}?', $oAuthConsumer->key_auth), 'class' => 'btn btn-sm btn-danger']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $oAuthConsumer->id], ['confirm' => __('Are you sure you want to delete {0}?', $oAuthConsumer->key), 'class' => 'btn btn-sm btn-danger']) ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>

@@ -4,13 +4,12 @@
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Pares | 
-        <?= $this->fetch('title') ?>
+        Pares
     </title>
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css(['bootstrap.min', 'style']) ?>
-    <?= $this->Html->script(['jquery-3.1.1.min', 'bootstrap.min', 'wysiwyg']) ?>
+    <?= $this->Html->script(['jquery-3.1.1.min', 'bootstrap.min']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

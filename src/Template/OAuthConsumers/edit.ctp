@@ -5,7 +5,7 @@
     <?= $this->Form->create($oAuthConsumer) ?>
     <fieldset>
     <?php
-        echo $this->Form->input('key_auth', ['label' => 'Llave']);
+        echo $this->Form->input('key', ['label' => 'Llave']);
         echo $this->Form->input('secret', ['label' => 'Contraseña']);
     ?>
     </fieldset>

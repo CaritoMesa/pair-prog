@@ -1,6 +1,5 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><?= __('Edit Rubric') ?></h4>
+<div class="modal-header">   
+    <h4 class="modal-title">Editar Rúbrica</h4>
 </div>
 <div class="modal-body">
     <?= $this->Form->create($rubric) ?>
@@ -10,9 +9,7 @@
             echo $this->Form->input('description');
         ?>
     </fieldset>
-    <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Close') ?></button>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Html->link('Cancelar', ['action' => 'index'], ['class' => 'btn btn-default']) ?>
+    <?= $this->Form->button(__('Enviar'), ['class' => 'btn btn-primary pull-right']) ?>
     <?= $this->Form->end() ?>
-</div>
-<div class="modal-footer">
 </div>

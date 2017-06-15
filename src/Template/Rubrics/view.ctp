@@ -1,17 +1,4 @@
-<?= $this->Html->css('dashboard') ?>
 <div class="container-fluid">
-  <div class="row">
-    <div class="sidebar">
-      <ul class="nav nav-sidebar nav-pills nav-stacked">
-        <li><?= $this->Html->link('Descripción', ['controller' => 'Activities', 'action' => 'view']) ?></li>
-        <li><?= $this->Html->link(__('Rúbrica'), ['controller' => 'Rubrics', 'action' => 'view', $activity->rubric_id]) ?></li>
-        <li><?= $this->Html->link(__('Asignar Parejas'), ['controller' => 'Groups', 'action' => 'view', $activity->id]) ?></li>
-
-        <li>Entregas</li>
-        <li><?= $this->Html->link(__('Calificaciones'), ['controller' => 'Rubrics', 'action' => 'applyRubric', $submission->activity->rubric_id]) ?></li>
-      </ul>
-    </div>
-  </div>
   <!-- Info rubrica -->
   <div class="rubrics view large-9 medium-8 columns content">
       <h2><?= h($rubric->name) ?></h2>

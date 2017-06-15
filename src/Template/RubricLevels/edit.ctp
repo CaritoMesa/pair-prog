@@ -1,14 +1,16 @@
-<div class="rubricLevels form large-9 medium-8 columns content">
+<div class="modal-header">   
+    <h4 class="modal-title">Editar Nivel de Rúbrica</h4>
+</div>
+<div class="modal-body">
     <?= $this->Form->create($rubricLevel) ?>
     <fieldset>
-        <legend><?= __('Edit Rubric Level') ?></legend>
-        <?php
-            echo $this->Form->input('definition');
-            echo $this->Form->input('score');
-            echo $this->Form->input('modiefied', ['empty' => true]);
-            echo $this->Form->input('rubric_criteria_id', ['options' => $rubricCriterias]);
-        ?>
+    <?php
+        echo $this->Form->input('definition');
+        echo $this->Form->input('score');
+    ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Html->link('Cancelar', ['action' => 'index'], ['class' => 'btn btn-default']) ?>
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Cancelar') ?></button>
+    <?= $this->Form->button(__('Enviar'), ['class' => 'btn btn-primary pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>
